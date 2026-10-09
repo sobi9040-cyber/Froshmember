@@ -343,7 +343,7 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 </div>
 </div>
 
-<!-- کادر پیام خوش‌آمدگویی -->
+<!-- کادر پیام خوش‌آمدمگویی -->
 <div id="welcome-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
 <div class="glass-box rounded-3xl p-8 max-w-sm w-full text-center border-2 border-emerald-500 shadow-2xl">
 <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
@@ -352,6 +352,18 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 <h3 class="font-titr text-2xl text-slate-800 mb-2">ورود موفقیت‌آمیز</h3>
 <p class="text-sm text-slate-600 mb-6">با موفقیت وارد حساب کاربری خود شدید!</p>
 <button onclick="closeWelcomeModal()" class="w-full bg-emerald-600 text-white font-titr py-3 rounded-xl text-lg hover:bg-emerald-700">متوجه شدم</button>
+</div>
+</div>
+
+<!-- مدال پیش‌نمایش عدم دسترسی (سرویس قطع می‌باشد) -->
+<div id="service-disabled-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+<div class="glass-box rounded-3xl p-8 max-w-sm w-full text-center border-2 border-rose-500 shadow-2xl relative overflow-hidden">
+<div class="w-20 h-20 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 border-4 border-rose-50 animate-bounce">
+<i class="fa-solid fa-ban"></i>
+</div>
+<h3 class="font-titr text-2xl text-slate-800 mb-2" id="disabled-service-title">سرویس غیرفعال است</h3>
+<p class="text-sm text-slate-600 mb-6 leading-relaxed" id="disabled-service-msg">این سرویس در حال حاضر غیرفعال می‌باشد. لطفاً بعداً مراجعه فرمایید یا با پشتیبانی در ارتباط باشید.</p>
+<button onclick="closeDisabledModal()" class="w-full bg-rose-600 text-white font-titr py-3 rounded-xl text-lg hover:bg-rose-700 shadow-lg">متوجه شدم</button>
 </div>
 </div>
 
@@ -595,6 +607,41 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">مدیر ارشد</span>
 </div>
 
+<!-- مدیریت وضعیت فعال/غیرفعال بودن سرویس‌ها -->
+<div class="bg-slate-50 p-5 rounded-2xl border space-y-4">
+<h4 class="font-titr text-base text-slate-800 flex items-center gap-2">
+<i class="fa-solid fa-toggle-on text-eitaa-500"></i> مدیریت فعال/غیرفعال بودن سرویس‌ها
+</h4>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<!-- سرویس ایتا -->
+<div class="bg-white p-4 rounded-xl border flex flex-col justify-between space-y-3">
+<div>
+<div class="font-titr text-sm text-slate-800">سرویس‌های ایتا</div>
+<div class="text-[11px] text-slate-500">کانال، گروه و ویو ایتا</div>
+</div>
+<button onclick="toggleServiceStatus('eitaa')" id="btn-status-eitaa" class="w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600">فعال (کلیک برای قطع)</button>
+</div>
+
+<!-- سرویس ممبر فیک -->
+<div class="bg-white p-4 rounded-xl border flex flex-col justify-between space-y-3">
+<div>
+<div class="font-titr text-sm text-slate-800">سرویس ممبر فیک</div>
+<div class="text-[11px] text-slate-500">سرویس ویژه ممبر فیک ایتا</div>
+</div>
+<button onclick="toggleServiceStatus('fake')" id="btn-status-fake" class="w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600">فعال (کلیک برای قطع)</button>
+</div>
+
+<!-- سرویس بله -->
+<div class="bg-white p-4 rounded-xl border flex flex-col justify-between space-y-3">
+<div>
+<div class="font-titr text-sm text-slate-800">سرویس‌های بله</div>
+<div class="text-[11px] text-slate-500">کانال، گروه، ویو و ری‌اکشن بله</div>
+</div>
+<button onclick="toggleServiceStatus('bale')" id="btn-status-bale" class="w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600">فعال (کلیک برای قطع)</button>
+</div>
+</div>
+</div>
+
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <!-- تعریف کاربر -->
 <div class="bg-slate-50 p-5 rounded-2xl border space-y-3">
@@ -706,6 +753,14 @@ var users = JSON.parse(safeStore.getItem('app_users')) || initialUsers;
 var currentUser = safeStore.getItem('app_current_user') || null;
 var walletAction = 'add';
 
+// وضعیت فعال/غیرفعال بودن سرویس‌ها (پیش‌فرض همگی فعال)
+var initialServiceStatus = { eitaa: true, fake: true, bale: true };
+var serviceStatus = JSON.parse(safeStore.getItem('app_service_status')) || initialServiceStatus;
+
+function saveServiceStatus() {
+safeStore.setItem('app_service_status', JSON.stringify(serviceStatus));
+}
+
 var mockOrders = JSON.parse(safeStore.getItem('app_orders')) || [ 
 { user: 'Sobhan201088', id:'ORD-9021', link:'@my_eitaa', service:'\u0645\u0645\u0628\u0631 \u0648\u0627\u0642\u0639\u06cc \u0627\u06cc\u062a\u0627', qty:1000, amount:65000, status:'pending' }
 ];
@@ -752,6 +807,24 @@ var currentFilter = 'pending';
 var currentFakeQty = 100;
 
 function toggleMenu() { document.getElementById('dropdown-menu').classList.toggle('hidden'); }
+
+function showDisabledModal(serviceName) {
+var titleEl = document.getElementById('disabled-service-title');
+var msgEl = document.getElementById('disabled-service-msg');
+titleEl.innerText = 'سرویس ' + serviceName + ' غیرفعال است';
+msgEl.innerText = 'سرویس ' + serviceName + ' در حال حاضر قطع می‌باشد. لطفاً بعداً مراجعه کنید یا با پشتیبانی در ارتباط باشید.';
+document.getElementById('service-disabled-modal').classList.remove('hidden');
+}
+
+function closeDisabledModal() {
+document.getElementById('service-disabled-modal').classList.add('hidden');
+}
+
+function toggleServiceStatus(type) {
+serviceStatus[type] = !serviceStatus[type];
+saveServiceStatus();
+renderAdminUsers();
+}
 
 function checkAuth() {
 if (!currentUser || !users[currentUser]) {
@@ -846,6 +919,14 @@ fb.innerHTML = '<i class="fa-solid fa-robot text-lg mb-1"></i><span class="text-
 }
 
 function selectPlatform(p) {
+if (p === 'bale' && !serviceStatus.bale) {
+showDisabledModal('بله');
+return;
+}
+if (p === 'eitaa' && !serviceStatus.eitaa) {
+showDisabledModal('ایتا');
+return;
+}
 currentPlatform = p;
 safeStore.setItem('app_platform', p);
 selectedService = getPlatformServices(p)[0];
@@ -856,7 +937,23 @@ switchTab('store');
 }
 
 function switchTab(tab) {
-if (tab === 'fake-member' && currentPlatform === 'bale') tab = 'store';
+if (tab === 'fake-member') {
+if (!serviceStatus.fake) {
+showDisabledModal('ممبر فیک');
+return;
+}
+if (currentPlatform === 'bale') tab = 'store';
+}
+if (tab === 'store') {
+if (currentPlatform === 'bale' && !serviceStatus.bale) {
+showDisabledModal('بله');
+return;
+}
+if (currentPlatform === 'eitaa' && !serviceStatus.eitaa) {
+showDisabledModal('ایتا');
+return;
+}
+}
 var sections = ['home','store','fake-member','tracking','support','admin'];
 for(var i=0; i<sections.length; i++) {
 var el = document.getElementById('section-' + sections[i]);
@@ -889,6 +986,14 @@ container.innerHTML = html;
 }
 
 function selectService(id) {
+if (currentPlatform === 'bale' && !serviceStatus.bale) {
+showDisabledModal('بله');
+return;
+}
+if (currentPlatform === 'eitaa' && !serviceStatus.eitaa) {
+showDisabledModal('ایتا');
+return;
+}
 for (var i = 0; i < services.length; i++) {
 if (services[i].id === id) { selectedService = services[i]; break; }
 }
@@ -933,6 +1038,10 @@ document.getElementById('fake-summary-total').innerText = total.toLocaleString('
 
 function handleFakeOrderSubmit(e) {
 e.preventDefault();
+if (!serviceStatus.fake) {
+showDisabledModal('ممبر فیک');
+return;
+}
 var total = (currentFakeQty / 100) * 65000;
 if (users[currentUser].balance < total) { alert('\u0645\u0648\u062c\u0648\u062f\u06cc \u06a9\u0627\u0641\u06cc \u0646\u06cc\u0633\u062a.'); return; }
 users[currentUser].balance -= total;
@@ -948,6 +1057,14 @@ switchTab('tracking');
 
 function handleOrderSubmit(e) {
 e.preventDefault();
+if (selectedService.platform === 'bale' && !serviceStatus.bale) {
+showDisabledModal('بله');
+return;
+}
+if (selectedService.platform === 'eitaa' && !serviceStatus.eitaa) {
+showDisabledModal('ایتا');
+return;
+}
 if (currentQuantity < 200 || currentQuantity > 100000) {
 alert('\u062a\u0639\u062f\u0627\u062f \u0633\u0641\u0627\u0631\u0634 \u0628\u0627\u06cc\u062f \u0628\u06cc\u0646 \u06f2\u06f0\u06f0 \u062a\u0627 \u06f1\u06f0\u06f0,\u06f0\u06f0\u06f0 \u0628\u0627\u0634\u062f.');
 return;
@@ -1035,7 +1152,7 @@ if (walletAction === 'add') {
 users[u].balance += amt;
 alert('\u06a9\u06cc\u0641 \u067e\u0648\u0644 \u06a9\u0627\u0631\u0628\u0631 ' + u + ' \u0628\u0647 \u0645\u06cc\u0632\u0627\u0646 ' + amt.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646 \u0634\u0627\u0631\u0698 \u0634\u062f.');
 } else if (walletAction === 'deduct') {
-if (amt > users[u].balance) { alert('\u0645\u0628\u0644\u063a \u06a9\u0633\u0631 \u0646\u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u062f \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0645\u0648\u062c\u0648\u062f\u06cc \u0641\u0639\u0644\u06cc \u0628\u0627\u0634\u062f!'); return; }
+if (amt > users[u].balance) { alert('\u0645\u0628\u0644\u063a \u06a9\u0633\u0631 \u0646\u0645\u06cc\200c\u062a\u0648\u0627\u0646\u062f \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0645\u0648\u062c\u0648\u062f\u06cc \u0641\u0639\u0644\u06cc \u0628\u0627\u0634\u062f!'); return; }
 users[u].balance -= amt;
 alert('\u0645\u0628\u0644\u063a ' + amt.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646 \u0627\u0632 \u06a9\u06cc\u0641 \u067e\u0648\u0644 \u06a9\u0627\u0631\u0628\u0631 ' + u + ' \u06a9\u0633\u0631 \u0634\u062f.');
 }
@@ -1048,6 +1165,25 @@ function renderAdminUsers() {
 var tbody = document.getElementById('admin-users-table');
 var select = document.getElementById('admin-charge-user');
 if(!tbody || !select) return;
+
+// به‌روزرسانی دکمه‌های وضعیت سرویس در پنل مدیریت
+var btnEitaa = document.getElementById('btn-status-eitaa');
+var btnFake = document.getElementById('btn-status-fake');
+var btnBale = document.getElementById('btn-status-bale');
+
+if (btnEitaa) {
+btnEitaa.innerText = serviceStatus.eitaa ? 'فعال (کلیک برای قطع)' : 'قطع می‌باشد (کلیک برای فعال‌سازی)';
+btnEitaa.className = serviceStatus.eitaa ? 'w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600 hover:bg-emerald-700' : 'w-full py-2 rounded-lg font-titr text-xs text-white bg-rose-600 hover:bg-rose-700';
+}
+if (btnFake) {
+btnFake.innerText = serviceStatus.fake ? 'فعال (کلیک برای قطع)' : 'قطع می‌باشد (کلیک برای فعال‌سازی)';
+btnFake.className = serviceStatus.fake ? 'w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600 hover:bg-emerald-700' : 'w-full py-2 rounded-lg font-titr text-xs text-white bg-rose-600 hover:bg-rose-700';
+}
+if (btnBale) {
+btnBale.innerText = serviceStatus.bale ? 'فعال (کلیک برای قطع)' : 'قطع می‌باشد (کلیک برای فعال‌سازی)';
+btnBale.className = serviceStatus.bale ? 'w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600 hover:bg-emerald-700' : 'w-full py-2 rounded-lg font-titr text-xs text-white bg-rose-600 hover:bg-rose-700';
+}
+
 var html = '', selectHtml = '';
 for(var u in users) {
 var roleBadge = users[u].role === 'admin' ? '<span class="text-amber-600 font-bold">\u0645\u062f\u06cc\u0631</span>' : '<span class="text-slate-500">\u0645\u0634\u062a\u0631\u06cc</span>';
