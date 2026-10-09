@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>&#x641;&#x631;&#x648;&#x634;&#x6AF;&#x627;&#x647; &#x645;&#x645;&#x628;&#x631; &#x648; &#x648;&#x6CC;&#x648; &#x627;&#x6CC;&#x62A;&#x627;</title>
+<title>ممبرینو</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -20,6 +20,7 @@ sans: ['Vazirmatn','Segoe UI','Tahoma','sans-serif']
 </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
 <style id="fallback-css">
 /* fallback:  Tailwind         */
 *,::before,::after{box-sizing:border-box;border:0 solid #e5e7eb}
@@ -279,42 +280,78 @@ box-shadow: 0 0 10px #ff6b00;
 cursor: pointer;
 }
 </style>
+<style>
+.brand-text{font-family:'Lalezar','B Titr','Vazirmatn',sans-serif!important;font-weight:400!important;font-size:1.9rem;line-height:1.15;letter-spacing:.5px;background:linear-gradient(90deg,var(--b1),var(--b2),var(--b1));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent;animation:brandShine 4s linear infinite;filter:drop-shadow(0 2px 8px var(--bglow))}
+@keyframes brandShine{to{background-position:200% center}}
+body{--b1:#ff6b00;--b2:#ffb347;--bglow:rgba(255,107,0,.35)}
+body.theme-bale{--b1:#0d9488;--b2:#5eead4;--bglow:rgba(20,184,166,.35)}
+body.theme-home{--b1:#ff6b00;--b2:#14b8a6;--bglow:rgba(255,107,0,.25)}
+.home-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:56rem;margin:0 auto}
+@media (min-width:768px){.home-grid{grid-template-columns:1fr 1fr}}
+.home-card{position:relative;overflow:hidden;border-radius:1.75rem;padding:2.5rem 1.5rem;color:#fff;cursor:pointer;text-align:center;width:100%;transition:transform .25s,box-shadow .25s}
+.home-card:hover{transform:translateY(-6px) scale(1.01)}
+.home-card::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.12);top:-70px;left:-70px}
+.home-card-eitaa{background:linear-gradient(135deg,#ff9d00,#ff5500);box-shadow:0 14px 30px rgba(255,107,0,.35)}
+.home-card-bale{background:linear-gradient(135deg,#2dd4bf,#0d9488);box-shadow:0 14px 30px rgba(20,184,166,.35)}
+.home-card .hc-icon{width:4.5rem;height:4.5rem;border-radius:1.25rem;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 1rem}
+.home-card .hc-title{font-size:1.9rem;margin-bottom:.4rem}
+.home-card .hc-desc{font-size:.85rem;opacity:.92}
+/* Bale theme: turquoise + white */
+body.theme-bale .eitaa-only{display:none!important}
+body.theme-bale .bg-eitaa-500{background-color:#14b8a6!important}
+body.theme-bale .bg-eitaa-50,body.theme-bale .bg-orange-50{background-color:#f0fdfa!important}
+body.theme-bale .bg-eitaa-100,body.theme-bale .bg-orange-100{background-color:#ccfbf1!important}
+body.theme-bale .bg-orange-50\/50{background-color:rgba(240,253,250,.7)!important}
+body.theme-bale .text-eitaa-500{color:#14b8a6!important}
+body.theme-bale .text-eitaa-600{color:#0d9488!important}
+body.theme-bale .text-eitaa-700,body.theme-bale .text-orange-700{color:#0f766e!important}
+body.theme-bale .border-eitaa-500{border-color:#14b8a6!important}
+body.theme-bale .border-eitaa-200{border-color:#99f6e4!important}
+body.theme-bale .border-eitaa-300{border-color:#5eead4!important}
+body.theme-bale .border-eitaa-500\/30{border-color:rgba(20,184,166,.3)!important}
+body.theme-bale .border-eitaa-500\/20{border-color:rgba(20,184,166,.2)!important}
+body.theme-bale .hover\:border-eitaa-500:hover,body.theme-bale .focus\:border-eitaa-500:focus{border-color:#14b8a6!important}
+body.theme-bale .glass-box-active{background:#f0fdfa;border:2px solid #14b8a6;box-shadow:0 0 15px rgba(20,184,166,.25)}
+body.theme-bale .gradient-titr-btn{background:linear-gradient(135deg,#2dd4bf,#0d9488);box-shadow:0 4px 15px rgba(20,184,166,.35)}
+body.theme-bale .gradient-titr-btn:hover{background:linear-gradient(135deg,#5eead4,#14b8a6);box-shadow:0 6px 20px rgba(20,184,166,.5)}
+body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box-shadow:0 0 10px #14b8a6}
+</style>
 </head>
-<body class="flex flex-col justify-between min-h-screen">
+<body class="theme-home flex flex-col justify-between min-h-screen">
 
-<!-- &#x645;&#x62F;&#x627;&#x644; &#x648;&#x631;&#x648;&#x62F; (Login Modal) -->
+<!-- مدال ورود (Login Modal) -->
 <div id="login-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
 <div class="glass-box rounded-3xl p-8 max-w-md w-full border border-eitaa-500/30 shadow-2xl">
 <div class="text-center mb-6">
 <div class="w-16 h-16 rounded-2xl bg-eitaa-50 text-eitaa-500 border border-eitaa-500/20 flex items-center justify-center text-3xl mx-auto mb-3">
 <i class="fa-solid fa-user-lock"></i>
 </div>
-<h3 class="font-titr text-2xl text-slate-800">&#x648;&#x631;&#x648;&#x62F; &#x628;&#x647; &#x633;&#x627;&#x645;&#x627;&#x646;&#x647;</h3>
-<p class="text-xs text-slate-500 mt-1">&#x62C;&#x647;&#x62A; &#x62F;&#x633;&#x62A;&#x631;&#x633;&#x6CC; &#x628;&#x647; &#x62E;&#x62F;&#x645;&#x627;&#x62A; &#x648; &#x6A9;&#x6CC;&#x641; &#x67E;&#x648;&#x644; &#x648;&#x627;&#x631;&#x62F; &#x634;&#x648;&#x6CC;&#x62F;</p>
+<h3 class="font-titr text-2xl text-slate-800">ورود به سامانه</h3>
+<p class="text-xs text-slate-500 mt-1">جهت دسترسی به خدمات و کیف پول وارد شوید</p>
 </div>
 <form onsubmit="handleLogin(event)" class="space-y-5">
 <div>
-<label class="block font-titr text-sm text-slate-700 mb-2">&#x646;&#x627;&#x645; &#x6A9;&#x627;&#x631;&#x628;&#x631;&#x6CC;</label>
+<label class="block font-titr text-sm text-slate-700 mb-2">نام کاربری</label>
 <input type="text" id="login-username" required dir="ltr" placeholder="Username" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-mono text-center focus:outline-none focus:border-eitaa-500">
 </div>
 <div>
-<label class="block font-titr text-sm text-slate-700 mb-2">&#x631;&#x645;&#x632; &#x639;&#x628;&#x648;&#x631;</label>
+<label class="block font-titr text-sm text-slate-700 mb-2">رمز عبور</label>
 <input type="password" id="login-password" required dir="ltr" placeholder="Password" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-mono text-center focus:outline-none focus:border-eitaa-500">
 </div>
-<button type="submit" class="w-full gradient-titr-btn text-white font-titr py-3.5 rounded-xl text-lg">&#x648;&#x631;&#x648;&#x62F; &#x628;&#x647; &#x633;&#x6CC;&#x633;&#x62A;&#x645;</button>
+<button type="submit" class="w-full gradient-titr-btn text-white font-titr py-3.5 rounded-xl text-lg">ورود به سیستم</button>
 </form>
 </div>
 </div>
 
-<!-- &#x6A9;&#x627;&#x62F;&#x631; &#x67E;&#x6CC;&#x627;&#x645; &#x62E;&#x648;&#x634;&#x200C;&#x622;&#x645;&#x62F;&#x6AF;&#x648;&#x6CC;&#x6CC; -->
+<!-- کادر پیام خوش‌آمدگویی -->
 <div id="welcome-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
 <div class="glass-box rounded-3xl p-8 max-w-sm w-full text-center border-2 border-emerald-500 shadow-2xl">
 <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
 <i class="fa-solid fa-circle-check"></i>
 </div>
-<h3 class="font-titr text-2xl text-slate-800 mb-2">&#x648;&#x631;&#x648;&#x62F; &#x645;&#x648;&#x641;&#x642;&#x6CC;&#x62A;&#x200C;&#x622;&#x645;&#x6CC;&#x632;</h3>
-<p class="text-sm text-slate-600 mb-6">&#x628;&#x627; &#x645;&#x648;&#x641;&#x642;&#x6CC;&#x62A; &#x648;&#x627;&#x631;&#x62F; &#x62D;&#x633;&#x627;&#x628; &#x6A9;&#x627;&#x631;&#x628;&#x631;&#x6CC; &#x62E;&#x648;&#x62F; &#x634;&#x62F;&#x6CC;&#x62F;!</p>
-<button onclick="closeWelcomeModal()" class="w-full bg-emerald-600 text-white font-titr py-3 rounded-xl text-lg hover:bg-emerald-700">&#x645;&#x62A;&#x648;&#x62C;&#x647; &#x634;&#x62F;&#x645;</button>
+<h3 class="font-titr text-2xl text-slate-800 mb-2">ورود موفقیت‌آمیز</h3>
+<p class="text-sm text-slate-600 mb-6">با موفقیت وارد حساب کاربری خود شدید!</p>
+<button onclick="closeWelcomeModal()" class="w-full bg-emerald-600 text-white font-titr py-3 rounded-xl text-lg hover:bg-emerald-700">متوجه شدم</button>
 </div>
 </div>
 
@@ -327,52 +364,59 @@ cursor: pointer;
 <i class="fa-solid fa-ellipsis-vertical"></i>
 </button>
 <div id="dropdown-menu" class="hidden absolute right-0 mt-3 w-64 glass-box rounded-2xl p-2 z-50 shadow-xl">
+<button onclick="switchTab('home'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
+<i class="fa-solid fa-house text-eitaa-500"></i>
+<span class="font-titr text-sm">انتخاب سرویس (بله / ایتا)</span>
+</button>
 <button onclick="switchTab('tracking'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
 <i class="fa-solid fa-magnifying-glass text-eitaa-500"></i>
-<span class="font-titr text-sm">&#x67E;&#x6CC;&#x6AF;&#x6CC;&#x631;&#x6CC; &#x633;&#x641;&#x627;&#x631;&#x634;&#x627;&#x62A;</span>
+<span class="font-titr text-sm">پیگیری سفارشات</span>
 </button>
-<button onclick="switchTab('fake-member'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
+<button onclick="switchTab('fake-member'); toggleMenu();" class="eitaa-only w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
 <i class="fa-solid fa-robot text-purple-600"></i>
-<span class="font-titr text-sm">&#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9; (&#x645;&#x62E;&#x635;&#x648;&#x635;)</span>
+<span class="font-titr text-sm">ممبر فیک (مخصوص)</span>
 </button>
 <button onclick="switchTab('support'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
 <i class="fa-solid fa-headset text-emerald-600"></i>
-<span class="font-titr text-sm">&#x67E;&#x634;&#x62A;&#x6CC;&#x628;&#x627;&#x646;&#x6CC;</span>
+<span class="font-titr text-sm">پشتیبانی</span>
 </button>
 <button id="admin-menu-btn" onclick="switchTab('admin'); toggleMenu();" class="hidden w-full text-right px-4 py-3 rounded-xl hover:bg-amber-50 text-amber-600 flex items-center gap-3 border-t border-slate-200 mt-1">
 <i class="fa-solid fa-user-shield"></i>
-<span class="font-titr text-sm">&#x67E;&#x646;&#x644; &#x645;&#x62F;&#x6CC;&#x631;&#x6CC;&#x62A;</span>
+<span class="font-titr text-sm">پنل مدیریت</span>
 </button>
 <button onclick="logout()" class="w-full text-right px-4 py-3 rounded-xl hover:bg-rose-50 text-rose-600 flex items-center gap-3 border-t border-slate-200 mt-1">
 <i class="fa-solid fa-right-from-bracket"></i>
-<span class="font-titr text-sm">&#x62E;&#x631;&#x648;&#x62C; &#x627;&#x632; &#x62D;&#x633;&#x627;&#x628;</span>
+<span class="font-titr text-sm">خروج از حساب</span>
 </button>
 </div>
 </div>
+<div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
 <div class="w-11 h-11 rounded-2xl bg-eitaa-50 border border-eitaa-500/30 flex items-center justify-center text-eitaa-500 text-xl">
-<i class="fa-solid fa-paper-plane"></i>
+<i class="fa-solid fa-bolt"></i>
 </div>
 <div>
-<h1 class="font-titr text-lg md:text-xl text-slate-800">&#x645;&#x645;&#x628;&#x631; &#x648; &#x648;&#x6CC;&#x648; &#x627;&#x6CC;&#x62A;&#x627;</h1>
-<p class="text-[10px] text-slate-500">&#x633;&#x627;&#x645;&#x627;&#x646;&#x647; &#x647;&#x648;&#x634;&#x645;&#x646;&#x62F; &#x641;&#x631;&#x648;&#x634; &#x62E;&#x62F;&#x645;&#x627;&#x62A; &#x627;&#x6CC;&#x62A;&#x627;</p>
+<h1 class="brand-text">ممبرینو</h1>
+<p class="text-[10px] text-slate-500" id="brand-sub">ایتا • بله</p>
+</div>
 </div>
 </div>
 
 <div class="flex items-center gap-4">
 <div class="bg-slate-100 border border-slate-200 rounded-2xl px-4 py-2 flex items-center gap-3">
 <div class="text-right">
-<div class="text-[10px] text-slate-500">&#x62E;&#x648;&#x634; &#x622;&#x645;&#x62F;&#x6CC;&#x62F;: <span id="display-user-name" class="text-eitaa-600 font-bold">-</span></div>
-<div class="text-xs font-titr text-emerald-600">&#x6A9;&#x6CC;&#x641; &#x67E;&#x648;&#x644;: <span id="display-user-balance">&#x6F0;</span> &#x62A;&#x648;&#x645;&#x627;&#x646;</div>
+<div class="text-[10px] text-slate-500">خوش آمدید: <span id="display-user-name" class="text-eitaa-600 font-bold">-</span></div>
+<div class="text-xs font-titr text-emerald-600">کیف پول: <span id="display-user-balance">۰</span> تومان</div>
 </div>
 <i class="fa-solid fa-wallet text-xl text-emerald-600"></i>
 </div>
 
 <nav class="hidden md:flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
-<button onclick="switchTab('store')" id="tab-btn-store" class="px-4 py-2 rounded-xl font-titr bg-eitaa-500 text-white">&#x1F6D2; &#x627;&#x635;&#x644;&#x6CC;</button>
-<button onclick="switchTab('fake-member')" id="tab-btn-fake-member" class="px-4 py-2 rounded-xl font-titr text-slate-600">&#x1F916; &#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9;</button>
-<button onclick="switchTab('tracking')" id="tab-btn-tracking" class="px-4 py-2 rounded-xl font-titr text-slate-600">&#x1F50D; &#x67E;&#x6CC;&#x6AF;&#x6CC;&#x631;&#x6CC;</button>
-<button onclick="switchTab('support')" id="tab-btn-support" class="px-4 py-2 rounded-xl font-titr text-slate-600">&#x1F3A7; &#x67E;&#x634;&#x62A;&#x6CC;&#x628;&#x627;&#x646;&#x6CC;</button>
-<button onclick="switchTab('admin')" id="tab-btn-admin" class="hidden px-4 py-2 rounded-xl font-titr text-amber-600 border border-amber-300">&#x1F451; &#x645;&#x62F;&#x6CC;&#x631;&#x6CC;&#x62A;</button>
+<button onclick="switchTab('home')" id="tab-btn-home" class="px-4 py-2 rounded-xl font-titr bg-eitaa-500 text-white">🏠 خانه</button>
+<button onclick="switchTab('store')" id="tab-btn-store" class="px-4 py-2 rounded-xl font-titr text-slate-600">🛒 سفارش</button>
+<button onclick="switchTab('fake-member')" id="tab-btn-fake-member" class="eitaa-only px-4 py-2 rounded-xl font-titr text-slate-600">🤖 ممبر فیک</button>
+<button onclick="switchTab('tracking')" id="tab-btn-tracking" class="px-4 py-2 rounded-xl font-titr text-slate-600">🔍 پیگیری</button>
+<button onclick="switchTab('support')" id="tab-btn-support" class="px-4 py-2 rounded-xl font-titr text-slate-600">🎧 پشتیبانی</button>
+<button onclick="switchTab('admin')" id="tab-btn-admin" class="hidden px-4 py-2 rounded-xl font-titr text-amber-600 border border-amber-300">👑 مدیریت</button>
 </nav>
 </div>
 </div>
@@ -380,194 +424,217 @@ cursor: pointer;
 </header>
 
 <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
-<section id="section-store" class="space-y-8">
+<section id="section-home" class="space-y-8">
+<div class="text-center" style="padding:1.5rem 0 .5rem">
+<div class="brand-text" style="font-size:3.4rem">ممبرینو</div>
+<p class="text-slate-500 text-sm mt-3">سرویس مورد نظرت رو انتخاب کن</p>
+</div>
+<div class="home-grid">
+<button onclick="selectPlatform('bale')" class="home-card home-card-bale font-titr">
+<div class="hc-icon"><i class="fa-solid fa-comment-dots"></i></div>
+<div class="hc-title">سرویس بله</div>
+<p class="hc-desc">ممبر کانال و گروه • ویو • ری‌اکشن</p>
+</button>
+<button onclick="selectPlatform('eitaa')" class="home-card home-card-eitaa font-titr">
+<div class="hc-icon"><i class="fa-solid fa-paper-plane"></i></div>
+<div class="hc-title">سرویس ایتا</div>
+<p class="hc-desc">ممبر واقعی • ممبر فیک • ویو</p>
+</button>
+</div>
+</section>
+
+<section id="section-store" class="hidden space-y-8">
 <div class="glass-box rounded-3xl p-6 md:p-10 border-l-8 border-eitaa-500 bg-orange-50/50">
-<span class="text-xs font-bold px-3 py-1 rounded-full bg-eitaa-100 text-eitaa-700 border border-eitaa-300">&#x26A1; &#x6A9;&#x6CC;&#x641;&#x6CC;&#x62A; &#x648;&#x627;&#x642;&#x639;&#x6CC;</span>
-<h2 class="font-titr text-2xl md:text-4xl text-slate-800 mt-3 mb-2">&#x627;&#x631;&#x62A;&#x642;&#x627;&#x6CC; &#x62D;&#x631;&#x641;&#x647;&#x200C;&#x627;&#x6CC; &#x6A9;&#x627;&#x646;&#x627;&#x644; &#x648; &#x6AF;&#x631;&#x648;&#x647; &#x627;&#x6CC;&#x62A;&#x627;</h2>
-<p class="text-slate-600 text-sm">&#x633;&#x641;&#x627;&#x631;&#x634; &#x62E;&#x648;&#x62F; &#x631;&#x627; &#x628;&#x627; &#x62A;&#x639;&#x62F;&#x627;&#x62F; &#x62F;&#x644;&#x62E;&#x648;&#x627;&#x647; &#x62B;&#x628;&#x62A; &#x6A9;&#x646;&#x6CC;&#x62F;.</p>
+<span id="hero-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-eitaa-100 text-eitaa-700 border border-eitaa-300">⚡ کیفیت واقعی</span>
+<h2 id="hero-title" class="font-titr text-2xl md:text-4xl text-slate-800 mt-3 mb-2">ارتقای حرفه‌ای کانال و گروه ایتا</h2>
+<p id="hero-sub" class="text-slate-600 text-sm">سفارش خود را با تعداد دلخواه ثبت کنید.</p>
+<button type="button" onclick="switchTab('home')" class="mt-4 text-xs font-titr px-4 py-2 rounded-xl bg-white border border-eitaa-300 text-eitaa-600"><i class="fa-solid fa-repeat"></i> تغییر سرویس (بله / ایتا)</button>
 </div>
 
 <div>
-<h3 class="font-titr text-xl text-slate-800 mb-4">&#x1F48E; &#x627;&#x646;&#x62A;&#x62E;&#x627;&#x628; &#x633;&#x631;&#x648;&#x6CC;&#x633;</h3>
+<h3 class="font-titr text-xl text-slate-800 mb-4">💎 انتخاب سرویس</h3>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="services-container"></div>
 </div>
 
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 <div class="lg:col-span-7 glass-box rounded-3xl p-6 space-y-5">
-<h3 class="font-titr text-xl text-slate-800 border-b pb-3">&#x1F4DD; &#x645;&#x634;&#x62E;&#x635;&#x627;&#x62A; &#x633;&#x641;&#x627;&#x631;&#x634;</h3>
+<h3 class="font-titr text-xl text-slate-800 border-b pb-3">📝 مشخصات سفارش</h3>
 <form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-5">
 <div>
-<label class="block font-titr text-sm text-slate-700 mb-2">&#x622;&#x6CC;&#x62F;&#x6CC; &#x6CC;&#x627; &#x644;&#x6CC;&#x646;&#x6A9; &#x6A9;&#x627;&#x646;&#x627;&#x644;/&#x6AF;&#x631;&#x648;&#x647; *</label>
+<label class="block font-titr text-sm text-slate-700 mb-2">آیدی یا لینک کانال/گروه *</label>
 <input type="text" id="channel-link" required dir="ltr" placeholder="my_channel@" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-slate-800 font-mono">
 </div>
 
 <div>
 <div class="flex justify-between items-center mb-2">
-<label class="font-titr text-sm text-slate-700" id="quantity-label">&#x62A;&#x639;&#x62F;&#x627;&#x62F; &#x633;&#x641;&#x627;&#x631;&#x634; (&#x62F;&#x633;&#x62A;&#x6CC;):</label>
-<span class="font-titr text-base text-eitaa-600 bg-eitaa-50 px-3 py-1 rounded-xl border border-eitaa-200" id="quantity-badge">&#x6F1;,&#x6F0;&#x6F0;&#x6F0; &#x639;&#x62F;&#x62F;</span>
+<label class="font-titr text-sm text-slate-700" id="quantity-label">تعداد سفارش (دستی):</label>
+<span class="font-titr text-base text-eitaa-600 bg-eitaa-50 px-3 py-1 rounded-xl border border-eitaa-200" id="quantity-badge">۱,۰۰۰ عدد</span>
 </div>
 <input type="number" id="custom-quantity-input" min="200" max="100000" value="1000" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-slate-800 font-mono text-center mb-3" oninput="updateQuantityFromInput(this.value)">
-<p class="text-xs text-slate-500 mb-2">&#x62D;&#x62F;&#x627;&#x642;&#x644;: &#x6F2;&#x6F0;&#x6F0; | &#x62D;&#x62F;&#x627;&#x6A9;&#x62B;&#x631;: &#x6F1;&#x6F0;&#x6F0;,&#x6F0;&#x6F0;&#x6F0; &#x639;&#x62F;&#x62F;</p>
+<p class="text-xs text-slate-500 mb-2">حداقل: ۲۰۰ | حداکثر: ۱۰۰,۰۰۰ عدد</p>
 <input type="range" id="quantity-slider" min="200" max="100000" step="100" value="1000" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateQuantityFromSlider(this.value)">
 </div>
 
-<button type="submit" class="w-full gradient-titr-btn text-white font-titr text-lg py-4 rounded-2xl">&#x1F4B3; &#x67E;&#x631;&#x62F;&#x627;&#x62E;&#x62A; &#x627;&#x632; &#x6A9;&#x6CC;&#x641; &#x67E;&#x648;&#x644; &#x648; &#x62B;&#x628;&#x62A; &#x633;&#x641;&#x627;&#x631;&#x634;</button>
+<button type="submit" class="w-full gradient-titr-btn text-white font-titr text-lg py-4 rounded-2xl">💳 پرداخت از کیف پول و ثبت سفارش</button>
 </form>
 </div>
 
 <div class="lg:col-span-5 glass-box rounded-3xl p-6 space-y-5">
-<h3 class="font-titr text-lg text-slate-800 border-b pb-3">&#x1F9FE; &#x67E;&#x6CC;&#x634;&#x200C;&#x641;&#x627;&#x6A9;&#x62A;&#x648;&#x631;</h3>
+<h3 class="font-titr text-lg text-slate-800 border-b pb-3">🧾 پیش‌فاکتور</h3>
 <div class="space-y-3 text-sm">
-<div class="flex justify-between"><span class="text-slate-500">&#x633;&#x631;&#x648;&#x6CC;&#x633;:</span><span class="font-titr text-slate-800" id="summary-service-name">-</span></div>
-<div class="flex justify-between"><span class="text-slate-500">&#x62A;&#x639;&#x62F;&#x627;&#x62F;:</span><span class="text-slate-800" id="summary-quantity">-</span></div>
-<div class="flex justify-between"><span class="text-slate-500">&#x642;&#x6CC;&#x645;&#x62A; &#x648;&#x627;&#x62D;&#x62F;:</span><span class="text-slate-600" id="summary-unit-price">-</span></div>
+<div class="flex justify-between"><span class="text-slate-500">سرویس:</span><span class="font-titr text-slate-800" id="summary-service-name">-</span></div>
+<div class="flex justify-between"><span class="text-slate-500">تعداد:</span><span class="text-slate-800" id="summary-quantity">-</span></div>
+<div class="flex justify-between"><span class="text-slate-500">قیمت واحد:</span><span class="text-slate-600" id="summary-unit-price">-</span></div>
 <div class="bg-orange-50 rounded-2xl p-4 border border-eitaa-200">
-<span class="text-xs text-slate-500 block mb-1">&#x645;&#x628;&#x644;&#x63A; &#x642;&#x627;&#x628;&#x644; &#x67E;&#x631;&#x62F;&#x627;&#x62E;&#x62A;:</span>
-<span class="font-titr text-2xl text-eitaa-600" id="summary-total-price">&#x6F0;</span>
-<span class="text-xs text-slate-600 mr-1">&#x62A;&#x648;&#x645;&#x627;&#x646;</span>
+<span class="text-xs text-slate-500 block mb-1">مبلغ قابل پرداخت:</span>
+<span class="font-titr text-2xl text-eitaa-600" id="summary-total-price">۰</span>
+<span class="text-xs text-slate-600 mr-1">تومان</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- &#x628;&#x62E;&#x634; &#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9; -->
+<!-- بخش ممبر فیک -->
 <section id="section-fake-member" class="hidden space-y-8">
 <div class="glass-box rounded-3xl p-6 bg-purple-50/40 border border-purple-200">
-<span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-100 text-purple-700">&#x1F916; &#x633;&#x631;&#x648;&#x6CC;&#x633; &#x648;&#x6CC;&#x698;&#x647; &#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9;</span>
-<h2 class="font-titr text-2xl text-slate-800 mt-2">&#x62E;&#x631;&#x6CC;&#x62F; &#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9; &#x627;&#x6CC;&#x62A;&#x627;</h2>
-<p class="text-slate-600 text-sm mt-1">&#x642;&#x6CC;&#x645;&#x62A;: &#x6F6;&#x6F5;,&#x6F0;&#x6F0;&#x6F0; &#x62A;&#x648;&#x645;&#x627;&#x646; &#x628;&#x647; &#x627;&#x632;&#x627;&#x6CC; &#x647;&#x631; &#x6F1;&#x6F0;&#x6F0; &#x645;&#x645;&#x628;&#x631; &#x2022; &#x633;&#x642;&#x641; &#x633;&#x641;&#x627;&#x631;&#x634;: &#x6F3;&#x6F5;&#x6F0; &#x639;&#x62F;&#x62F;</p>
+<span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-100 text-purple-700">🤖 سرویس ویژه ممبر فیک</span>
+<h2 class="font-titr text-2xl text-slate-800 mt-2">خرید ممبر فیک ایتا</h2>
+<p class="text-slate-600 text-sm mt-1">قیمت: ۶۵,۰۰۰ تومان به ازای هر ۱۰۰ ممبر • سقف سفارش: ۳۵۰ عدد</p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 <div class="lg:col-span-7 glass-box rounded-3xl p-6 space-y-5">
-<h3 class="font-titr text-xl text-slate-800 border-b pb-3">&#x1F916; &#x62B;&#x628;&#x62A; &#x633;&#x641;&#x627;&#x631;&#x634; &#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9;</h3>
+<h3 class="font-titr text-xl text-slate-800 border-b pb-3">🤖 ثبت سفارش ممبر فیک</h3>
 <form onsubmit="handleFakeOrderSubmit(event)" class="space-y-5">
 <div>
-<label class="block font-titr text-sm text-slate-700 mb-2">&#x622;&#x6CC;&#x62F;&#x6CC; &#x6CC;&#x627; &#x644;&#x6CC;&#x646;&#x6A9; &#x6A9;&#x627;&#x646;&#x627;&#x644; &#x627;&#x6CC;&#x62A;&#x627; *</label>
+<label class="block font-titr text-sm text-slate-700 mb-2">آیدی یا لینک کانال ایتا *</label>
 <input type="text" id="fake-channel-link" required dir="ltr" placeholder="my_channel@" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-slate-800 font-mono">
 </div>
 <div>
 <div class="flex justify-between items-center mb-2">
-<label class="font-titr text-sm text-slate-700">&#x62A;&#x639;&#x62F;&#x627;&#x62F; &#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9; (&#x62D;&#x62F;&#x627;&#x6A9;&#x62B;&#x631; &#x6F3;&#x6F5;&#x6F0;):</label>
-<span class="font-titr text-base text-purple-600 bg-purple-50 px-3 py-1 rounded-xl border border-purple-200" id="fake-qty-badge">&#x6F1;&#x6F0;&#x6F0; &#x645;&#x645;&#x628;&#x631;</span>
+<label class="font-titr text-sm text-slate-700">تعداد ممبر فیک (حداکثر ۳۵۰):</label>
+<span class="font-titr text-base text-purple-600 bg-purple-50 px-3 py-1 rounded-xl border border-purple-200" id="fake-qty-badge">۱۰۰ ممبر</span>
 </div>
 <input type="range" id="fake-qty-slider" min="50" max="350" step="50" value="100" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateFakeQuantity(this.value)">
 </div>
-<button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-titr text-lg py-4 rounded-2xl">&#x1F680; &#x62B;&#x628;&#x62A; &#x648; &#x67E;&#x631;&#x62F;&#x627;&#x62E;&#x62A; &#x627;&#x632; &#x6A9;&#x6CC;&#x641; &#x67E;&#x648;&#x644;</button>
+<button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-titr text-lg py-4 rounded-2xl">🚀 ثبت و پرداخت از کیف پول</button>
 </form>
 </div>
 <div class="lg:col-span-5 glass-box rounded-3xl p-6 space-y-4">
-<h3 class="font-titr text-lg text-slate-800 border-b pb-3">&#x1F9FE; &#x641;&#x627;&#x6A9;&#x62A;&#x648;&#x631; &#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9;</h3>
+<h3 class="font-titr text-lg text-slate-800 border-b pb-3">🧾 فاکتور ممبر فیک</h3>
 <div class="space-y-3 text-sm">
-<div class="flex justify-between"><span class="text-slate-500">&#x646;&#x648;&#x639; &#x633;&#x631;&#x648;&#x6CC;&#x633;:</span><span class="font-titr text-purple-600">&#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9; &#x627;&#x62E;&#x62A;&#x635;&#x627;&#x635;&#x6CC;</span></div>
-<div class="flex justify-between"><span class="text-slate-500">&#x62A;&#x639;&#x62F;&#x627;&#x62F; &#x62F;&#x631;&#x62E;&#x648;&#x627;&#x633;&#x62A;&#x6CC;:</span><span class="text-slate-800" id="fake-summary-qty">&#x6F1;&#x6F0;&#x6F0; &#x645;&#x645;&#x628;&#x631;</span></div>
+<div class="flex justify-between"><span class="text-slate-500">نوع سرویس:</span><span class="font-titr text-purple-600">ممبر فیک اختصاصی</span></div>
+<div class="flex justify-between"><span class="text-slate-500">تعداد درخواستی:</span><span class="text-slate-800" id="fake-summary-qty">۱۰۰ ممبر</span></div>
 <div class="bg-purple-50 rounded-2xl p-4 border border-purple-200">
-<span class="text-xs text-slate-500 block mb-1">&#x645;&#x628;&#x644;&#x63A; &#x642;&#x627;&#x628;&#x644; &#x67E;&#x631;&#x62F;&#x627;&#x62E;&#x62A;:</span>
-<span class="font-titr text-2xl text-purple-600" id="fake-summary-total">&#x6F6;&#x6F5;,&#x6F0;&#x6F0;&#x6F0;</span>
-<span class="text-xs text-slate-600 mr-1">&#x62A;&#x648;&#x645;&#x627;&#x646;</span>
+<span class="text-xs text-slate-500 block mb-1">مبلغ قابل پرداخت:</span>
+<span class="font-titr text-2xl text-purple-600" id="fake-summary-total">۶۵,۰۰۰</span>
+<span class="text-xs text-slate-600 mr-1">تومان</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- &#x628;&#x62E;&#x634; &#x67E;&#x6CC;&#x6AF;&#x6CC;&#x631;&#x6CC; &#x633;&#x641;&#x627;&#x631;&#x634;&#x627;&#x62A; -->
+<!-- بخش پیگیری سفارشات -->
 <section id="section-tracking" class="hidden space-y-6">
 <div class="glass-box rounded-3xl p-6 space-y-5 max-w-4xl mx-auto">
-<h3 class="font-titr text-2xl text-slate-800 text-center">&#x1F50D; &#x67E;&#x6CC;&#x6AF;&#x6CC;&#x631;&#x6CC; &#x633;&#x641;&#x627;&#x631;&#x634;&#x627;&#x62A;</h3>
+<h3 class="font-titr text-2xl text-slate-800 text-center">🔍 پیگیری سفارشات</h3>
 <div class="grid grid-cols-3 gap-2 bg-slate-100 p-1.5 rounded-2xl border">
-<button onclick="filterTrackingOrders('done')" id="filter-btn-done" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> &#x2705; &#x627;&#x646;&#x62C;&#x627;&#x645; &#x634;&#x62F;&#x647; </button>
-<button onclick="filterTrackingOrders('pending')" id="filter-btn-pending" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> &#x23F3; &#x62F;&#x631; &#x62D;&#x627;&#x644; &#x627;&#x646;&#x62C;&#x627;&#x645; </button>
-<button onclick="filterTrackingOrders('canceled')" id="filter-btn-canceled" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> &#x274C; &#x644;&#x63A;&#x648; &#x634;&#x62F;&#x647; </button>
+<button onclick="filterTrackingOrders('done')" id="filter-btn-done" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ✅ انجام شده </button>
+<button onclick="filterTrackingOrders('pending')" id="filter-btn-pending" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ⏳ در حال انجام </button>
+<button onclick="filterTrackingOrders('canceled')" id="filter-btn-canceled" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ❌ لغو شده </button>
 </div>
 <div class="overflow-x-auto">
 <table class="w-full text-right text-sm">
 <thead class="bg-slate-50 text-slate-500 text-xs font-titr border-b">
 <tr>
-<th class="p-3">&#x6A9;&#x62F; &#x633;&#x641;&#x627;&#x631;&#x634;</th>
-<th class="p-3">&#x622;&#x6CC;&#x62F;&#x6CC; &#x6A9;&#x627;&#x646;&#x627;&#x644;</th>
-<th class="p-3">&#x633;&#x631;&#x648;&#x6CC;&#x633;</th>
-<th class="p-3">&#x62A;&#x639;&#x62F;&#x627;&#x62F;</th>
-<th class="p-3">&#x645;&#x628;&#x644;&#x63A;</th>
-<th class="p-3">&#x648;&#x636;&#x639;&#x6CC;&#x62A;</th>
+<th class="p-3">کد سفارش</th>
+<th class="p-3">آیدی کانال</th>
+<th class="p-3">سرویس</th>
+<th class="p-3">پلتفرم</th>
+<th class="p-3">تعداد</th>
+<th class="p-3">مبلغ</th>
+<th class="p-3">وضعیت</th>
 </tr>
 </thead>
 <tbody id="filtered-orders-list" class="divide-y text-slate-700"></tbody>
 </table>
-<div id="empty-filtered-orders" class="text-center py-8 text-slate-400 hidden font-titr">&#x647;&#x6CC;&#x686; &#x633;&#x641;&#x627;&#x631;&#x634;&#x6CC; &#x62B;&#x628;&#x62A; &#x646;&#x634;&#x62F;&#x647; &#x627;&#x633;&#x62A;.</div>
+<div id="empty-filtered-orders" class="text-center py-8 text-slate-400 hidden font-titr">هیچ سفارشی ثبت نشده است.</div>
 </div>
 </div>
 </section>
 
-<!-- &#x628;&#x62E;&#x634; &#x67E;&#x634;&#x62A;&#x6CC;&#x628;&#x627;&#x646;&#x6CC; -->
+<!-- بخش پشتیبانی -->
 <section id="section-support" class="hidden space-y-8 max-w-2xl mx-auto">
 <div class="glass-box rounded-3xl p-8 text-center space-y-5 border border-emerald-200 bg-emerald-50/20">
 <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-3xl mx-auto">
 <i class="fa-solid fa-headset"></i>
 </div>
-<h3 class="font-titr text-2xl text-slate-800">&#x67E;&#x634;&#x62A;&#x6CC;&#x628;&#x627;&#x646;&#x6CC; &#x6F2;&#x6F4; &#x633;&#x627;&#x639;&#x62A;&#x647;</h3>
-<p class="text-slate-600 text-sm">&#x62F;&#x631; &#x635;&#x648;&#x631;&#x62A; &#x628;&#x631;&#x648;&#x632; &#x647;&#x631;&#x6AF;&#x648;&#x646;&#x647; &#x633;&#x648;&#x627;&#x644; &#x6CC;&#x627; &#x645;&#x634;&#x6A9;&#x644; &#x628;&#x627; &#x622;&#x6CC;&#x62F;&#x6CC; &#x67E;&#x634;&#x62A;&#x6CC;&#x628;&#x627;&#x646;&#x6CC; &#x62F;&#x631; &#x627;&#x631;&#x62A;&#x628;&#x627;&#x637; &#x628;&#x627;&#x634;&#x6CC;&#x62F;:</p>
+<h3 class="font-titr text-2xl text-slate-800">پشتیبانی ۲۴ ساعته</h3>
+<p class="text-slate-600 text-sm">در صورت بروز هرگونه سوال یا مشکل با آیدی پشتیبانی در ارتباط باشید:</p>
 <div class="bg-white border p-4 rounded-2xl inline-block">
-<span class="text-xs text-slate-400 block mb-1">&#x622;&#x6CC;&#x62F;&#x6CC; &#x67E;&#x634;&#x62A;&#x6CC;&#x628;&#x627;&#x646;&#x6CC; &#x627;&#x6CC;&#x62A;&#x627;:</span>
+<span class="text-xs text-slate-400 block mb-1">آیدی پشتیبانی ایتا:</span>
 <span class="font-mono text-xl text-emerald-600 font-bold select-all" dir="ltr">@Javad2345</span>
 </div>
 <div>
 <a href="https://eitaa.com/Javad2345" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 text-white font-titr px-6 py-3 rounded-2xl hover:bg-emerald-700">
-<i class="fa-solid fa-paper-plane"></i> &#x627;&#x631;&#x62A;&#x628;&#x627;&#x637; &#x62F;&#x631; &#x67E;&#x6CC;&#x627;&#x645;&#x200C;&#x631;&#x633;&#x627;&#x646; &#x627;&#x6CC;&#x62A;&#x627;
+<i class="fa-solid fa-paper-plane"></i> ارتباط در پیام‌رسان ایتا
 </a>
 </div>
 </div>
 </section>
 
-<!-- &#x67E;&#x646;&#x644; &#x645;&#x62F;&#x6CC;&#x631;&#x6CC;&#x62A; -->
+<!-- پنل مدیریت -->
 <section id="section-admin" class="hidden space-y-8 max-w-5xl mx-auto">
 <div class="glass-box rounded-3xl p-6 border border-amber-200 space-y-6">
 <div class="flex items-center justify-between border-b pb-4">
 <div class="flex items-center gap-2">
 <i class="fa-solid fa-user-shield text-2xl text-amber-500"></i>
-<h3 class="font-titr text-xl text-slate-800">&#x67E;&#x646;&#x644; &#x645;&#x62F;&#x6CC;&#x631;&#x6CC;&#x62A; &#x633;&#x627;&#x6CC;&#x62A;</h3>
+<h3 class="font-titr text-xl text-slate-800">پنل مدیریت سایت</h3>
 </div>
-<span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">&#x645;&#x62F;&#x6CC;&#x631; &#x627;&#x631;&#x634;&#x62F;</span>
+<span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">مدیر ارشد</span>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- &#x62A;&#x639;&#x631;&#x6CC;&#x641; &#x6A9;&#x627;&#x631;&#x628;&#x631; -->
+<!-- تعریف کاربر -->
 <div class="bg-slate-50 p-5 rounded-2xl border space-y-3">
 <h4 class="font-titr text-sm text-amber-600 flex items-center gap-2">
-<i class="fa-solid fa-user-plus"></i> &#x62A;&#x639;&#x631;&#x6CC;&#x641; &#x6A9;&#x627;&#x631;&#x628;&#x631; &#x62C;&#x62F;&#x6CC;&#x62F;
+<i class="fa-solid fa-user-plus"></i> تعریف کاربر جدید
 </h4>
 <form onsubmit="handleCreateUser(event)" class="space-y-3">
-<input type="text" id="admin-new-username" required dir="ltr" placeholder="&#x646;&#x627;&#x645; &#x6A9;&#x627;&#x631;&#x628;&#x631;&#x6CC;" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
-<input type="password" id="admin-new-password" required dir="ltr" placeholder="&#x631;&#x645;&#x632; &#x639;&#x628;&#x648;&#x631;" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
-<button type="submit" class="w-full bg-amber-500 text-white font-titr py-2 rounded-xl text-sm">&#x627;&#x6CC;&#x62C;&#x627;&#x62F; &#x6A9;&#x627;&#x631;&#x628;&#x631;</button>
+<input type="text" id="admin-new-username" required dir="ltr" placeholder="نام کاربری" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
+<input type="password" id="admin-new-password" required dir="ltr" placeholder="رمز عبور" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
+<button type="submit" class="w-full bg-amber-500 text-white font-titr py-2 rounded-xl text-sm">ایجاد کاربر</button>
 </form>
 </div>
 
-<!-- &#x62A;&#x63A;&#x6CC;&#x6CC;&#x631; &#x6A9;&#x6CC;&#x641; &#x67E;&#x648;&#x644; -->
+<!-- تغییر کیف پول -->
 <div class="bg-slate-50 p-5 rounded-2xl border space-y-3">
 <h4 class="font-titr text-sm text-emerald-600 flex items-center gap-2">
-<i class="fa-solid fa-wallet"></i> &#x645;&#x62F;&#x6CC;&#x631;&#x6CC;&#x62A; &#x6A9;&#x6CC;&#x641; &#x67E;&#x648;&#x644; &#x6A9;&#x627;&#x631;&#x628;&#x631;
+<i class="fa-solid fa-wallet"></i> مدیریت کیف پول کاربر
 </h4>
 <form onsubmit="handleChargeWallet(event)" class="space-y-3">
 <select id="admin-charge-user" required class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono"></select>
-<input type="number" id="admin-charge-amount" required placeholder="&#x645;&#x628;&#x644;&#x63A; (&#x62A;&#x648;&#x645;&#x627;&#x646;)" class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono">
+<input type="number" id="admin-charge-amount" required placeholder="مبلغ (تومان)" class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono">
 <div class="flex gap-2">
-<button type="submit" onclick="setWalletAction('add')" class="flex-1 bg-emerald-600 text-white font-titr py-2 rounded-xl text-xs">&#x627;&#x641;&#x632;&#x627;&#x6CC;&#x634; &#x645;&#x648;&#x62C;&#x648;&#x62F;&#x6CC;</button>
-<button type="submit" onclick="setWalletAction('deduct')" class="flex-1 bg-rose-600 text-white font-titr py-2 rounded-xl text-xs">&#x6A9;&#x627;&#x647;&#x634; &#x645;&#x648;&#x62C;&#x648;&#x62F;&#x6CC;</button>
+<button type="submit" onclick="setWalletAction('add')" class="flex-1 bg-emerald-600 text-white font-titr py-2 rounded-xl text-xs">افزایش موجودی</button>
+<button type="submit" onclick="setWalletAction('deduct')" class="flex-1 bg-rose-600 text-white font-titr py-2 rounded-xl text-xs">کاهش موجودی</button>
 </div>
 </form>
 </div>
 </div>
 
 <div class="space-y-3">
-<h4 class="font-titr text-base text-slate-800">&#x1F465; &#x644;&#x6CC;&#x633;&#x62A; &#x6A9;&#x627;&#x631;&#x628;&#x631;&#x627;&#x646; &#x648; &#x645;&#x648;&#x62C;&#x648;&#x62F;&#x6CC;&#x200C;&#x647;&#x627;</h4>
+<h4 class="font-titr text-base text-slate-800">👥 لیست کاربران و مدیریت حساب‌ها</h4>
 <div class="overflow-x-auto">
 <table class="w-full text-right text-sm">
 <thead class="bg-slate-100 text-slate-600 text-xs font-titr">
 <tr>
-<th class="p-3">&#x646;&#x627;&#x645; &#x6A9;&#x627;&#x631;&#x628;&#x631;&#x6CC;</th>
-<th class="p-3">&#x646;&#x642;&#x634;</th>
-<th class="p-3">&#x645;&#x648;&#x62C;&#x648;&#x62F;&#x6CC; &#x6A9;&#x6CC;&#x641; &#x67E;&#x648;&#x644;</th>
+<th class="p-3">نام کاربری</th>
+<th class="p-3">نقش</th>
+<th class="p-3">موجودی کیف پول</th>
+<th class="p-3">وضعیت حساب</th>
+<th class="p-3">عملیات</th>
 </tr>
 </thead>
 <tbody id="admin-users-table" class="divide-y text-slate-700"></tbody>
@@ -575,31 +642,31 @@ cursor: pointer;
 </div>
 </div>
 
-<!-- &#x648;&#x636;&#x639;&#x6CC;&#x62A; &#x633;&#x641;&#x627;&#x631;&#x634;&#x627;&#x62A; (&#x645;&#x62F;&#x6CC;&#x631;&#x6CC;&#x62A;) -->
+<!-- وضعیت سفارشات (مدیریت) -->
 <div class="space-y-3 border-t pt-6">
-<h4 class="font-titr text-base text-slate-800">&#x1F4E6; &#x648;&#x636;&#x639;&#x6CC;&#x62A; &#x633;&#x641;&#x627;&#x631;&#x634;&#x627;&#x62A;</h4>
+<h4 class="font-titr text-base text-slate-800">📦 وضعیت سفارشات</h4>
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-slate-100 p-1.5 rounded-2xl border">
-<button type="button" onclick="filterAdminOrders('all')" id="admin-filter-all" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">&#x647;&#x645;&#x647;</button>
-<button type="button" onclick="filterAdminOrders('pending')" id="admin-filter-pending" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">&#x23F3; &#x62F;&#x631; &#x62D;&#x627;&#x644; &#x627;&#x646;&#x62C;&#x627;&#x645;</button>
-<button type="button" onclick="filterAdminOrders('done')" id="admin-filter-done" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">&#x2705; &#x627;&#x646;&#x62C;&#x627;&#x645; &#x634;&#x62F;&#x647;</button>
-<button type="button" onclick="filterAdminOrders('canceled')" id="admin-filter-canceled" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">&#x274C; &#x644;&#x63A;&#x648; &#x634;&#x62F;&#x647;</button>
+<button type="button" onclick="filterAdminOrders('all')" id="admin-filter-all" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">همه</button>
+<button type="button" onclick="filterAdminOrders('pending')" id="admin-filter-pending" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">⏳ در حال انجام</button>
+<button type="button" onclick="filterAdminOrders('done')" id="admin-filter-done" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">✅ انجام شده</button>
+<button type="button" onclick="filterAdminOrders('canceled')" id="admin-filter-canceled" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">❌ لغو شده</button>
 </div>
 <div class="overflow-x-auto">
 <table class="w-full text-right text-sm">
 <thead class="bg-slate-100 text-slate-600 text-xs font-titr">
 <tr>
-<th class="p-3">&#x6A9;&#x62F;</th>
-<th class="p-3">&#x646;&#x627;&#x645; &#x6A9;&#x627;&#x631;&#x628;&#x631;&#x6CC;</th>
-<th class="p-3">&#x644;&#x6CC;&#x646;&#x6A9; &#x633;&#x641;&#x627;&#x631;&#x634;</th>
-<th class="p-3">&#x646;&#x648;&#x639; &#x633;&#x641;&#x627;&#x631;&#x634;</th>
-<th class="p-3">&#x62A;&#x639;&#x62F;&#x627;&#x62F;</th>
-<th class="p-3">&#x645;&#x628;&#x644;&#x63A;</th>
-<th class="p-3">&#x648;&#x636;&#x639;&#x6CC;&#x62A;</th>
+<th class="p-3">کد</th>
+<th class="p-3">نام کاربری</th>
+<th class="p-3">لینک سفارش</th>
+<th class="p-3">نوع سفارش</th>
+<th class="p-3">تعداد</th>
+<th class="p-3">مبلغ</th>
+<th class="p-3">وضعیت</th>
 </tr>
 </thead>
 <tbody id="admin-orders-table" class="divide-y text-slate-700"></tbody>
 </table>
-<div id="admin-orders-empty" class="hidden text-center py-8 text-slate-400 font-titr">&#x647;&#x6CC;&#x686; &#x633;&#x641;&#x627;&#x631;&#x634;&#x6CC; &#x62F;&#x631; &#x627;&#x6CC;&#x646; &#x628;&#x62E;&#x634; &#x648;&#x62C;&#x648;&#x62F; &#x646;&#x62F;&#x627;&#x631;&#x62F;.</div>
+<div id="admin-orders-empty" class="hidden text-center py-8 text-slate-400 font-titr">هیچ سفارشی در این بخش وجود ندارد.</div>
 </div>
 </div>
 </div>
@@ -610,17 +677,17 @@ cursor: pointer;
 <div class="max-w-md mx-auto grid grid-cols-3 gap-2 text-center">
 <button onclick="switchTab('tracking')" id="nav-btn-tracking" class="flex flex-col items-center py-1 text-slate-500">
 <i class="fa-solid fa-list-check text-lg mb-1"></i>
-<span class="text-[10px] font-titr">&#x67E;&#x6CC;&#x6AF;&#x6CC;&#x631;&#x6CC;</span>
+<span class="text-[10px] font-titr">پیگیری</span>
 </button>
-<button onclick="switchTab('store')" id="nav-btn-store" class="flex flex-col items-center py-1 text-eitaa-500">
+<button onclick="switchTab('home')" id="nav-btn-store" class="flex flex-col items-center py-1 text-eitaa-500">
 <div class="w-9 h-9 -mt-4 rounded-full bg-eitaa-500 text-white flex items-center justify-center shadow-md">
 <i class="fa-solid fa-house text-sm"></i>
 </div>
-<span class="text-[10px] font-titr mt-1">&#x62E;&#x627;&#x646;&#x647;</span>
+<span class="text-[10px] font-titr mt-1">خانه</span>
 </button>
 <button onclick="switchTab('fake-member')" id="nav-btn-fake" class="flex flex-col items-center py-1 text-slate-500">
 <i class="fa-solid fa-robot text-lg mb-1"></i>
-<span class="text-[10px] font-titr">&#x645;&#x645;&#x628;&#x631; &#x641;&#x6CC;&#x6A9;</span>
+<span class="text-[10px] font-titr">ممبر فیک</span>
 </button>
 </div>
 </div>
@@ -632,7 +699,7 @@ try { localStorage.setItem('__t','1'); localStorage.removeItem('__t'); return lo
 catch(e) { return { getItem:function(k){return mem.hasOwnProperty(k)?mem[k]:null;}, setItem:function(k,v){mem[k]=String(v);}, removeItem:function(k){delete mem[k];} }; }
 })();
 var initialUsers = {
-'Sobhan201088': { password: 'Sobhan201088', role: 'admin', balance: 10000000 }
+'Sobhan201088': { password: 'Sobhan201088', role: 'admin', balance: 10000000, isBlocked: false }
 };
 
 var users = JSON.parse(safeStore.getItem('app_users')) || initialUsers;
@@ -646,18 +713,40 @@ var mockOrders = JSON.parse(safeStore.getItem('app_orders')) || [
 function saveUsers() { safeStore.setItem('app_users', JSON.stringify(users)); }
 function saveOrders() { safeStore.setItem('app_orders', JSON.stringify(mockOrders)); }
 
-var services = [ 
-{ id:101, name:"\u0645\u0645\u0628\u0631 \u0648\u0627\u0642\u0639\u06cc \u0627\u06cc\u062a\u0627", price:65000, unit:"\u0647\u0631 \u06f1\u06f0\u06f0\u06f0 \u0645\u0645\u0628\u0631", desc:"\u0627\u0639\u0636\u0627\u06cc \u0648\u0627\u0642\u0639\u06cc \u06a9\u0627\u0646\u0627\u0644", icon:"fa-users" },
-{ id:102, name:"\u0645\u0645\u0628\u0631 \u06af\u0631\u0648\u0647 \u0627\u06cc\u062a\u0627", price:75000, unit:"\u0647\u0631 \u06f1\u06f0\u06f0\u06f0 \u0645\u0645\u0628\u0631", desc:"\u0627\u0641\u0632\u0627\u06cc\u0634 \u0627\u0639\u0636\u0627\u06cc \u06af\u0631\u0648\u0647", icon:"fa-user-group" },
-{ id:201, name:"\u0648\u06cc\u0648 \u06f2 \u067e\u0633\u062a \u0622\u062e\u0631", price:15000, unit:"\u0647\u0631 \u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648", desc:"\u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648 \u0628\u0631\u0627\u06cc \u06f2 \u067e\u0633\u062a \u0627\u062e\u06cc\u0631", icon:"fa-eye" },
-{ id:202, name:"\u0648\u06cc\u0648 \u06f5 \u067e\u0633\u062a \u0622\u062e\u0631", price:25000, unit:"\u0647\u0631 \u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648", desc:"\u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648 \u0628\u0631\u0627\u06cc \u06f5 \u067e\u0633\u062a \u0627\u062e\u06cc\u0631", icon:"fa-eye" },
-{ id:203, name:"\u0648\u06cc\u0648 \u06f1\u06f0 \u067e\u0633\u062a \u0622\u062e\u0631", price:37000, unit:"\u0647\u0631 \u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648", desc:"\u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648 \u0628\u0631\u0627\u06cc \u06f1\u06f0 \u067e\u0633\u062a \u0627\u062e\u06cc\u0631", icon:"fa-eye" },
-{ id:204, name:"\u0648\u06cc\u0648 \u06f1\u06f5 \u067e\u0633\u062a \u0622\u062e\u0631", price:45000, unit:"\u0647\u0631 \u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648", desc:"\u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648 \u0628\u0631\u0627\u06cc \u06f1\u06f5 \u067e\u0633\u062a \u0627\u062e\u06cc\u0631", icon:"fa-eye" },
-{ id:205, name:"\u0648\u06cc\u0648 \u06f2\u06f0 \u067e\u0633\u062a \u0622\u062e\u0631", price:55000, unit:"\u0647\u0631 \u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648", desc:"\u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648 \u0628\u0631\u0627\u06cc \u06f2\u06f0 \u067e\u0633\u062a \u0627\u062e\u06cc\u0631", icon:"fa-eye" },
-{ id:206, name:"\u0648\u06cc\u0648 \u06f2\u06f5 \u067e\u0633\u062a \u0622\u062e\u0631", price:65000, unit:"\u0647\u0631 \u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648", desc:"\u06f1\u06f0\u06f0\u06f0 \u0648\u06cc\u0648 \u0628\u0631\u0627\u06cc \u06f2\u06f5 \u067e\u0633\u062a \u0627\u062e\u06cc\u0631", icon:"fa-eye" }
+var services = [
+{ id:101, platform:'eitaa', name:"ممبر واقعی ایتا", price:65000, unit:"هر ۱۰۰۰ ممبر", desc:"اعضای واقعی کانال", icon:"fa-users", suffix:"عدد" },
+{ id:102, platform:'eitaa', name:"ممبر گروه ایتا", price:75000, unit:"هر ۱۰۰۰ ممبر", desc:"افزایش اعضای گروه", icon:"fa-user-group", suffix:"عدد" },
+{ id:201, platform:'eitaa', name:"ویو ۲ پست آخر", price:15000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۲ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:202, platform:'eitaa', name:"ویو ۵ پست آخر", price:25000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۵ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:203, platform:'eitaa', name:"ویو ۱۰ پست آخر", price:37000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۱۰ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:204, platform:'eitaa', name:"ویو ۱۵ پست آخر", price:45000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۱۵ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:205, platform:'eitaa', name:"ویو ۲۰ پست آخر", price:55000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۲۰ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:206, platform:'eitaa', name:"ویو ۲۵ پست آخر", price:65000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۲۵ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:301, platform:'bale', name:"ممبر کانال بله", price:95000, unit:"هر ۱۰۰۰ ممبر", desc:"افزایش اعضای کانال بله", icon:"fa-users", suffix:"عدد" },
+{ id:302, platform:'bale', name:"ممبر گروه بله", price:105000, unit:"هر ۱۰۰۰ ممبر", desc:"افزایش اعضای گروه بله", icon:"fa-user-group", suffix:"عدد" },
+{ id:401, platform:'bale', name:"ویو ۵ پست آخر بله", price:25000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۵ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:402, platform:'bale', name:"ویو ۱۰ پست آخر بله", price:37000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۱۰ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:403, platform:'bale', name:"ویو ۲۰ پست آخر بله", price:50000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۲۰ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:404, platform:'bale', name:"ویو ۳۰ پست آخر بله", price:65000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۳۰ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:405, platform:'bale', name:"ویو ۵۰ پست آخر بله", price:85000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۵۰ پست اخیر", icon:"fa-eye", suffix:"ویو" },
+{ id:501, platform:'bale', name:"ری‌اکشن بله", price:48000, unit:"هر ۱۰۰۰ ری‌اکشن", desc:"۱۰۰۰ ری‌اکشن برای پست‌های کانال", icon:"fa-heart", suffix:"ری‌اکشن" }
 ];
 
-var selectedService = services[0];
+var currentPlatform = safeStore.getItem('app_platform') === 'bale' ? 'bale' : 'eitaa';
+function getPlatformServices(p) {
+var out = [];
+for (var i = 0; i < services.length; i++) { if (services[i].platform === p) out.push(services[i]); }
+return out;
+}
+function getPlatform(o) {
+return o.platform || (String(o.service || '').indexOf('بله') !== -1 ? 'bale' : 'eitaa');
+}
+function platformBadge(p) {
+return p === 'bale'
+? '<span class="px-2 py-0.5 rounded-full text-xs font-titr" style="background:#ccfbf1;color:#0f766e">بله</span>'
+: '<span class="px-2 py-0.5 rounded-full text-xs font-titr" style="background:#ffedd5;color:#c2410c">ایتا</span>';
+}
+var selectedService = getPlatformServices(currentPlatform)[0];
 var currentQuantity = 1000;
 var currentFilter = 'pending';
 var currentFakeQty = 100;
@@ -686,6 +775,10 @@ var u = document.getElementById('login-username').value.trim();
 var p = document.getElementById('login-password').value.trim();
 
 if (users[u] && users[u].password === p) {
+if (users[u].isBlocked) {
+alert('حساب کاربری شما مسدود است');
+return;
+}
 currentUser = u;
 safeStore.setItem('app_current_user', currentUser);
 checkAuth();
@@ -714,14 +807,65 @@ document.getElementById('display-user-balance').innerText = users[currentUser].b
 }
 }
 
+function updateNavActive(tab) {
+var ids = ['home','store','fake-member','tracking','support'];
+for (var i = 0; i < ids.length; i++) {
+var b = document.getElementById('tab-btn-' + ids[i]);
+if (!b) continue;
+if (ids[i] === tab) { b.classList.add('bg-eitaa-500','text-white'); b.classList.remove('text-slate-600'); }
+else { b.classList.remove('bg-eitaa-500','text-white'); b.classList.add('text-slate-600'); }
+}
+}
+
+function applyTheme(tab) {
+var isBale = currentPlatform === 'bale';
+var b = document.body;
+b.classList.remove('theme-home','theme-bale');
+if (tab === 'home') b.classList.add('theme-home');
+else if (isBale) b.classList.add('theme-bale');
+
+var sub = document.getElementById('brand-sub');
+if (sub) sub.innerText = (tab === 'home') ? 'ایتا • بله' : (isBale ? 'سرویس بله' : 'سرویس ایتا');
+var ht = document.getElementById('hero-title');
+if (ht) ht.innerText = isBale ? 'ارتقای حرفه‌ای کانال و گروه بله' : 'ارتقای حرفه‌ای کانال و گروه ایتا';
+var hb = document.getElementById('hero-badge');
+if (hb) hb.innerText = isBale ? '⚡ سرویس بله' : '⚡ سرویس ایتا';
+var inp = document.getElementById('channel-link');
+if (inp) inp.placeholder = isBale ? '@my_channel' : 'my_channel@';
+
+var fb = document.getElementById('nav-btn-fake');
+if (fb) {
+if (isBale) {
+fb.setAttribute('onclick', "switchTab('support')");
+fb.innerHTML = '<i class="fa-solid fa-headset text-lg mb-1"></i><span class="text-[10px] font-titr">پشتیبانی</span>';
+} else {
+fb.setAttribute('onclick', "switchTab('fake-member')");
+fb.innerHTML = '<i class="fa-solid fa-robot text-lg mb-1"></i><span class="text-[10px] font-titr">ممبر فیک</span>';
+}
+}
+}
+
+function selectPlatform(p) {
+currentPlatform = p;
+safeStore.setItem('app_platform', p);
+selectedService = getPlatformServices(p)[0];
+renderServices();
+calculateSummary();
+refreshQuantityBadge();
+switchTab('store');
+}
+
 function switchTab(tab) {
-var sections = ['store','fake-member','tracking','support','admin'];
+if (tab === 'fake-member' && currentPlatform === 'bale') tab = 'store';
+var sections = ['home','store','fake-member','tracking','support','admin'];
 for(var i=0; i<sections.length; i++) {
 var el = document.getElementById('section-' + sections[i]);
 if(el) el.classList.add('hidden');
 }
 var targetEl = document.getElementById('section-' + tab);
 if(targetEl) targetEl.classList.remove('hidden');
+applyTheme(tab);
+updateNavActive(tab);
 window.scrollTo({ top: 0, behavior: 'smooth' });
 if(tab === 'tracking') filterTrackingOrders(currentFilter);
 if(tab === 'admin') { renderAdminUsers(); renderAdminOrders(); }
@@ -729,15 +873,16 @@ if(tab === 'admin') { renderAdminUsers(); renderAdminOrders(); }
 
 function renderServices() {
 var container = document.getElementById('services-container');
+var list = getPlatformServices(currentPlatform);
 var html = '';
-for (var i = 0; i < services.length; i++) {
-var s = services[i];
+for (var i = 0; i < list.length; i++) {
+var s = list[i];
 var active = (s.id === selectedService.id) ? 'glass-box-active' : '';
 html += '<div onclick="selectService(' + s.id + ')" class="glass-box p-4 rounded-2xl cursor-pointer ' + active + ' hover:border-eitaa-500">';
 html += ' <div class="w-9 h-9 rounded-xl bg-eitaa-50 text-eitaa-500 flex items-center justify-center text-base mb-2"><i class="fa-solid ' + s.icon + '"></i></div>';
 html += ' <h4 class="font-titr text-sm text-slate-800 mb-1">' + s.name + '</h4>';
 html += ' <p class="text-[11px] text-slate-500 mb-2">' + s.desc + '</p>';
-html += ' <div class="font-titr text-xs text-eitaa-600 pt-2 border-t">' + s.price.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646</div>';
+html += ' <div class="font-titr text-xs text-eitaa-600 pt-2 border-t">' + s.price.toLocaleString('fa-IR') + ' تومان</div>';
 html += '</div>';
 }
 container.innerHTML = html;
@@ -749,23 +894,24 @@ if (services[i].id === id) { selectedService = services[i]; break; }
 }
 renderServices();
 calculateSummary();
+refreshQuantityBadge();
+}
+
+function refreshQuantityBadge() {
+document.getElementById('quantity-badge').innerText = currentQuantity.toLocaleString('fa-IR') + ' ' + (selectedService.suffix || 'عدد');
 }
 
 function updateQuantityFromInput(val) {
 currentQuantity = parseInt(val) || 0;
 document.getElementById('quantity-slider').value = currentQuantity;
-var isView = selectedService.name.includes('\u0648\u06cc\u0648');
-var suffix = isView ? '\u0648\u06cc\u0648' : '\u0639\u062f\u062f';
-document.getElementById('quantity-badge').innerText = currentQuantity.toLocaleString('fa-IR') + ' ' + suffix;
+refreshQuantityBadge();
 calculateSummary();
 }
 
 function updateQuantityFromSlider(val) {
 currentQuantity = parseInt(val);
 document.getElementById('custom-quantity-input').value = currentQuantity;
-var isView = selectedService.name.includes('\u0648\u06cc\u0648');
-var suffix = isView ? '\u0648\u06cc\u0648' : '\u0639\u062f\u062f';
-document.getElementById('quantity-badge').innerText = currentQuantity.toLocaleString('fa-IR') + ' ' + suffix;
+refreshQuantityBadge();
 calculateSummary();
 }
 
@@ -794,7 +940,7 @@ saveUsers();
 updateHeaderUserInfo();
 var link = document.getElementById('fake-channel-link').value;
 var newId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
-mockOrders.unshift({ user: currentUser, id: newId, link: link, service: '\u0645\u0645\u0628\u0631 \u0641\u06cc\u06a9', qty: currentFakeQty, amount: total, status: 'pending' });
+mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: 'eitaa', service: '\u0645\u0645\u0628\u0631 \u0641\u06cc\u06a9', qty: currentFakeQty, amount: total, status: 'pending' });
 saveOrders();
 alert('\u0633\u0641\u0627\u0631\u0634 \u062b\u0628\u062a \u0634\u062f!\n\u06a9\u062f \u067e\u06cc\u06af\u06cc\u0631\u06cc: ' + newId);
 switchTab('tracking');
@@ -813,7 +959,7 @@ saveUsers();
 updateHeaderUserInfo();
 var link = document.getElementById('channel-link').value;
 var newId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
-mockOrders.unshift({ user: currentUser, id: newId, link: link, service: selectedService.name, qty: currentQuantity, amount: total, status: 'pending' });
+mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: selectedService.platform, service: selectedService.name, qty: currentQuantity, amount: total, status: 'pending' });
 saveOrders();
 alert('\u0633\u0641\u0627\u0631\u0634 \u062b\u0628\u062a \u0634\u062f!\n\u06a9\u062f \u067e\u06cc\u06af\u06cc\u0631\u06cc: ' + newId);
 switchTab('tracking');
@@ -843,7 +989,7 @@ var html = '';
 for(var j=0; j<filtered.length; j++) {
 var o = filtered[j];
 var badge = o.status === 'done' ? '<span class="px-2 py-0.5 rounded-full text-xs bg-emerald-100 text-emerald-700">\u0627\u0646\u062c\u0627\u0645 \u0634\u062f\u0647</span>' : (o.status === 'pending' ? '<span class="px-2 py-0.5 rounded-full text-xs bg-amber-100 text-amber-700">\u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062c\u0627\u0645</span>' : '<span class="px-2 py-0.5 rounded-full text-xs bg-rose-100 text-rose-700">\u0644\u063a\u0648 \u0634\u062f\u0647</span>');
-html += '<tr><td class="p-3 font-mono font-bold text-eitaa-600">' + o.id + '</td><td class="p-3 font-mono text-slate-600" dir="ltr">' + o.link + '</td><td class="p-3 font-titr">' + o.service + '</td><td class="p-3">' + o.qty.toLocaleString('fa-IR') + '</td><td class="p-3">' + o.amount.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646</td><td class="p-3">' + badge + '</td></tr>';
+html += '<tr><td class="p-3 font-mono font-bold text-eitaa-600">' + escapeHtml(o.id) + '</td><td class="p-3 font-mono text-slate-600" dir="ltr">' + escapeHtml(o.link) + '</td><td class="p-3 font-titr">' + escapeHtml(o.service) + '</td><td class="p-3">' + platformBadge(getPlatform(o)) + '</td><td class="p-3">' + o.qty.toLocaleString('fa-IR') + '</td><td class="p-3">' + o.amount.toLocaleString('fa-IR') + ' تومان</td><td class="p-3">' + badge + '</td></tr>';
 }
 tbody.innerHTML = html;
 }
@@ -853,10 +999,28 @@ e.preventDefault();
 var u = document.getElementById('admin-new-username').value.trim();
 var p = document.getElementById('admin-new-password').value.trim();
 if(users[u]) { alert('\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062a\u06a9\u0631\u0627\u0631\u06cc \u0627\u0633\u062a!'); return; }
-users[u] = { password: p, role: 'customer', balance: 0 };
+users[u] = { password: p, role: 'customer', balance: 0, isBlocked: false };
 saveUsers();
 renderAdminUsers();
 alert('\u06a9\u0627\u0631\u0628\u0631 \u062c\u062f\u06cc\u062f \u0627\u06cc\u062c\u0627\u062f \u0634\u062f.');
+}
+
+function toggleBlockUser(u) {
+if (u === 'Sobhan201088') { alert('امکان مسدودسازی مدیر اصلی وجود ندارد.'); return; }
+if (users[u]) {
+users[u].isBlocked = !users[u].isBlocked;
+saveUsers();
+renderAdminUsers();
+}
+}
+
+function deleteUser(u) {
+if (u === 'Sobhan201088') { alert('امکان حذف مدیر اصلی وجود ندارد.'); return; }
+if (confirm('آیا از حذف کاربر "' + u + '" اطمینان دارید؟')) {
+delete users[u];
+saveUsers();
+renderAdminUsers();
+}
 }
 
 function setWalletAction(action) { walletAction = action; }
@@ -887,7 +1051,28 @@ if(!tbody || !select) return;
 var html = '', selectHtml = '';
 for(var u in users) {
 var roleBadge = users[u].role === 'admin' ? '<span class="text-amber-600 font-bold">\u0645\u062f\u06cc\u0631</span>' : '<span class="text-slate-500">\u0645\u0634\u062a\u0631\u06cc</span>';
-html += '<tr><td class="p-3 font-mono font-bold text-slate-800">' + u + '</td><td class="p-3">' + roleBadge + '</td><td class="p-3 font-bold text-emerald-600">' + users[u].balance.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646</td></tr>';
+var statusBadge = users[u].isBlocked ? '<span class="px-2 py-0.5 rounded-full text-xs bg-rose-100 text-rose-700 font-bold">مسدود شده</span>' : '<span class="px-2 py-0.5 rounded-full text-xs bg-emerald-100 text-emerald-700 font-bold">فعال</span>';
+var blockBtnText = users[u].isBlocked ? 'رفع انسداد' : 'مسدود کردن';
+var blockBtnCls = users[u].isBlocked ? 'bg-amber-500 hover:bg-amber-600' : 'bg-orange-600 hover:bg-orange-700';
+
+var actionsHtml = '';
+if (u !== 'Sobhan201088') {
+actionsHtml = '<div class="flex gap-1">'
++ '<button onclick="toggleBlockUser(\'' + u + '\')" class="px-2 py-1 text-xs text-white rounded-lg font-titr ' + blockBtnCls + '">' + blockBtnText + '</button>'
++ '<button onclick="deleteUser(\'' + u + '\')" class="px-2 py-1 text-xs text-white bg-rose-600 hover:bg-rose-700 rounded-lg font-titr">حذف</button>'
++ '</div>';
+} else {
+actionsHtml = '<span class="text-xs text-slate-400">-</span>';
+}
+
+html += '<tr>'
++ '<td class="p-3 font-mono font-bold text-slate-800">' + u + '</td>'
++ '<td class="p-3">' + roleBadge + '</td>'
++ '<td class="p-3 font-bold text-emerald-600">' + users[u].balance.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646</td>'
++ '<td class="p-3">' + statusBadge + '</td>'
++ '<td class="p-3">' + actionsHtml + '</td>'
++ '</tr>';
+
 selectHtml += '<option value="' + u + '">' + u + ' (\u0641\u0639\u0644\u06cc: ' + users[u].balance.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646)</option>';
 }
 tbody.innerHTML = html;
@@ -902,10 +1087,12 @@ return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;
 
 function getOrderType(o) {
 var s = o.service || '';
-if (s.indexOf('\u0641\u06cc\u06a9') !== -1) return { label: '\u0645\u0645\u0628\u0631 \u0641\u06cc\u06a9', cls: 'bg-purple-100 text-purple-700' };
-if (s.indexOf('\u0648\u06cc\u0648') !== -1) return { label: '\u0648\u06cc\u0648', cls: 'bg-sky-100 text-sky-700' };
-if (s.indexOf('\u06af\u0631\u0648\u0647') !== -1) return { label: '\u0645\u0645\u0628\u0631 \u06af\u0631\u0648\u0647', cls: 'bg-indigo-100 text-indigo-700' };
-return { label: '\u0645\u0645\u0628\u0631 \u06a9\u0627\u0646\u0627\u0644', cls: 'bg-orange-100 text-orange-700' };
+var pl = getPlatform(o) === 'bale' ? ' (بله)' : ' (ایتا)';
+if (s.indexOf('فیک') !== -1) return { label: 'ممبر فیک' + pl, cls: 'bg-purple-100 text-purple-700' };
+if (s.indexOf('ویو') !== -1) return { label: 'ویو' + pl, cls: 'bg-sky-100 text-sky-700' };
+if (s.indexOf('اکشن') !== -1) return { label: 'ری‌اکشن' + pl, cls: 'bg-rose-100 text-rose-700' };
+if (s.indexOf('گروه') !== -1) return { label: 'ممبر گروه' + pl, cls: 'bg-indigo-100 text-indigo-700' };
+return { label: 'ممبر کانال' + pl, cls: 'bg-amber-100 text-amber-700' };
 }
 
 function filterAdminOrders(status) {
@@ -968,7 +1155,7 @@ tbody.innerHTML = html;
 if (shown === 0) empty.classList.remove('hidden'); else empty.classList.add('hidden');
 }
 
-// \u0627\u062c\u0631\u0627\u06cc \u0641\u0631\u0645\u200c\u0647\u0627 \u0628\u062f\u0648\u0646 \u0648\u0627\u0628\u0633\u062a\u06af\u06cc \u0628\u0647 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0634\u200c\u0641\u0631\u0636 \u0645\u0631\u0648\u0631\u06af\u0631 (\u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0631\u0641\u0631\u0634 \u0634\u062f\u0646 \u0635\u0641\u062d\u0647)
+// اجرای فرم‌ها بدون وابستگی به ارسال پیش‌فرض مرورگر (جلوگیری از رفرش شدن صفحه)
 document.addEventListener('click', function(ev) {
 var btn = ev.target.closest ? ev.target.closest('button[type="submit"]') : null;
 if (!btn) return;
@@ -990,6 +1177,7 @@ renderAdminOrders();
 renderServices();
 calculateSummary();
 updateFakeQuantity(100);
+switchTab('home');
 </script>
 </body>
 </html>
