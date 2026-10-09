@@ -29,34 +29,30 @@ font-weight: bold;
 .font-titr { font-family: 'B Titr', 'Vazirmatn', sans-serif !important; font-weight: bold; }
 body {
 font-family: 'Vazirmatn', sans-serif;
-background-color: #030712;
-color: #f3f4f6;
+background-color: #ffffff;
+color: #1f2937;
 min-height: 100vh;
 overflow-x: hidden;
-background-image: radial-gradient(circle at 10% 20%, rgba(255,107,0,0.12) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(176,6,255,0.1) 0%, transparent 40%);
-background-attachment: fixed;
 padding-bottom: 90px;
 }
 .glass-box {
-background: rgba(15,23,42,0.75);
-backdrop-filter: blur(16px);
-border: 1px solid rgba(255,255,255,0.08);
-box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+background: #ffffff;
+border: 1px solid #e5e7eb;
+box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
 }
 .glass-box-active {
-background: linear-gradient(135deg, rgba(255,107,0,0.18), rgba(15,23,42,0.9));
+background: #fff7ed;
 border: 2px solid #ff6b00;
-box-shadow: 0 0 25px rgba(255,107,0,0.35);
+box-shadow: 0 0 15px rgba(255,107,0,0.2);
 }
-.neon-text-orange { color: #ff8c00; text-shadow: 0 0 12px rgba(255,107,0,0.6); }
 .gradient-titr-btn {
 background: linear-gradient(135deg, #ff8c00, #ff5500);
 transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-box-shadow: 0 4px 20px rgba(255,107,0,0.4);
+box-shadow: 0 4px 15px rgba(255,107,0,0.3);
 }
 .gradient-titr-btn:hover {
 background: linear-gradient(135deg, #ffa024, #ff6b00);
-box-shadow: 0 6px 30px rgba(255,107,0,0.7);
+box-shadow: 0 6px 20px rgba(255,107,0,0.5);
 transform: translateY(-2px);
 }
 input[type="range"]::-webkit-slider-thumb {
@@ -65,99 +61,104 @@ width: 24px; height: 24px;
 border-radius: 50%;
 background: #ff6b00;
 border: 3px solid #ffffff;
-box-shadow: 0 0 15px #ff6b00;
+box-shadow: 0 0 10px #ff6b00;
 cursor: pointer;
 }
-@keyframes borderGlow {
-0%,100% { border-color: rgba(255,107,0,0.3); box-shadow: 0 0 10px rgba(255,107,0,0.1); }
-50% { border-color: rgba(255,107,0,0.8); box-shadow: 0 0 25px rgba(255,107,0,0.4); }
-}
-.pulse-card { animation: borderGlow 3s infinite ease-in-out; }
 </style>
 </head>
 <body class="flex flex-col justify-between min-h-screen">
 
 <!-- مدال ورود (Login Modal) -->
-<div id="login-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
-<div class="glass-box rounded-3xl p-8 max-w-md w-full border border-eitaa-500/40 shadow-2xl">
+<div id="login-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+<div class="glass-box rounded-3xl p-8 max-w-md w-full border border-eitaa-500/30 shadow-2xl">
 <div class="text-center mb-6">
-<div class="w-16 h-16 rounded-2xl bg-eitaa-500/20 text-eitaa-500 border border-eitaa-500/40 flex items-center justify-center text-3xl mx-auto mb-3">
+<div class="w-16 h-16 rounded-2xl bg-eitaa-50 text-eitaa-500 border border-eitaa-500/20 flex items-center justify-center text-3xl mx-auto mb-3">
 <i class="fa-solid fa-user-lock"></i>
 </div>
-<h3 class="font-titr text-2xl text-white">ورود به سامانه</h3>
-<p class="text-xs text-slate-400 mt-1">جهت دسترسی به خدمات و کیف پول وارد شوید</p>
+<h3 class="font-titr text-2xl text-slate-800">ورود به سامانه</h3>
+<p class="text-xs text-slate-500 mt-1">جهت دسترسی به خدمات و کیف پول وارد شوید</p>
 </div>
 <form onsubmit="handleLogin(event)" class="space-y-5">
 <div>
-<label class="block font-titr text-sm text-slate-300 mb-2">نام کاربری</label>
-<input type="text" id="login-username" required dir="ltr" placeholder="Username" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 font-mono text-center focus:outline-none focus:border-eitaa-500">
+<label class="block font-titr text-sm text-slate-700 mb-2">نام کاربری</label>
+<input type="text" id="login-username" required dir="ltr" placeholder="Username" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-mono text-center focus:outline-none focus:border-eitaa-500">
 </div>
 <div>
-<label class="block font-titr text-sm text-slate-300 mb-2">رمز عبور</label>
-<input type="password" id="login-password" required dir="ltr" placeholder="Password" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 font-mono text-center focus:outline-none focus:border-eitaa-500">
+<label class="block font-titr text-sm text-slate-700 mb-2">رمز عبور</label>
+<input type="password" id="login-password" required dir="ltr" placeholder="Password" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-mono text-center focus:outline-none focus:border-eitaa-500">
 </div>
 <button type="submit" class="w-full gradient-titr-btn text-white font-titr py-3.5 rounded-xl text-lg">ورود به سیستم</button>
 </form>
 </div>
 </div>
 
-<header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/80">
+<!-- کادر پیام خوش‌آمدگویی -->
+<div id="welcome-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+<div class="glass-box rounded-3xl p-8 max-w-sm w-full text-center border-2 border-emerald-500 shadow-2xl">
+<div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+<i class="fa-solid fa-circle-check"></i>
+</div>
+<h3 class="font-titr text-2xl text-slate-800 mb-2">ورود موفقیت‌آمیز</h3>
+<p class="text-sm text-slate-600 mb-6">با موفقیت وارد حساب کاربری خود شدید!</p>
+<button onclick="closeWelcomeModal()" class="w-full bg-emerald-600 text-white font-titr py-3 rounded-xl text-lg hover:bg-emerald-700">متوجه شدم</button>
+</div>
+</div>
+
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex items-center justify-between h-24">
+<div class="flex items-center justify-between h-20">
 <div class="flex items-center gap-4">
-<!-- منوی سه نقطه بالا سمت راست -->
 <div class="relative">
-<button onclick="toggleMenu()" class="w-12 h-12 rounded-2xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-xl transition-all">
+<button onclick="toggleMenu()" class="w-11 h-11 rounded-2xl bg-slate-100 border border-slate-300 text-slate-700 flex items-center justify-center text-lg">
 <i class="fa-solid fa-ellipsis-vertical"></i>
 </button>
-<div id="dropdown-menu" class="hidden absolute right-0 mt-3 w-64 glass-box rounded-2xl p-2 z-50 border border-slate-700 shadow-2xl">
-<button onclick="switchTab('tracking'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-200 flex items-center gap-3 transition">
-<i class="fa-solid fa-magnifying-glass text-eitaa-400"></i>
+<div id="dropdown-menu" class="hidden absolute right-0 mt-3 w-64 glass-box rounded-2xl p-2 z-50 shadow-xl">
+<button onclick="switchTab('tracking'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
+<i class="fa-solid fa-magnifying-glass text-eitaa-500"></i>
 <span class="font-titr text-sm">پیگیری سفارشات</span>
 </button>
-<button onclick="switchTab('fake-member'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-200 flex items-center gap-3 transition">
-<i class="fa-solid fa-robot text-purple-400"></i>
+<button onclick="switchTab('fake-member'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
+<i class="fa-solid fa-robot text-purple-600"></i>
 <span class="font-titr text-sm">ممبر فیک (مخصوص)</span>
 </button>
-<button onclick="switchTab('support'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-800 text-slate-200 flex items-center gap-3 transition">
-<i class="fa-solid fa-headset text-emerald-400"></i>
+<button onclick="switchTab('support'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
+<i class="fa-solid fa-headset text-emerald-600"></i>
 <span class="font-titr text-sm">پشتیبانی</span>
 </button>
-<button id="admin-menu-btn" onclick="switchTab('admin'); toggleMenu();" class="hidden w-full text-right px-4 py-3 rounded-xl hover:bg-slate-800 text-amber-400 flex items-center gap-3 transition border-t border-slate-800 mt-1">
+<button id="admin-menu-btn" onclick="switchTab('admin'); toggleMenu();" class="hidden w-full text-right px-4 py-3 rounded-xl hover:bg-amber-50 text-amber-600 flex items-center gap-3 border-t border-slate-200 mt-1">
 <i class="fa-solid fa-user-shield"></i>
 <span class="font-titr text-sm">پنل مدیریت</span>
 </button>
-<button onclick="logout()" class="w-full text-right px-4 py-3 rounded-xl hover:bg-rose-950/50 text-rose-400 flex items-center gap-3 transition border-t border-slate-800 mt-1">
+<button onclick="logout()" class="w-full text-right px-4 py-3 rounded-xl hover:bg-rose-50 text-rose-600 flex items-center gap-3 border-t border-slate-200 mt-1">
 <i class="fa-solid fa-right-from-bracket"></i>
 <span class="font-titr text-sm">خروج از حساب</span>
 </button>
 </div>
 </div>
-<div class="w-12 h-12 rounded-2xl bg-slate-900 border border-eitaa-500/50 flex items-center justify-center text-eitaa-500 text-2xl">
+<div class="w-11 h-11 rounded-2xl bg-eitaa-50 border border-eitaa-500/30 flex items-center justify-center text-eitaa-500 text-xl">
 <i class="fa-solid fa-paper-plane"></i>
 </div>
 <div>
-<h1 class="font-titr text-xl md:text-2xl text-white">ممبر و ویو ایتا</h1>
-<p class="text-xs text-slate-400">سامانه هوشمند فروش خدمات ایتا</p>
+<h1 class="font-titr text-lg md:text-xl text-slate-800">ممبر و ویو ایتا</h1>
+<p class="text-[10px] text-slate-500">سامانه هوشمند فروش خدمات ایتا</p>
 </div>
 </div>
 
 <div class="flex items-center gap-4">
-<!-- نمایش وضعیت کیف پول و کاربر جاری -->
-<div class="bg-slate-900 border border-slate-800 rounded-2xl px-4 py-2 flex items-center gap-3">
+<div class="bg-slate-100 border border-slate-200 rounded-2xl px-4 py-2 flex items-center gap-3">
 <div class="text-right">
-<div class="text-[10px] text-slate-400">خوش آمدید: <span id="display-user-name" class="text-eitaa-400 font-bold">-</span></div>
-<div class="text-xs font-titr text-emerald-400">کیف پول: <span id="display-user-balance">۰</span> تومان</div>
+<div class="text-[10px] text-slate-500">خوش آمدید: <span id="display-user-name" class="text-eitaa-600 font-bold">-</span></div>
+<div class="text-xs font-titr text-emerald-600">کیف پول: <span id="display-user-balance">۰</span> تومان</div>
 </div>
-<i class="fa-solid fa-wallet text-xl text-emerald-400"></i>
+<i class="fa-solid fa-wallet text-xl text-emerald-600"></i>
 </div>
 
-<nav class="hidden md:flex items-center gap-2 bg-slate-900/90 p-2 rounded-2xl border border-slate-800">
-<button onclick="switchTab('store')" id="tab-btn-store" class="px-5 py-2.5 rounded-xl font-titr bg-eitaa-500 text-white">🛒 اصلی</button>
-<button onclick="switchTab('fake-member')" id="tab-btn-fake-member" class="px-5 py-2.5 rounded-xl font-titr text-slate-300">🤖 ممبر فیک</button>
-<button onclick="switchTab('tracking')" id="tab-btn-tracking" class="px-5 py-2.5 rounded-xl font-titr text-slate-300">🔍 پیگیری</button>
-<button onclick="switchTab('support')" id="tab-btn-support" class="px-5 py-2.5 rounded-xl font-titr text-slate-300">🎧 پشتیبانی</button>
-<button onclick="switchTab('admin')" id="tab-btn-admin" class="hidden px-5 py-2.5 rounded-xl font-titr text-amber-400 border border-amber-500/30">👑 مدیریت</button>
+<nav class="hidden md:flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
+<button onclick="switchTab('store')" id="tab-btn-store" class="px-4 py-2 rounded-xl font-titr bg-eitaa-500 text-white">🛒 اصلی</button>
+<button onclick="switchTab('fake-member')" id="tab-btn-fake-member" class="px-4 py-2 rounded-xl font-titr text-slate-600">🤖 ممبر فیک</button>
+<button onclick="switchTab('tracking')" id="tab-btn-tracking" class="px-4 py-2 rounded-xl font-titr text-slate-600">🔍 پیگیری</button>
+<button onclick="switchTab('support')" id="tab-btn-support" class="px-4 py-2 rounded-xl font-titr text-slate-600">🎧 پشتیبانی</button>
+<button onclick="switchTab('admin')" id="tab-btn-admin" class="hidden px-4 py-2 rounded-xl font-titr text-amber-600 border border-amber-300">👑 مدیریت</button>
 </nav>
 </div>
 </div>
@@ -165,211 +166,197 @@ cursor: pointer;
 </header>
 
 <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
-<!-- صفحه اصلی خرید -->
-<section id="section-store" class="space-y-10">
-<div class="glass-box rounded-3xl p-8 md:p-12 border border-eitaa-500/30 pulse-card">
-<span class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-eitaa-500/20 text-eitaa-400 border border-eitaa-500/30">⚡ کیفیت واقعی • بدون ریزش</span>
-<h2 class="font-titr text-3xl md:text-5xl text-white mt-4 mb-4">ارتقای حرفه‌ای کانال و گروه ایتا<br><span class="neon-text-orange">با پردازش آنی</span></h2>
-<p class="text-slate-300 text-sm md:text-base">سفارش خود را انتخاب و به راحتی ثبت کنید.</p>
+<section id="section-store" class="space-y-8">
+<div class="glass-box rounded-3xl p-6 md:p-10 border-l-8 border-eitaa-500 bg-orange-50/50">
+<span class="text-xs font-bold px-3 py-1 rounded-full bg-eitaa-100 text-eitaa-700 border border-eitaa-300">⚡ کیفیت واقعی</span>
+<h2 class="font-titr text-2xl md:text-4xl text-slate-800 mt-3 mb-2">ارتقای حرفه‌ای کانال و گروه ایتا</h2>
+<p class="text-slate-600 text-sm">سفارش خود را با تعداد دلخواه ثبت کنید.</p>
 </div>
+
 <div>
-<h3 class="font-titr text-2xl text-white mb-4">💎 انتخاب سرویس</h3>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" id="services-container"></div>
+<h3 class="font-titr text-xl text-slate-800 mb-4">💎 انتخاب سرویس</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="services-container"></div>
 </div>
+
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-<div class="lg:col-span-7 glass-box rounded-3xl p-6 md:p-8 space-y-6">
-<h3 class="font-titr text-2xl text-white border-b border-slate-800 pb-4">📝 مشخصات سفارش</h3>
-<form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-6">
+<div class="lg:col-span-7 glass-box rounded-3xl p-6 space-y-5">
+<h3 class="font-titr text-xl text-slate-800 border-b pb-3">📝 مشخصات سفارش</h3>
+<form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-5">
 <div>
-<label class="block font-titr text-lg text-slate-200 mb-2">آیدی یا لینک کانال/گروه *</label>
-<input type="text" id="channel-link" required dir="ltr" placeholder="my_channel@" class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-4 py-4 text-slate-100 font-mono">
+<label class="block font-titr text-sm text-slate-700 mb-2">آیدی یا لینک کانال/گروه *</label>
+<input type="text" id="channel-link" required dir="ltr" placeholder="my_channel@" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-slate-800 font-mono">
 </div>
+
 <div>
 <div class="flex justify-between items-center mb-2">
-<label class="font-titr text-lg text-slate-200" id="quantity-label">تعداد ممبر:</label>
-<span class="font-titr text-xl text-eitaa-400 bg-eitaa-500/10 px-4 py-1 rounded-xl border border-eitaa-500/30" id="quantity-badge">۱,۰۰۰ ممبر</span>
+<label class="font-titr text-sm text-slate-700" id="quantity-label">تعداد سفارش (دستی):</label>
+<span class="font-titr text-base text-eitaa-600 bg-eitaa-50 px-3 py-1 rounded-xl border border-eitaa-200" id="quantity-badge">۱,۰۰۰ عدد</span>
 </div>
-<input type="range" id="quantity-slider" min="1000" max="50000" step="1000" value="1000" class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer" oninput="updateQuantityFromSlider(this.value)">
-<div class="grid grid-cols-4 gap-2 pt-2" id="quick-buttons"></div>
+<input type="number" id="custom-quantity-input" min="200" max="100000" value="1000" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-slate-800 font-mono text-center mb-3" oninput="updateQuantityFromInput(this.value)">
+<p class="text-xs text-slate-500 mb-2">حداقل: ۲۰۰ | حداکثر: ۱۰۰,۰۰۰ عدد</p>
+<input type="range" id="quantity-slider" min="200" max="100000" step="100" value="1000" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateQuantityFromSlider(this.value)">
 </div>
-<button type="submit" class="w-full gradient-titr-btn text-white font-titr text-xl py-4 rounded-2xl">💳 پرداخت از کیف پول و ثبت سفارش</button>
+
+<button type="submit" class="w-full gradient-titr-btn text-white font-titr text-lg py-4 rounded-2xl">💳 پرداخت از کیف پول و ثبت سفارش</button>
 </form>
 </div>
-<div class="lg:col-span-5 glass-box rounded-3xl p-6 md:p-8 space-y-6">
-<h3 class="font-titr text-xl text-white border-b border-slate-800 pb-3">🧾 پیش‌فاکتور</h3>
-<div class="space-y-4 text-sm">
-<div class="flex justify-between"><span class="text-slate-300">سرویس:</span><span class="font-titr text-white" id="summary-service-name">-</span></div>
-<div class="flex justify-between"><span class="text-slate-300">تعداد:</span><span class="text-white" id="summary-quantity">-</span></div>
-<div class="flex justify-between"><span class="text-slate-300">قیمت واحد:</span><span class="text-slate-300" id="summary-unit-price">-</span></div>
-<div class="bg-slate-900 rounded-2xl p-5 border border-eitaa-500/40">
-<span class="text-xs text-slate-400 block mb-1">مبلغ قابل پرداخت:</span>
-<span class="font-titr text-3xl text-eitaa-400" id="summary-total-price">۰</span>
-<span class="text-xs text-slate-300 mr-1">تومان</span>
+
+<div class="lg:col-span-5 glass-box rounded-3xl p-6 space-y-5">
+<h3 class="font-titr text-lg text-slate-800 border-b pb-3">🧾 پیش‌فاکتور</h3>
+<div class="space-y-3 text-sm">
+<div class="flex justify-between"><span class="text-slate-500">سرویس:</span><span class="font-titr text-slate-800" id="summary-service-name">-</span></div>
+<div class="flex justify-between"><span class="text-slate-500">تعداد:</span><span class="text-slate-800" id="summary-quantity">-</span></div>
+<div class="flex justify-between"><span class="text-slate-500">قیمت واحد:</span><span class="text-slate-600" id="summary-unit-price">-</span></div>
+<div class="bg-orange-50 rounded-2xl p-4 border border-eitaa-200">
+<span class="text-xs text-slate-500 block mb-1">مبلغ قابل پرداخت:</span>
+<span class="font-titr text-2xl text-eitaa-600" id="summary-total-price">۰</span>
+<span class="text-xs text-slate-600 mr-1">تومان</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- بخش ممبر فیک (صفحه مجزا) -->
+<!-- بخش ممبر فیک -->
 <section id="section-fake-member" class="hidden space-y-8">
-<div class="glass-box rounded-3xl p-8 md:p-10 border border-purple-500/30">
-<span class="text-xs font-bold px-3.5 py-1.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">🤖 سرویس ویژه ممبر فیک</span>
-<h2 class="font-titr text-3xl md:text-4xl text-white mt-3">خرید ممبر فیک ایتا</h2>
-<p class="text-slate-300 text-sm mt-2">نرخ ثبات عالی • قیمت: ۶۵,۰۰۰ تومان به ازای هر ۱۰۰ ممبر • سقف سفارش: ۳۵۰ عدد</p>
+<div class="glass-box rounded-3xl p-6 bg-purple-50/40 border border-purple-200">
+<span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-100 text-purple-700">🤖 سرویس ویژه ممبر فیک</span>
+<h2 class="font-titr text-2xl text-slate-800 mt-2">خرید ممبر فیک ایتا</h2>
+<p class="text-slate-600 text-sm mt-1">قیمت: ۶۵,۰۰۰ تومان به ازای هر ۱۰۰ ممبر • سقف سفارش: ۳۵۰ عدد</p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-<div class="lg:col-span-7 glass-box rounded-3xl p-6 md:p-8 space-y-6">
-<h3 class="font-titr text-2xl text-white border-b border-slate-800 pb-4">🤖 ثبت سفارش ممبر فیک</h3>
-<form onsubmit="handleFakeOrderSubmit(event)" class="space-y-6">
+<div class="lg:col-span-7 glass-box rounded-3xl p-6 space-y-5">
+<h3 class="font-titr text-xl text-slate-800 border-b pb-3">🤖 ثبت سفارش ممبر فیک</h3>
+<form onsubmit="handleFakeOrderSubmit(event)" class="space-y-5">
 <div>
-<label class="block font-titr text-lg text-slate-200 mb-2">آیدی یا لینک کانال ایتا *</label>
-<input type="text" id="fake-channel-link" required dir="ltr" placeholder="my_channel@" class="w-full bg-slate-900 border border-slate-700 rounded-2xl px-4 py-4 text-slate-100 font-mono">
+<label class="block font-titr text-sm text-slate-700 mb-2">آیدی یا لینک کانال ایتا *</label>
+<input type="text" id="fake-channel-link" required dir="ltr" placeholder="my_channel@" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-slate-800 font-mono">
 </div>
 <div>
 <div class="flex justify-between items-center mb-2">
-<label class="font-titr text-lg text-slate-200">تعداد ممبر فیک (حداکثر ۳۵۰):</label>
-<span class="font-titr text-xl text-purple-400 bg-purple-500/10 px-4 py-1 rounded-xl border border-purple-500/30" id="fake-qty-badge">۱۰۰ ممبر</span>
+<label class="font-titr text-sm text-slate-700">تعداد ممبر فیک (حداکثر ۳۵۰):</label>
+<span class="font-titr text-base text-purple-600 bg-purple-50 px-3 py-1 rounded-xl border border-purple-200" id="fake-qty-badge">۱۰۰ ممبر</span>
 </div>
-<input type="range" id="fake-qty-slider" min="50" max="350" step="50" value="100" class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer" oninput="updateFakeQuantity(this.value)">
-<div class="grid grid-cols-4 gap-2 pt-2">
-<button type="button" onclick="setFakeQty(50)" class="py-2 text-xs rounded-xl bg-slate-800 hover:bg-slate-700 font-bold">۵۰</button>
-<button type="button" onclick="setFakeQty(100)" class="py-2 text-xs rounded-xl bg-slate-800 hover:bg-slate-700 font-bold">۱۰۰</button>
-<button type="button" onclick="setFakeQty(200)" class="py-2 text-xs rounded-xl bg-slate-800 hover:bg-slate-700 font-bold">۲۰۰</button>
-<button type="button" onclick="setFakeQty(350)" class="py-2 text-xs rounded-xl bg-purple-600 text-white font-bold">۳۵۰ (حداکثر)</button>
+<input type="range" id="fake-qty-slider" min="50" max="350" step="50" value="100" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateFakeQuantity(this.value)">
 </div>
-</div>
-<button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-titr text-xl py-4 rounded-2xl shadow-lg hover:opacity-90">🚀 ثبت و پرداخت از کیف پول</button>
+<button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-titr text-lg py-4 rounded-2xl">🚀 ثبت و پرداخت از کیف پول</button>
 </form>
 </div>
-<div class="lg:col-span-5 glass-box rounded-3xl p-6 md:p-8 space-y-6">
-<h3 class="font-titr text-xl text-white border-b border-slate-800 pb-3">🧾 فاکتور ممبر فیک</h3>
-<div class="space-y-4 text-sm">
-<div class="flex justify-between"><span class="text-slate-300">نوع سرویس:</span><span class="font-titr text-purple-400">ممبر فیک اختصاصی</span></div>
-<div class="flex justify-between"><span class="text-slate-300">تعداد درخواستی:</span><span class="text-white" id="fake-summary-qty">۱۰۰ ممبر</span></div>
-<div class="flex justify-between"><span class="text-slate-300">نرخ هر ۱۰۰ عدد:</span><span class="text-slate-300">۶۵,۰۰۰ تومان</span></div>
-<div class="bg-slate-900 rounded-2xl p-5 border border-purple-500/40">
-<span class="text-xs text-slate-400 block mb-1">مبلغ قابل پرداخت:</span>
-<span class="font-titr text-3xl text-purple-400" id="fake-summary-total">۶۵,۰۰۰</span>
-<span class="text-xs text-slate-300 mr-1">تومان</span>
+<div class="lg:col-span-5 glass-box rounded-3xl p-6 space-y-4">
+<h3 class="font-titr text-lg text-slate-800 border-b pb-3">🧾 فاکتور ممبر فیک</h3>
+<div class="space-y-3 text-sm">
+<div class="flex justify-between"><span class="text-slate-500">نوع سرویس:</span><span class="font-titr text-purple-600">ممبر فیک اختصاصی</span></div>
+<div class="flex justify-between"><span class="text-slate-500">تعداد درخواستی:</span><span class="text-slate-800" id="fake-summary-qty">۱۰۰ ممبر</span></div>
+<div class="bg-purple-50 rounded-2xl p-4 border border-purple-200">
+<span class="text-xs text-slate-500 block mb-1">مبلغ قابل پرداخت:</span>
+<span class="font-titr text-2xl text-purple-600" id="fake-summary-total">۶۵,۰۰۰</span>
+<span class="text-xs text-slate-600 mr-1">تومان</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- بخش پیگیری سفارشات با ۳ فیلتر -->
-<section id="section-tracking" class="hidden space-y-8">
-<div class="glass-box rounded-3xl p-6 md:p-10 space-y-6 max-w-4xl mx-auto">
-<h3 class="font-titr text-3xl text-white text-center">🔍 پیگیری سفارشات</h3>
-<!-- ۳ دکمه فیلتر -->
-<div class="grid grid-cols-3 gap-3 bg-slate-900 p-2 rounded-2xl border border-slate-800">
-<button onclick="filterTrackingOrders('done')" id="filter-btn-done" class="py-3 rounded-xl font-titr text-sm transition text-slate-400"> ✅ انجام شده </button>
-<button onclick="filterTrackingOrders('pending')" id="filter-btn-pending" class="py-3 rounded-xl font-titr text-sm transition bg-eitaa-500 text-white"> ⏳ در حال انجام </button>
-<button onclick="filterTrackingOrders('canceled')" id="filter-btn-canceled" class="py-3 rounded-xl font-titr text-sm transition text-slate-400"> ❌ لغو شده </button>
+<!-- بخش پیگیری سفارشات -->
+<section id="section-tracking" class="hidden space-y-6">
+<div class="glass-box rounded-3xl p-6 space-y-5 max-w-4xl mx-auto">
+<h3 class="font-titr text-2xl text-slate-800 text-center">🔍 پیگیری سفارشات</h3>
+<div class="grid grid-cols-3 gap-2 bg-slate-100 p-1.5 rounded-2xl border">
+<button onclick="filterTrackingOrders('done')" id="filter-btn-done" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ✅ انجام شده </button>
+<button onclick="filterTrackingOrders('pending')" id="filter-btn-pending" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ⏳ در حال انجام </button>
+<button onclick="filterTrackingOrders('canceled')" id="filter-btn-canceled" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ❌ لغو شده </button>
 </div>
-<!-- جدول سفارشات -->
-<div class="overflow-x-auto pt-4">
+<div class="overflow-x-auto">
 <table class="w-full text-right text-sm">
-<thead class="bg-slate-900 text-slate-400 text-xs font-titr">
+<thead class="bg-slate-50 text-slate-500 text-xs font-titr border-b">
 <tr>
-<th class="p-4">کد سفارش</th>
-<th class="p-4">آیدی کانال</th>
-<th class="p-4">سرویس</th>
-<th class="p-4">تعداد</th>
-<th class="p-4">مبلغ</th>
-<th class="p-4">وضعیت</th>
+<th class="p-3">کد سفارش</th>
+<th class="p-3">آیدی کانال</th>
+<th class="p-3">سرویس</th>
+<th class="p-3">تعداد</th>
+<th class="p-3">مبلغ</th>
+<th class="p-3">وضعیت</th>
 </tr>
 </thead>
-<tbody id="filtered-orders-list" class="divide-y divide-slate-800 text-slate-300"></tbody>
+<tbody id="filtered-orders-list" class="divide-y text-slate-700"></tbody>
 </table>
-<div id="empty-filtered-orders" class="text-center py-10 text-slate-500 hidden font-titr">هیچ سفارشی در این بخش ثبت نشده است.</div>
+<div id="empty-filtered-orders" class="text-center py-8 text-slate-400 hidden font-titr">هیچ سفارشی ثبت نشده است.</div>
 </div>
 </div>
 </section>
 
 <!-- بخش پشتیبانی -->
-<section id="section-support" class="hidden space-y-8 max-w-3xl mx-auto">
-<div class="glass-box rounded-3xl p-8 md:p-12 text-center space-y-6 border border-emerald-500/30">
-<div class="w-20 h-20 bg-emerald-500/10 rounded-full border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-4xl mx-auto">
+<section id="section-support" class="hidden space-y-8 max-w-2xl mx-auto">
+<div class="glass-box rounded-3xl p-8 text-center space-y-5 border border-emerald-200 bg-emerald-50/20">
+<div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-3xl mx-auto">
 <i class="fa-solid fa-headset"></i>
 </div>
-<h3 class="font-titr text-3xl text-white">پشتیبانی ۲۴ ساعته</h3>
-<p class="text-slate-300 text-base leading-relaxed"> هر گونه سوال، ابهام یا مشکلی درباره سفارشات خود دارید، می‌توانید مستقیماً به آیدی پشتیبانی ما در پیام‌رسان ایتا پیام بفرستید: </p>
-<div class="bg-slate-900 border border-slate-700 p-6 rounded-2xl inline-block my-4">
-<span class="text-xs text-slate-400 block mb-1">آیدی پشتیبانی در ایتا:</span>
-<span class="font-mono text-2xl text-emerald-400 font-bold select-all" dir="ltr">@Javad2345</span>
+<h3 class="font-titr text-2xl text-slate-800">پشتیبانی ۲۴ ساعته</h3>
+<p class="text-slate-600 text-sm">در صورت بروز هرگونه سوال یا مشکل با آیدی پشتیبانی در ارتباط باشید:</p>
+<div class="bg-white border p-4 rounded-2xl inline-block">
+<span class="text-xs text-slate-400 block mb-1">آیدی پشتیبانی ایتا:</span>
+<span class="font-mono text-xl text-emerald-600 font-bold select-all" dir="ltr">@Javad2345</span>
 </div>
 <div>
-<a href="https://eitaa.com/Javad2345" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-titr px-8 py-4 rounded-2xl text-lg transition">
+<a href="https://eitaa.com/Javad2345" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 text-white font-titr px-6 py-3 rounded-2xl hover:bg-emerald-700">
 <i class="fa-solid fa-paper-plane"></i> ارتباط در پیام‌رسان ایتا
 </a>
 </div>
 </div>
 </section>
 
-<!-- پنل مدیریت مدیر سایت (اختیاری جهت دسترسی مدیر) -->
+<!-- پنل مدیریت -->
 <section id="section-admin" class="hidden space-y-8 max-w-5xl mx-auto">
-<div class="glass-box rounded-3xl p-8 border border-amber-500/30 space-y-8">
-<div class="flex items-center justify-between border-b border-slate-800 pb-4">
-<div class="flex items-center gap-3">
-<i class="fa-solid fa-user-shield text-3xl text-amber-400"></i>
-<h3 class="font-titr text-2xl text-white">پنل مدیریت سایت</h3>
+<div class="glass-box rounded-3xl p-6 border border-amber-200 space-y-6">
+<div class="flex items-center justify-between border-b pb-4">
+<div class="flex items-center gap-2">
+<i class="fa-solid fa-user-shield text-2xl text-amber-500"></i>
+<h3 class="font-titr text-xl text-slate-800">پنل مدیریت سایت</h3>
 </div>
-<span class="text-xs bg-amber-500/20 text-amber-400 border border-amber-500/40 px-3 py-1 rounded-full font-bold">مدیر ارشد</span>
+<span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">مدیر ارشد</span>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<!-- ساخت کاربر جدید -->
-<div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4">
-<h4 class="font-titr text-lg text-amber-400 flex items-center gap-2">
-<i class="fa-solid fa-user-plus"></i> تعریف کاربر جدید (مشتری)
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- تعریف کاربر -->
+<div class="bg-slate-50 p-5 rounded-2xl border space-y-3">
+<h4 class="font-titr text-sm text-amber-600 flex items-center gap-2">
+<i class="fa-solid fa-user-plus"></i> تعریف کاربر جدید
 </h4>
-<form onsubmit="handleCreateUser(event)" class="space-y-4">
-<div>
-<label class="block text-xs text-slate-400 mb-1">نام کاربری جدید</label>
-<input type="text" id="admin-new-username" required dir="ltr" placeholder="user123" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-slate-100 font-mono">
-</div>
-<div>
-<label class="block text-xs text-slate-400 mb-1">رمز عبور</label>
-<input type="password" id="admin-new-password" required dir="ltr" placeholder="****" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-slate-100 font-mono">
-</div>
-<button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-titr py-2.5 rounded-xl transition text-sm">ایجاد کاربر مشتری</button>
+<form onsubmit="handleCreateUser(event)" class="space-y-3">
+<input type="text" id="admin-new-username" required dir="ltr" placeholder="نام کاربری" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
+<input type="password" id="admin-new-password" required dir="ltr" placeholder="رمز عبور" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
+<button type="submit" class="w-full bg-amber-500 text-white font-titr py-2 rounded-xl text-sm">ایجاد کاربر</button>
 </form>
 </div>
 
-<!-- شارژ کیف پول -->
-<div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 space-y-4">
-<h4 class="font-titr text-lg text-emerald-400 flex items-center gap-2">
-<i class="fa-solid fa-wallet"></i> شارژ کیف پول کاربر
+<!-- تغییر کیف پول -->
+<div class="bg-slate-50 p-5 rounded-2xl border space-y-3">
+<h4 class="font-titr text-sm text-emerald-600 flex items-center gap-2">
+<i class="fa-solid fa-wallet"></i> مدیریت کیف پول کاربر
 </h4>
-<form onsubmit="handleChargeWallet(event)" class="space-y-4">
-<div>
-<label class="block text-xs text-slate-400 mb-1">انتخاب کاربر</label>
-<select id="admin-charge-user" required class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-slate-100 font-mono"></select>
+<form onsubmit="handleChargeWallet(event)" class="space-y-3">
+<select id="admin-charge-user" required class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono"></select>
+<input type="number" id="admin-charge-amount" required placeholder="مبلغ (تومان)" class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono">
+<div class="flex gap-2">
+<button type="submit" onclick="setWalletAction('add')" class="flex-1 bg-emerald-600 text-white font-titr py-2 rounded-xl text-xs">افزایش موجودی</button>
+<button type="submit" onclick="setWalletAction('deduct')" class="flex-1 bg-rose-600 text-white font-titr py-2 rounded-xl text-xs">کاهش موجودی</button>
 </div>
-<div>
-<label class="block text-xs text-slate-400 mb-1">مبلغ شارژ (تومان)</label>
-<input type="number" id="admin-charge-amount" required placeholder="مثلا 100000" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-slate-100 font-mono">
-</div>
-<button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-titr py-2.5 rounded-xl transition text-sm">شارژ کیف پول کاربر</button>
 </form>
 </div>
 </div>
 
-<!-- مدیریت و لیست کاربران -->
-<div class="space-y-4">
-<h4 class="font-titr text-lg text-white">👥 لیست کاربران و موجودی‌ها</h4>
+<div class="space-y-3">
+<h4 class="font-titr text-base text-slate-800">👥 لیست کاربران و موجودی‌ها</h4>
 <div class="overflow-x-auto">
 <table class="w-full text-right text-sm">
-<thead class="bg-slate-900 text-slate-400 text-xs font-titr">
+<thead class="bg-slate-100 text-slate-600 text-xs font-titr">
 <tr>
 <th class="p-3">نام کاربری</th>
 <th class="p-3">نقش</th>
 <th class="p-3">موجودی کیف پول</th>
 </tr>
 </thead>
-<tbody id="admin-users-table" class="divide-y divide-slate-800 text-slate-300"></tbody>
+<tbody id="admin-users-table" class="divide-y text-slate-700"></tbody>
 </table>
 </div>
 </div>
@@ -377,54 +364,41 @@ cursor: pointer;
 </section>
 </main>
 
-<!-- نوار ناوبری پایینی ثابت (Bottom Navigation Bar) -->
-<div class="fixed bottom-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800 py-2 px-4 shadow-2xl">
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 border-t py-2 px-4 shadow-lg">
 <div class="max-w-md mx-auto grid grid-cols-3 gap-2 text-center">
-<!-- سمت راست: پیگیری سفارشات -->
-<button onclick="switchTab('tracking')" id="nav-btn-tracking" class="flex flex-col items-center justify-center py-1 text-slate-400 hover:text-white transition">
+<button onclick="switchTab('tracking')" id="nav-btn-tracking" class="flex flex-col items-center py-1 text-slate-500">
 <i class="fa-solid fa-list-check text-lg mb-1"></i>
-<span class="text-[11px] font-titr">پیگیری سفارشات</span>
+<span class="text-[10px] font-titr">پیگیری</span>
 </button>
-
-<!-- وسط: خانه -->
-<button onclick="switchTab('store')" id="nav-btn-store" class="flex flex-col items-center justify-center py-1 text-eitaa-500 transition">
-<div class="w-10 h-10 -mt-5 rounded-full bg-eitaa-500 text-white flex items-center justify-center shadow-lg border-2 border-slate-950 shadow-eitaa-500/50">
-<i class="fa-solid fa-house text-base"></i>
+<button onclick="switchTab('store')" id="nav-btn-store" class="flex flex-col items-center py-1 text-eitaa-500">
+<div class="w-9 h-9 -mt-4 rounded-full bg-eitaa-500 text-white flex items-center justify-center shadow-md">
+<i class="fa-solid fa-house text-sm"></i>
 </div>
-<span class="text-[11px] font-titr mt-1">خانه</span>
+<span class="text-[10px] font-titr mt-1">خانه</span>
 </button>
-
-<!-- سمت چپ: ممبر فیک -->
-<button onclick="switchTab('fake-member')" id="nav-btn-fake" class="flex flex-col items-center justify-center py-1 text-slate-400 hover:text-white transition">
+<button onclick="switchTab('fake-member')" id="nav-btn-fake" class="flex flex-col items-center py-1 text-slate-500">
 <i class="fa-solid fa-robot text-lg mb-1"></i>
-<span class="text-[11px] font-titr">ممبر فیک</span>
+<span class="text-[10px] font-titr">ممبر فیک</span>
 </button>
 </div>
 </div>
 
 <script>
-/* مدیریت کاربران و ذخیره‌سازی */
 var initialUsers = {
 'Sobhan201088': { password: 'Sobhan201088', role: 'admin', balance: 10000000 }
 };
 
 var users = JSON.parse(localStorage.getItem('app_users')) || initialUsers;
 var currentUser = localStorage.getItem('app_current_user') || null;
+var walletAction = 'add';
 
-/* داده‌های اولیه سفارشات نمونه */
 var mockOrders = JSON.parse(localStorage.getItem('app_orders')) || [ 
 { user: 'Sobhan201088', id:'ORD-9021', link:'@my_eitaa', service:'ممبر واقعی ایتا', qty:1000, amount:65000, status:'pending' }
 ];
 
-function saveUsers() {
-localStorage.setItem('app_users', JSON.stringify(users));
-}
+function saveUsers() { localStorage.setItem('app_users', JSON.stringify(users)); }
+function saveOrders() { localStorage.setItem('app_orders', JSON.stringify(mockOrders)); }
 
-function saveOrders() {
-localStorage.setItem('app_orders', JSON.stringify(mockOrders));
-}
-
-/* تنظیم جدید لیست سرویس‌ها بر اساس درخواست */
 var services = [ 
 { id:101, name:"ممبر واقعی ایتا", price:65000, unit:"هر ۱۰۰۰ ممبر", desc:"اعضای واقعی کانال", icon:"fa-users" },
 { id:102, name:"ممبر گروه ایتا", price:75000, unit:"هر ۱۰۰۰ ممبر", desc:"افزایش اعضای گروه", icon:"fa-user-group" },
@@ -441,9 +415,7 @@ var currentQuantity = 1000;
 var currentFilter = 'pending';
 var currentFakeQty = 100;
 
-function toggleMenu() {
-document.getElementById('dropdown-menu').classList.toggle('hidden');
-}
+function toggleMenu() { document.getElementById('dropdown-menu').classList.toggle('hidden'); }
 
 function checkAuth() {
 if (!currentUser || !users[currentUser]) {
@@ -471,10 +443,15 @@ currentUser = u;
 localStorage.setItem('app_current_user', currentUser);
 checkAuth();
 renderAdminUsers();
-alert('با موفقیت وارد شدید!');
+document.getElementById('login-modal').classList.add('hidden');
+document.getElementById('welcome-modal').classList.remove('hidden');
 } else {
 alert('نام کاربری یا رمز عبور اشتباه است!');
 }
+}
+
+function closeWelcomeModal() {
+document.getElementById('welcome-modal').classList.add('hidden');
 }
 
 function logout() {
@@ -498,19 +475,7 @@ if(el) el.classList.add('hidden');
 }
 var targetEl = document.getElementById('section-' + tab);
 if(targetEl) targetEl.classList.remove('hidden');
-
-var navStore = document.getElementById('nav-btn-store');
-var navTracking = document.getElementById('nav-btn-tracking');
-var navFake = document.getElementById('nav-btn-fake');
-
-if (navStore && navTracking && navFake) {
-navStore.className = "flex flex-col items-center justify-center py-1 transition " + (tab === 'store' ? 'text-eitaa-500 font-bold' : 'text-slate-400 hover:text-white');
-navTracking.className = "flex flex-col items-center justify-center py-1 transition " + (tab === 'tracking' ? 'text-eitaa-500 font-bold' : 'text-slate-400 hover:text-white');
-navFake.className = "flex flex-col items-center justify-center py-1 transition " + (tab === 'fake-member' ? 'text-purple-400 font-bold' : 'text-slate-400 hover:text-white');
-}
-
 window.scrollTo({ top: 0, behavior: 'smooth' });
-
 if(tab === 'tracking') filterTrackingOrders(currentFilter);
 if(tab === 'admin') renderAdminUsers();
 }
@@ -521,11 +486,11 @@ var html = '';
 for (var i = 0; i < services.length; i++) {
 var s = services[i];
 var active = (s.id === selectedService.id) ? 'glass-box-active' : '';
-html += '<div onclick="selectService(' + s.id + ')" class="glass-box p-5 rounded-3xl cursor-pointer ' + active + ' transition-all hover:border-eitaa-500/50">';
-html += ' <div class="w-10 h-10 rounded-xl bg-eitaa-500/10 text-eitaa-500 flex items-center justify-center text-lg mb-3"><i class="fa-solid ' + s.icon + '"></i></div>';
-html += ' <h4 class="font-titr text-base text-white mb-1">' + s.name + '</h4>';
-html += ' <p class="text-xs text-slate-400 mb-3">' + s.desc + '</p>';
-html += ' <div class="font-titr text-sm text-eitaa-400 pt-2 border-t border-slate-800/80">' + s.price.toLocaleString('fa-IR') + ' تومان</div>';
+html += '<div onclick="selectService(' + s.id + ')" class="glass-box p-4 rounded-2xl cursor-pointer ' + active + ' hover:border-eitaa-500">';
+html += ' <div class="w-9 h-9 rounded-xl bg-eitaa-50 text-eitaa-500 flex items-center justify-center text-base mb-2"><i class="fa-solid ' + s.icon + '"></i></div>';
+html += ' <h4 class="font-titr text-sm text-slate-800 mb-1">' + s.name + '</h4>';
+html += ' <p class="text-[11px] text-slate-500 mb-2">' + s.desc + '</p>';
+html += ' <div class="font-titr text-xs text-eitaa-600 pt-2 border-t">' + s.price.toLocaleString('fa-IR') + ' تومان</div>';
 html += '</div>';
 }
 container.innerHTML = html;
@@ -539,11 +504,20 @@ renderServices();
 calculateSummary();
 }
 
+function updateQuantityFromInput(val) {
+currentQuantity = parseInt(val) || 0;
+document.getElementById('quantity-slider').value = currentQuantity;
+var isView = selectedService.name.includes('ویو');
+var suffix = isView ? 'ویو' : 'عدد';
+document.getElementById('quantity-badge').innerText = currentQuantity.toLocaleString('fa-IR') + ' ' + suffix;
+calculateSummary();
+}
+
 function updateQuantityFromSlider(val) {
 currentQuantity = parseInt(val);
+document.getElementById('custom-quantity-input').value = currentQuantity;
 var isView = selectedService.name.includes('ویو');
-var suffix = isView ? 'ویو' : 'ممبر';
-document.getElementById('quantity-label').innerText = 'تعداد ' + suffix + ':';
+var suffix = isView ? 'ویو' : 'عدد';
 document.getElementById('quantity-badge').innerText = currentQuantity.toLocaleString('fa-IR') + ' ' + suffix;
 calculateSummary();
 }
@@ -556,7 +530,6 @@ document.getElementById('summary-unit-price').innerText = selectedService.price.
 document.getElementById('summary-total-price').innerText = total.toLocaleString('fa-IR');
 }
 
-/* بخش ممبر فیک */
 function updateFakeQuantity(val) {
 currentFakeQty = parseInt(val);
 document.getElementById('fake-qty-badge').innerText = currentFakeQty.toLocaleString('fa-IR') + ' ممبر';
@@ -565,67 +538,51 @@ document.getElementById('fake-summary-qty').innerText = currentFakeQty.toLocaleS
 document.getElementById('fake-summary-total').innerText = total.toLocaleString('fa-IR');
 }
 
-function setFakeQty(val) {
-document.getElementById('fake-qty-slider').value = val;
-updateFakeQuantity(val);
-}
-
 function handleFakeOrderSubmit(e) {
 e.preventDefault();
 var total = (currentFakeQty / 100) * 65000;
-
-if (users[currentUser].balance < total) {
-alert('موجودی کیف پول شما کافی نمی‌باشد.');
-return;
-}
-
-// کسر از کیف پول
+if (users[currentUser].balance < total) { alert('موجودی کافی نیست.'); return; }
 users[currentUser].balance -= total;
 saveUsers();
 updateHeaderUserInfo();
-
 var link = document.getElementById('fake-channel-link').value;
 var newId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
 mockOrders.unshift({ user: currentUser, id: newId, link: link, service: 'ممبر فیک', qty: currentFakeQty, amount: total, status: 'pending' });
 saveOrders();
-
-alert('سفارش ممبر فیک با موفقیت ثبت گردید و مبلغ از کیف پول کسر شد!\nکد پیگیری: ' + newId);
+alert('سفارش ثبت شد!\nکد پیگیری: ' + newId);
 switchTab('tracking');
 }
 
 function handleOrderSubmit(e) {
 e.preventDefault();
-var total = (currentQuantity / 1000) * selectedService.price;
-
-if (users[currentUser].balance < total) {
-alert('موجودی کیف پول شما کافی نمی‌باشد.');
+if (currentQuantity < 200 || currentQuantity > 100000) {
+alert('تعداد سفارش باید بین ۲۰۰ تا ۱۰۰,۰۰۰ باشد.');
 return;
 }
-
-// کسر از کیف پول
+var total = (currentQuantity / 1000) * selectedService.price;
+if (users[currentUser].balance < total) { alert('موجودی کافی نیست.'); return; }
 users[currentUser].balance -= total;
 saveUsers();
 updateHeaderUserInfo();
-
 var link = document.getElementById('channel-link').value;
 var newId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
 mockOrders.unshift({ user: currentUser, id: newId, link: link, service: selectedService.name, qty: currentQuantity, amount: total, status: 'pending' });
 saveOrders();
-
-alert('سفارش با موفقیت ثبت گردید و مبلغ از کیف پول کسر شد!\nکد پیگیری: ' + newId);
+alert('سفارش ثبت شد!\nکد پیگیری: ' + newId);
 switchTab('tracking');
 }
 
-/* فیلتر پیگیری سفارشات */
 function filterTrackingOrders(status) {
 currentFilter = status;
 var btns = ['done','pending','canceled'];
 for(var i=0; i<btns.length; i++) {
 var btn = document.getElementById('filter-btn-' + btns[i]);
+if(btn) {
 if(btns[i] === status) {
-btn.className = "py-3 rounded-xl font-titr text-sm transition bg-eitaa-500 text-white shadow-lg";
+btn.className = "py-2.5 rounded-xl font-titr text-xs bg-eitaa-500 text-white shadow-md";
 } else {
-btn.className = "py-3 rounded-xl font-titr text-sm transition text-slate-400 hover:text-white";
+btn.className = "py-2.5 rounded-xl font-titr text-xs text-slate-600 hover:text-slate-900";
+}
 }
 }
 var tbody = document.getElementById('filtered-orders-list');
@@ -633,93 +590,63 @@ var empty = document.getElementById('empty-filtered-orders');
 var filtered = mockOrders.filter(function(o){
 return o.status === status && (o.user === currentUser || users[currentUser].role === 'admin');
 });
-
-if(filtered.length === 0) {
-tbody.innerHTML = '';
-empty.classList.remove('hidden');
-return;
-}
+if(filtered.length === 0) { tbody.innerHTML = ''; empty.classList.remove('hidden'); return; }
 empty.classList.add('hidden');
 var html = '';
 for(var j=0; j<filtered.length; j++) {
 var o = filtered[j];
-var badge = '';
-if(o.status === 'done') badge = '<span class="px-3 py-1 rounded-full text-xs bg-emerald-500/20 text-emerald-400">انجام شده</span>';
-else if(o.status === 'pending') badge = '<span class="px-3 py-1 rounded-full text-xs bg-amber-500/20 text-amber-400">در حال انجام</span>';
-else badge = '<span class="px-3 py-1 rounded-full text-xs bg-rose-500/20 text-rose-400">لغو شده</span>';
-html += '<tr>';
-html += '<td class="p-4 font-mono text-eitaa-400 font-bold">' + o.id + '</td>';
-html += '<td class="p-4 font-mono text-slate-300" dir="ltr">' + o.link + '</td>';
-html += '<td class="p-4 font-titr text-white">' + o.service + '</td>';
-html += '<td class="p-4">' + o.qty.toLocaleString('fa-IR') + '</td>';
-html += '<td class="p-4 text-white">' + o.amount.toLocaleString('fa-IR') + ' تومان</td>';
-html += '<td class="p-4">' + badge + '</td>';
-html += '</tr>';
+var badge = o.status === 'done' ? '<span class="px-2 py-0.5 rounded-full text-xs bg-emerald-100 text-emerald-700">انجام شده</span>' : (o.status === 'pending' ? '<span class="px-2 py-0.5 rounded-full text-xs bg-amber-100 text-amber-700">در حال انجام</span>' : '<span class="px-2 py-0.5 rounded-full text-xs bg-rose-100 text-rose-700">لغو شده</span>');
+html += '<tr><td class="p-3 font-mono font-bold text-eitaa-600">' + o.id + '</td><td class="p-3 font-mono text-slate-600" dir="ltr">' + o.link + '</td><td class="p-3 font-titr">' + o.service + '</td><td class="p-3">' + o.qty.toLocaleString('fa-IR') + '</td><td class="p-3">' + o.amount.toLocaleString('fa-IR') + ' تومان</td><td class="p-3">' + badge + '</td></tr>';
 }
 tbody.innerHTML = html;
 }
 
-/* عملکرد پنل مدیریت */
 function handleCreateUser(e) {
 e.preventDefault();
 var u = document.getElementById('admin-new-username').value.trim();
 var p = document.getElementById('admin-new-password').value.trim();
-
-if(users[u]) {
-alert('این نام کاربری قبلاً وجود دارد!');
-return;
-}
-
+if(users[u]) { alert('نام کاربری تکراری است!'); return; }
 users[u] = { password: p, role: 'customer', balance: 0 };
 saveUsers();
 renderAdminUsers();
-alert('کاربر جدید با موفقیت ایجاد شد.');
-document.getElementById('admin-new-username').value = '';
-document.getElementById('admin-new-password').value = '';
+alert('کاربر جدید ایجاد شد.');
 }
+
+function setWalletAction(action) { walletAction = action; }
 
 function handleChargeWallet(e) {
 e.preventDefault();
 var u = document.getElementById('admin-charge-user').value;
 var amt = parseInt(document.getElementById('admin-charge-amount').value);
+if(!users[u] || isNaN(amt)) { alert('اطلاعات نامعتبر است.'); return; }
 
-if(!users[u] || isNaN(amt)) {
-alert('اطلاعات نامعتبر است.');
-return;
-}
-
+if (walletAction === 'add') {
 users[u].balance += amt;
+alert('کیف پول کاربر ' + u + ' به میزان ' + amt.toLocaleString('fa-IR') + ' تومان شارژ شد.');
+} else if (walletAction === 'deduct') {
+if (amt > users[u].balance) { alert('مبلغ کسر نمی‌تواند بیشتر از موجودی فعلی باشد!'); return; }
+users[u].balance -= amt;
+alert('مبلغ ' + amt.toLocaleString('fa-IR') + ' تومان از کیف پول کاربر ' + u + ' کسر شد.');
+}
 saveUsers();
 updateHeaderUserInfo();
 renderAdminUsers();
-alert('کیف پول کاربر ' + u + ' با موفقیت به میزان ' + amt.toLocaleString('fa-IR') + ' تومان شارژ شد.');
-document.getElementById('admin-charge-amount').value = '';
 }
 
 function renderAdminUsers() {
 var tbody = document.getElementById('admin-users-table');
 var select = document.getElementById('admin-charge-user');
 if(!tbody || !select) return;
-
-var html = '';
-var selectHtml = '';
-
+var html = '', selectHtml = '';
 for(var u in users) {
-var roleBadge = users[u].role === 'admin' ? '<span class="text-amber-400 font-bold">مدیر</span>' : '<span class="text-slate-400">مشتری</span>';
-html += '<tr>';
-html += '<td class="p-3 font-mono font-bold text-white">' + u + '</td>';
-html += '<td class="p-3">' + roleBadge + '</td>';
-html += '<td class="p-3 font-bold text-emerald-400">' + users[u].balance.toLocaleString('fa-IR') + ' تومان</td>';
-html += '</tr>';
-
+var roleBadge = users[u].role === 'admin' ? '<span class="text-amber-600 font-bold">مدیر</span>' : '<span class="text-slate-500">مشتری</span>';
+html += '<tr><td class="p-3 font-mono font-bold text-slate-800">' + u + '</td><td class="p-3">' + roleBadge + '</td><td class="p-3 font-bold text-emerald-600">' + users[u].balance.toLocaleString('fa-IR') + ' تومان</td></tr>';
 selectHtml += '<option value="' + u + '">' + u + ' (فعلی: ' + users[u].balance.toLocaleString('fa-IR') + ' تومان)</option>';
 }
-
 tbody.innerHTML = html;
 select.innerHTML = selectHtml;
 }
 
-/* اجرای اولیه */
 checkAuth();
 renderServices();
 calculateSummary();
