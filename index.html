@@ -315,6 +315,97 @@ body.theme-bale .gradient-titr-btn{background:linear-gradient(135deg,#2dd4bf,#0d
 body.theme-bale .gradient-titr-btn:hover{background:linear-gradient(135deg,#5eead4,#14b8a6);box-shadow:0 6px 20px rgba(20,184,166,.5)}
 body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box-shadow:0 0 10px #14b8a6}
 </style>
+<style>
+/* ===== کیف پول و اعلان در هدر ===== */
+.wallet-chip{display:flex;align-items:center;gap:.6rem;padding:.3rem .45rem .3rem 1rem;border-radius:9999px;background:linear-gradient(135deg,#10b981,#0d9488);color:#fff;border:0;cursor:pointer;box-shadow:0 6px 16px rgba(16,185,129,.35);transition:transform .2s,box-shadow .2s}
+.wallet-chip:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(16,185,129,.45)}
+.wallet-chip .wallet-ico{width:2.2rem;height:2.2rem;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.wallet-chip .wallet-amt{display:flex;flex-direction:column;line-height:1.15;text-align:right}
+.wallet-chip .wallet-amt b{font-size:.95rem;font-weight:400}
+.wallet-chip .wallet-amt small{font-size:.6rem;opacity:.9}
+.notif-btn{position:relative;width:2.8rem;height:2.8rem;border-radius:1rem;background:#fff;border:1px solid #e2e8f0;color:#475569;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;box-shadow:0 2px 8px rgba(15,23,42,.06);transition:background .2s}
+.notif-btn:hover{background:#f8fafc}
+.notif-btn.has-new{color:#f59e0b;border-color:#fcd34d;background:#fffbeb}
+.notif-btn.has-new i{animation:bellRing 2.6s ease-in-out infinite;transform-origin:50% 0}
+@keyframes bellRing{0%,60%,100%{transform:rotate(0)}65%{transform:rotate(14deg)}70%{transform:rotate(-12deg)}75%{transform:rotate(9deg)}80%{transform:rotate(-6deg)}85%{transform:rotate(3deg)}}
+.notif-badge{position:absolute;top:-7px;right:-7px;min-width:1.25rem;height:1.25rem;padding:0 .3rem;border-radius:9999px;background:#ef4444;color:#fff;font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(239,68,68,.5)}
+.notif-badge.hidden{display:none!important}
+.notif-panel{position:fixed;top:5.25rem;left:.75rem;width:min(22rem,calc(100vw - 1.5rem));max-height:70vh;display:flex;flex-direction:column;background:#fff;border:1px solid #e2e8f0;border-radius:1.25rem;box-shadow:0 24px 48px rgba(15,23,42,.22);z-index:60;overflow:hidden}
+.notif-panel.hidden{display:none!important}
+.notif-head{padding:.9rem 1rem;background:linear-gradient(135deg,#f59e0b,#ea580c);color:#fff;display:flex;align-items:center;justify-content:space-between}
+body.theme-bale .notif-head{background:linear-gradient(135deg,#2dd4bf,#0d9488)}
+.notif-chip{font-size:.7rem;background:rgba(255,255,255,.25);padding:.15rem .6rem;border-radius:9999px}
+.notif-list{overflow-y:auto;padding:.5rem}
+.notif-item{display:flex;gap:.7rem;padding:.75rem;border-radius:1rem;margin-bottom:.4rem;background:#f8fafc;border:1px solid transparent}
+.notif-item.unread{background:#fffbeb;border-color:#fde68a}
+.notif-ico{width:2.2rem;height:2.2rem;border-radius:.8rem;background:linear-gradient(135deg,#fbbf24,#f97316);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.notif-text{font-size:.82rem;color:#334155;line-height:1.8;white-space:pre-line;word-break:break-word}
+.notif-time{font-size:.65rem;color:#94a3b8;margin-top:.2rem;display:block}
+.notif-empty{text-align:center;padding:2rem 1rem;color:#94a3b8;font-size:.85rem}
+.notif-empty i{font-size:2rem;display:block;margin-bottom:.6rem;opacity:.6}
+/* ===== مودال‌ها ===== */
+.mm-overlay{position:fixed;inset:0;z-index:55;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem}
+.mm-overlay.hidden{display:none!important}
+.wm-card{background:#fff;border-radius:1.5rem;max-width:30rem;width:100%;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 60px rgba(15,23,42,.35)}
+.wm-head{position:relative;padding:1.3rem 1.2rem 1.1rem;background:linear-gradient(135deg,#10b981,#0f766e);color:#fff;text-align:center}
+.wm-close{position:absolute;top:.9rem;left:.9rem;width:2.1rem;height:2.1rem;border-radius:50%;background:rgba(255,255,255,.2);color:#fff;border:0;cursor:pointer}
+.wm-title{font-size:.85rem;opacity:.95}
+.wm-balance{margin:.4rem 0 .9rem;font-size:2rem}
+.wm-balance small{font-size:.8rem;opacity:.9}
+.wm-stats{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.wm-stats>div{background:rgba(255,255,255,.16);border-radius:1rem;padding:.55rem;font-size:.7rem}
+.wm-stats b{display:block;font-size:.95rem;font-weight:400;margin-top:.15rem}
+.wm-filter{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;background:#f1f5f9;padding:.35rem;margin:.9rem .9rem .4rem;border-radius:1rem}
+.wm-filter button{padding:.5rem;border-radius:.8rem;font-size:.75rem;color:#475569;border:0;background:transparent;cursor:pointer}
+.wm-filter button.active{background:#10b981;color:#fff;box-shadow:0 4px 10px rgba(16,185,129,.35)}
+.wm-list{overflow-y:auto;padding:.4rem .9rem 1rem}
+.tx-item{display:flex;align-items:center;gap:.75rem;padding:.7rem;border-radius:1rem;background:#f8fafc;margin-bottom:.45rem}
+.tx-ico{width:2.4rem;height:2.4rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.tx-ico.in{background:#d1fae5;color:#059669}
+.tx-ico.out{background:#ffe4e6;color:#e11d48}
+.tx-main{flex:1;min-width:0}
+.tx-reason{font-size:.82rem;color:#1e293b;word-break:break-word}
+.tx-date{font-size:.68rem;color:#94a3b8;margin-top:.15rem}
+.tx-amt{text-align:left;white-space:nowrap}
+.tx-amt b{display:block;font-size:.88rem;font-weight:400}
+.tx-amt.in b{color:#059669}
+.tx-amt.out b{color:#e11d48}
+.tx-amt small{display:block;font-size:.62rem;color:#94a3b8;margin-top:.1rem}
+/* ===== آنلاین ===== */
+.online-badge{display:inline-flex;align-items:center;gap:.35rem;padding:.15rem .6rem;border-radius:9999px;background:#d1fae5;color:#047857;font-size:.72rem;font-weight:700}
+.online-dot{width:.5rem;height:.5rem;border-radius:50%;background:#10b981;animation:onlinePulse 1.6s infinite}
+@keyframes onlinePulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.6)}70%{box-shadow:0 0 0 7px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.seen-off{color:#64748b;font-size:.75rem;white-space:nowrap}
+/* ===== مدیریت اعلانات (ادمین) ===== */
+.na-card{border-radius:1.25rem;border:1px solid #fde68a;background:linear-gradient(180deg,#fffbeb,#fff);overflow:hidden}
+.na-head{background:linear-gradient(135deg,#f59e0b,#ea580c);color:#fff;padding:.9rem 1.1rem;display:flex;align-items:center;gap:.6rem}
+.na-seg{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;background:#f1f5f9;padding:.35rem;border-radius:1rem;margin:1rem}
+.na-seg button{padding:.65rem;border-radius:.8rem;font-size:.8rem;color:#475569;border:0;background:transparent;cursor:pointer}
+.na-seg button.active{background:#f59e0b;color:#fff;box-shadow:0 4px 12px rgba(245,158,11,.4)}
+.na-body{padding:0 1rem 1rem}
+.na-text{width:100%;min-height:7rem;border:1px solid #e2e8f0;border-radius:1rem;padding:.8rem;font-size:.9rem;resize:vertical;background:#fff;line-height:1.9}
+.na-text:focus{outline:none;border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,.2)}
+.na-send{width:100%;margin-top:.7rem;padding:.8rem;border-radius:1rem;border:0;cursor:pointer;color:#fff;background:linear-gradient(135deg,#f59e0b,#ea580c);box-shadow:0 8px 18px rgba(234,88,12,.3);font-size:.95rem}
+.na-item{background:#fff;border:1px solid #e2e8f0;border-radius:1rem;padding:.85rem;margin-bottom:.6rem}
+.na-item-text{font-size:.85rem;color:#334155;line-height:1.9;white-space:pre-line;word-break:break-word}
+.na-item-meta{font-size:.68rem;color:#94a3b8;margin-top:.35rem}
+.na-actions{display:flex;gap:.4rem;margin-top:.6rem}
+.na-btn{padding:.35rem .9rem;border-radius:.7rem;border:0;color:#fff;font-size:.75rem;cursor:pointer}
+.na-btn.edit{background:#0ea5e9}
+.na-btn.del{background:#e11d48}
+.na-btn.save{background:#10b981}
+.na-btn.cancel{background:#94a3b8}
+@media (max-width:520px){
+header .gap-4{gap:.5rem}
+header .gap-3{gap:.5rem}
+.brand-logo{display:none!important}
+header .brand-text{font-size:1.55rem}
+.wallet-chip{padding:.22rem .3rem .22rem .7rem;gap:.4rem}
+.wallet-chip .wallet-ico{width:1.7rem;height:1.7rem;font-size:.72rem}
+.wallet-chip .wallet-amt b{font-size:.78rem}
+.notif-btn{width:2.4rem;height:2.4rem;font-size:1rem}
+}
+</style>
 </head>
 <body class="theme-home flex flex-col justify-between min-h-screen">
 
@@ -366,6 +457,36 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 </div>
 </div>
 
+<!-- پنل اعلانات -->
+<div id="notif-panel" class="notif-panel hidden">
+<div class="notif-head">
+<div class="font-titr" style="display:flex;align-items:center;gap:.5rem"><i class="fa-solid fa-bell"></i> اعلانات</div>
+<span id="notif-count-label" class="notif-chip"></span>
+</div>
+<div id="notif-list" class="notif-list"></div>
+</div>
+
+<!-- مودال تاریخچه کیف پول -->
+<div id="wallet-modal" class="mm-overlay hidden" onclick="if(event.target===this)closeWalletHistory()">
+<div class="wm-card">
+<div class="wm-head">
+<button type="button" class="wm-close" onclick="closeWalletHistory()"><i class="fa-solid fa-xmark"></i></button>
+<div class="wm-title font-titr"><i class="fa-solid fa-wallet"></i> <span id="wm-user">کیف پول</span></div>
+<div class="wm-balance font-titr"><b id="wm-balance" style="font-weight:400">۰</b> <small>تومان</small></div>
+<div class="wm-stats">
+<div><i class="fa-solid fa-arrow-down"></i> مجموع واریز<b id="wm-in" class="font-titr">۰</b></div>
+<div><i class="fa-solid fa-arrow-up"></i> مجموع برداشت<b id="wm-out" class="font-titr">۰</b></div>
+</div>
+</div>
+<div class="wm-filter font-titr">
+<button type="button" id="wm-f-all" onclick="setWalletFilter('all')">همه</button>
+<button type="button" id="wm-f-add" onclick="setWalletFilter('add')">واریز</button>
+<button type="button" id="wm-f-deduct" onclick="setWalletFilter('deduct')">برداشت</button>
+</div>
+<div id="wm-list" class="wm-list"></div>
+</div>
+</div>
+
 <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex items-center justify-between h-20">
@@ -402,7 +523,7 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 </div>
 </div>
 <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
-<div class="w-11 h-11 rounded-2xl bg-eitaa-50 border border-eitaa-500/30 flex items-center justify-center text-eitaa-500 text-xl">
+<div class="brand-logo w-11 h-11 rounded-2xl bg-eitaa-50 border border-eitaa-500/30 flex items-center justify-center text-eitaa-500 text-xl">
 <i class="fa-solid fa-bolt"></i>
 </div>
 <div>
@@ -413,13 +534,6 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 </div>
 
 <div class="flex items-center gap-4">
-<div class="bg-slate-100 border border-slate-200 rounded-2xl px-4 py-2 flex items-center gap-3">
-<div class="text-right">
-<div class="text-[10px] text-slate-500">خوش آمدید: <span id="display-user-name" class="text-eitaa-600 font-bold">-</span></div>
-<div class="text-xs font-titr text-emerald-600">کیف پول: <span id="display-user-balance">۰</span> تومان</div>
-</div>
-<i class="fa-solid fa-wallet text-xl text-emerald-600"></i>
-</div>
 
 <nav class="hidden md:flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
 <button onclick="switchTab('home')" id="tab-btn-home" class="px-4 py-2 rounded-xl font-titr bg-eitaa-500 text-white">🏠 خانه</button>
@@ -429,6 +543,14 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 <button onclick="switchTab('support')" id="tab-btn-support" class="px-4 py-2 rounded-xl font-titr text-slate-600">🎧 پشتیبانی</button>
 <button onclick="switchTab('admin')" id="tab-btn-admin" class="hidden px-4 py-2 rounded-xl font-titr text-amber-600 border border-amber-300">👑 مدیریت</button>
 </nav>
+<button id="notif-btn" type="button" onclick="toggleNotifPanel(event)" class="notif-btn" title="اعلانات">
+<i class="fa-solid fa-bell"></i>
+<span id="notif-badge" class="notif-badge hidden">۱</span>
+</button>
+<button type="button" onclick="openWalletHistory()" class="wallet-chip" title="تاریخچه کیف پول">
+<span class="wallet-ico"><i class="fa-solid fa-wallet"></i></span>
+<span class="wallet-amt"><b id="display-user-balance" class="font-titr">۰</b><small>تومان</small></span>
+</button>
 </div>
 </div>
 </div>
@@ -565,6 +687,7 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 <th class="p-3">پلتفرم</th>
 <th class="p-3">تعداد</th>
 <th class="p-3">مبلغ</th>
+<th class="p-3">تاریخ ثبت</th>
 <th class="p-3">وضعیت</th>
 </tr>
 </thead>
@@ -662,11 +785,40 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 <form onsubmit="handleChargeWallet(event)" class="space-y-3">
 <select id="admin-charge-user" required class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono"></select>
 <input type="number" id="admin-charge-amount" required placeholder="مبلغ (تومان)" class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono">
+<input type="text" id="admin-charge-reason" maxlength="80" placeholder="بابت (اختیاری) — مثلاً شارژ دستی، جایزه، اصلاح" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
 <div class="flex gap-2">
 <button type="submit" onclick="setWalletAction('add')" class="flex-1 bg-emerald-600 text-white font-titr py-2 rounded-xl text-xs">افزایش موجودی</button>
 <button type="submit" onclick="setWalletAction('deduct')" class="flex-1 bg-rose-600 text-white font-titr py-2 rounded-xl text-xs">کاهش موجودی</button>
 </div>
 </form>
+</div>
+</div>
+
+<!-- مدیریت اعلانات -->
+<div class="na-card">
+<div class="na-head">
+<i class="fa-solid fa-bullhorn" style="font-size:1.2rem"></i>
+<div>
+<div class="font-titr" style="font-size:1rem">مدیریت اعلانات</div>
+<div style="font-size:.7rem;opacity:.9">پیام برای همه کاربران ارسال می‌شود</div>
+</div>
+</div>
+<div class="na-seg font-titr">
+<button type="button" id="na-tab-add" onclick="setNotifAdminTab('add')">➕ اضافه کردن اعلان</button>
+<button type="button" id="na-tab-manage" onclick="setNotifAdminTab('manage')">🗑️ حذف / ویرایش اعلانات (<span id="na-count">۰</span>)</button>
+</div>
+<div class="na-body">
+<div id="na-add">
+<textarea id="notif-new-text" class="na-text" maxlength="500" placeholder="متن اعلان را اینجا بنویسید..." oninput="updateNotifCount()"></textarea>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:.35rem;font-size:.7rem;color:#94a3b8">
+<span id="notif-send-msg" style="color:#059669"></span>
+<span><span id="notif-char-count">۰</span> / ۵۰۰</span>
+</div>
+<button type="button" onclick="sendNotification()" class="na-send font-titr"><i class="fa-solid fa-paper-plane"></i> ارسال برای همه کاربران</button>
+</div>
+<div id="na-manage" class="hidden">
+<div id="notif-admin-list"></div>
+</div>
 </div>
 </div>
 
@@ -680,6 +832,7 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 <th class="p-3">نقش</th>
 <th class="p-3">موجودی کیف پول</th>
 <th class="p-3">وضعیت حساب</th>
+<th class="p-3">آخرین فعالیت</th>
 <th class="p-3">عملیات</th>
 </tr>
 </thead>
@@ -707,6 +860,7 @@ body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box
 <th class="p-3">نوع سفارش</th>
 <th class="p-3">تعداد</th>
 <th class="p-3">مبلغ</th>
+<th class="p-3">تاریخ ثبت</th>
 <th class="p-3">وضعیت</th>
 </tr>
 </thead>
@@ -831,6 +985,8 @@ document.getElementById('login-modal').classList.remove('hidden');
 } else {
 document.getElementById('login-modal').classList.add('hidden');
 updateHeaderUserInfo();
+touchPresence();
+renderNotifications();
 if(users[currentUser].role === 'admin') {
 document.getElementById('admin-menu-btn').classList.remove('hidden');
 document.getElementById('tab-btn-admin').classList.remove('hidden');
@@ -867,6 +1023,8 @@ document.getElementById('welcome-modal').classList.add('hidden');
 }
 
 function logout() {
+markOffline();
+var np = document.getElementById('notif-panel'); if (np) np.classList.add('hidden');
 currentUser = null;
 safeStore.removeItem('app_current_user');
 checkAuth();
@@ -874,8 +1032,10 @@ checkAuth();
 
 function updateHeaderUserInfo() {
 if (currentUser && users[currentUser]) {
-document.getElementById('display-user-name').innerText = currentUser;
+var nm = document.getElementById('display-user-name');
+if (nm) nm.innerText = currentUser;
 document.getElementById('display-user-balance').innerText = users[currentUser].balance.toLocaleString('fa-IR');
+updateNotifBadge();
 }
 }
 
@@ -963,7 +1123,7 @@ applyTheme(tab);
 updateNavActive(tab);
 window.scrollTo({ top: 0, behavior: 'smooth' });
 if(tab === 'tracking') filterTrackingOrders(currentFilter);
-if(tab === 'admin') { renderAdminUsers(); renderAdminOrders(); }
+if(tab === 'admin') { renderAdminUsers(); renderAdminOrders(); renderAdminNotifs(); }
 }
 
 function renderServices() {
@@ -1047,7 +1207,8 @@ saveUsers();
 updateHeaderUserInfo();
 var link = document.getElementById('fake-channel-link').value;
 var newId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
-mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: 'eitaa', service: '\u0645\u0645\u0628\u0631 \u0641\u06cc\u06a9', qty: currentFakeQty, amount: total, status: 'pending' });
+mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: 'eitaa', service: '\u0645\u0645\u0628\u0631 \u0641\u06cc\u06a9', qty: currentFakeQty, amount: total, status: 'pending', ts: Date.now() });
+addTx(currentUser, 'deduct', total, 'خرید ممبر فیک ایتا — سفارش ' + newId, users[currentUser].balance);
 saveOrders();
 alert('\u0633\u0641\u0627\u0631\u0634 \u062b\u0628\u062a \u0634\u062f!\n\u06a9\u062f \u067e\u06cc\u06af\u06cc\u0631\u06cc: ' + newId);
 switchTab('tracking');
@@ -1074,7 +1235,8 @@ saveUsers();
 updateHeaderUserInfo();
 var link = document.getElementById('channel-link').value;
 var newId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
-mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: selectedService.platform, service: selectedService.name, qty: currentQuantity, amount: total, status: 'pending' });
+mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: selectedService.platform, service: selectedService.name, qty: currentQuantity, amount: total, status: 'pending', ts: Date.now() });
+addTx(currentUser, 'deduct', total, 'خرید ' + selectedService.name + ' — سفارش ' + newId, users[currentUser].balance);
 saveOrders();
 alert('\u0633\u0641\u0627\u0631\u0634 \u062b\u0628\u062a \u0634\u062f!\n\u06a9\u062f \u067e\u06cc\u06af\u06cc\u0631\u06cc: ' + newId);
 switchTab('tracking');
@@ -1104,7 +1266,7 @@ var html = '';
 for(var j=0; j<filtered.length; j++) {
 var o = filtered[j];
 var badge = o.status === 'done' ? '<span class="px-2 py-0.5 rounded-full text-xs bg-emerald-100 text-emerald-700">\u0627\u0646\u062c\u0627\u0645 \u0634\u062f\u0647</span>' : (o.status === 'pending' ? '<span class="px-2 py-0.5 rounded-full text-xs bg-amber-100 text-amber-700">\u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062c\u0627\u0645</span>' : '<span class="px-2 py-0.5 rounded-full text-xs bg-rose-100 text-rose-700">\u0644\u063a\u0648 \u0634\u062f\u0647</span>');
-html += '<tr><td class="p-3 font-mono font-bold text-eitaa-600">' + escapeHtml(o.id) + '</td><td class="p-3 font-mono text-slate-600" dir="ltr">' + escapeHtml(o.link) + '</td><td class="p-3 font-titr">' + escapeHtml(o.service) + '</td><td class="p-3">' + platformBadge(getPlatform(o)) + '</td><td class="p-3">' + o.qty.toLocaleString('fa-IR') + '</td><td class="p-3">' + o.amount.toLocaleString('fa-IR') + ' تومان</td><td class="p-3">' + badge + '</td></tr>';
+html += '<tr><td class="p-3 font-mono font-bold text-eitaa-600">' + escapeHtml(o.id) + '</td><td class="p-3 font-mono text-slate-600" dir="ltr">' + escapeHtml(o.link) + '</td><td class="p-3 font-titr">' + escapeHtml(o.service) + '</td><td class="p-3">' + platformBadge(getPlatform(o)) + '</td><td class="p-3">' + o.qty.toLocaleString('fa-IR') + '</td><td class="p-3">' + o.amount.toLocaleString('fa-IR') + ' تومان</td><td class="p-3 whitespace-nowrap text-xs text-slate-600">' + formatJalali(o.ts) + '</td><td class="p-3">' + badge + '</td></tr>';
 }
 tbody.innerHTML = html;
 }
@@ -1114,7 +1276,7 @@ e.preventDefault();
 var u = document.getElementById('admin-new-username').value.trim();
 var p = document.getElementById('admin-new-password').value.trim();
 if(users[u]) { alert('\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062a\u06a9\u0631\u0627\u0631\u06cc \u0627\u0633\u062a!'); return; }
-users[u] = { password: p, role: 'customer', balance: 0, isBlocked: false };
+users[u] = { password: p, role: 'customer', balance: 0, isBlocked: false, createdAt: Date.now(), notifReadAt: Date.now() };
 saveUsers();
 renderAdminUsers();
 alert('\u06a9\u0627\u0631\u0628\u0631 \u062c\u062f\u06cc\u062f \u0627\u06cc\u062c\u0627\u062f \u0634\u062f.');
@@ -1144,17 +1306,21 @@ function handleChargeWallet(e) {
 e.preventDefault();
 var u = document.getElementById('admin-charge-user').value;
 var amt = parseInt(document.getElementById('admin-charge-amount').value);
-if(!users[u] || isNaN(amt)) { alert('\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0646\u0627\u0645\u0639\u062a\u0628\u0631 \u0627\u0633\u062a.'); return; }
+var reason = (document.getElementById('admin-charge-reason').value || '').trim();
+if(!users[u] || isNaN(amt) || amt <= 0) { alert('\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0646\u0627\u0645\u0639\u062a\u0628\u0631 \u0627\u0633\u062a.'); return; }
 
 if (walletAction === 'add') {
 users[u].balance += amt;
+addTx(u, 'add', amt, reason || 'شارژ توسط مدیریت', users[u].balance);
 alert('\u06a9\u06cc\u0641 \u067e\u0648\u0644 \u06a9\u0627\u0631\u0628\u0631 ' + u + ' \u0628\u0647 \u0645\u06cc\u0632\u0627\u0646 ' + amt.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646 \u0634\u0627\u0631\u0698 \u0634\u062f.');
 } else if (walletAction === 'deduct') {
 if (amt > users[u].balance) { alert('\u0645\u0628\u0644\u063a \u06a9\u0633\u0631 \u0646\u0645\u06cc\200c\u062a\u0648\u0627\u0646\u062f \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0645\u0648\u062c\u0648\u062f\u06cc \u0641\u0639\u0644\u06cc \u0628\u0627\u0634\u062f!'); return; }
 users[u].balance -= amt;
+addTx(u, 'deduct', amt, reason || 'کسر توسط مدیریت', users[u].balance);
 alert('\u0645\u0628\u0644\u063a ' + amt.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646 \u0627\u0632 \u06a9\u06cc\u0641 \u067e\u0648\u0644 \u06a9\u0627\u0631\u0628\u0631 ' + u + ' \u06a9\u0633\u0631 \u0634\u062f.');
 }
 saveUsers();
+document.getElementById('admin-charge-reason').value = '';
 updateHeaderUserInfo();
 renderAdminUsers();
 }
@@ -1190,13 +1356,14 @@ var blockBtnText = users[u].isBlocked ? 'رفع انسداد' : 'مسدود کر
 var blockBtnCls = users[u].isBlocked ? 'bg-amber-500 hover:bg-amber-600' : 'bg-orange-600 hover:bg-orange-700';
 
 var actionsHtml = '';
+var walletBtn = '<button onclick="openWalletHistory(\'' + u + '\')" class="px-2 py-1 text-xs text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg font-titr">تراکنش‌ها</button>';
 if (u !== 'Sobhan201088') {
-actionsHtml = '<div class="flex gap-1">'
+actionsHtml = '<div class="flex gap-1 flex-wrap">' + walletBtn
 + '<button onclick="toggleBlockUser(\'' + u + '\')" class="px-2 py-1 text-xs text-white rounded-lg font-titr ' + blockBtnCls + '">' + blockBtnText + '</button>'
 + '<button onclick="deleteUser(\'' + u + '\')" class="px-2 py-1 text-xs text-white bg-rose-600 hover:bg-rose-700 rounded-lg font-titr">حذف</button>'
 + '</div>';
 } else {
-actionsHtml = '<span class="text-xs text-slate-400">-</span>';
+actionsHtml = walletBtn;
 }
 
 html += '<tr>'
@@ -1204,13 +1371,16 @@ html += '<tr>'
 + '<td class="p-3">' + roleBadge + '</td>'
 + '<td class="p-3 font-bold text-emerald-600">' + users[u].balance.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646</td>'
 + '<td class="p-3">' + statusBadge + '</td>'
++ '<td class="p-3 seen-cell" data-user="' + escapeHtml(u) + '">' + lastSeenText(u) + '</td>'
 + '<td class="p-3">' + actionsHtml + '</td>'
 + '</tr>';
 
 selectHtml += '<option value="' + u + '">' + u + ' (\u0641\u0639\u0644\u06cc: ' + users[u].balance.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646)</option>';
 }
 tbody.innerHTML = html;
+var prevSel = select.value;
 select.innerHTML = selectHtml;
+if (prevSel && users[prevSel]) select.value = prevSel;
 }
 
 var adminOrderFilter = 'all';
@@ -1278,6 +1448,7 @@ html += '<td class="p-3 font-mono text-slate-600 break-all" dir="ltr">' + escape
 html += '<td class="p-3"><span class="px-2 py-0.5 rounded-full text-xs font-titr whitespace-nowrap ' + t.cls + '">' + t.label + '</span></td>';
 html += '<td class="p-3 whitespace-nowrap">' + Number(o.qty).toLocaleString('fa-IR') + '</td>';
 html += '<td class="p-3 whitespace-nowrap">' + Number(o.amount).toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646</td>';
+html += '<td class="p-3 whitespace-nowrap text-xs text-slate-600">' + formatJalali(o.ts) + '</td>';
 html += '<td class="p-3"><select onchange="changeOrderStatus(' + i + ', this.value)" class="border rounded-xl px-2 py-1.5 text-xs font-titr ' + selClass + '">'
 + '<option value="pending"' + (o.status === 'pending' ? ' selected' : '') + '>\u23f3 \u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062c\u0627\u0645</option>'
 + '<option value="done"' + (o.status === 'done' ? ' selected' : '') + '>\u2705 \u0627\u0646\u062c\u0627\u0645 \u0634\u062f\u0647</option>'
@@ -1306,9 +1477,256 @@ if (b) { ev.preventDefault(); b.click(); }
 }
 });
 
+
+// ===================== تاریخ شمسی =====================
+function jDate(ts) { return new Date(ts).toLocaleDateString('fa-IR-u-ca-persian', { year: 'numeric', month: '2-digit', day: '2-digit' }); }
+function jTime(ts) { return new Date(ts).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', hour12: false }); }
+function formatJalali(ts) {
+if (!ts) return '<span class="text-slate-400">-</span>';
+return '<span class="block">' + jDate(ts) + '</span><span class="block text-slate-400">' + jTime(ts) + '</span>';
+}
+function formatJalaliInline(ts) { return jDate(ts) + ' - ' + jTime(ts); }
+function fa(n) { return Number(n).toLocaleString('fa-IR'); }
+
+// ===================== آنلاین / آخرین بازدید =====================
+function markOffline() {
+if (currentUser && users[currentUser]) { users[currentUser].lastSeen = Date.now(); users[currentUser].offline = true; saveUsers(); }
+}
+function touchPresence() {
+if (!currentUser || !users[currentUser] || document.hidden) return;
+users[currentUser].lastSeen = Date.now();
+users[currentUser].offline = false;
+saveUsers();
+}
+function lastSeenText(u) {
+var us = users[u];
+if (!us || !us.lastSeen) return '<span class="seen-off">هرگز وارد نشده</span>';
+var diff = Date.now() - us.lastSeen;
+if (!us.offline && diff < 60000) return '<span class="online-badge"><i class="online-dot"></i>آنلاین</span>';
+var m = Math.floor(diff / 60000);
+if (m < 1) m = 1;
+var txt;
+if (m < 60) txt = fa(m) + ' دقیقه پیش';
+else if (m < 1440) txt = fa(Math.floor(m / 60)) + ' ساعت پیش';
+else txt = fa(Math.floor(m / 1440)) + ' روز پیش';
+return '<span class="seen-off" title="' + formatJalaliInline(us.lastSeen) + '">' + txt + '</span>';
+}
+function refreshPresence() {
+var cells = document.querySelectorAll('.seen-cell');
+for (var i = 0; i < cells.length; i++) cells[i].innerHTML = lastSeenText(cells[i].getAttribute('data-user'));
+}
+
+// ===================== تاریخچه کیف پول =====================
+var walletTx = JSON.parse(safeStore.getItem('app_wallet_tx')) || [];
+var wmUser = null, wmFilter = 'all';
+function saveTx() { safeStore.setItem('app_wallet_tx', JSON.stringify(walletTx)); }
+function addTx(user, type, amount, reason, balanceAfter) {
+walletTx.unshift({ id: 'TX-' + Date.now() + Math.floor(Math.random() * 1000), user: user, type: type, amount: amount, reason: reason, balanceAfter: balanceAfter, ts: Date.now() });
+if (walletTx.length > 1000) walletTx.length = 1000;
+saveTx();
+}
+function isAdminUser() { return !!(currentUser && users[currentUser] && users[currentUser].role === 'admin'); }
+function openWalletHistory(u) {
+if (!currentUser || !users[currentUser]) return;
+u = u || currentUser;
+if (u !== currentUser && !isAdminUser()) return;
+if (!users[u]) return;
+wmUser = u; wmFilter = 'all';
+renderWalletHistory();
+document.getElementById('wallet-modal').classList.remove('hidden');
+}
+function closeWalletHistory() { document.getElementById('wallet-modal').classList.add('hidden'); }
+function setWalletFilter(f) { wmFilter = f; renderWalletHistory(); }
+function renderWalletHistory() {
+if (!wmUser || !users[wmUser]) return;
+var totalIn = 0, totalOut = 0, html = '', shown = 0;
+for (var i = 0; i < walletTx.length; i++) {
+var x = walletTx[i];
+if (x.user !== wmUser) continue;
+if (x.type === 'add') totalIn += x.amount; else totalOut += x.amount;
+if (wmFilter !== 'all' && x.type !== wmFilter) continue;
+shown++;
+var isIn = x.type === 'add';
+html += '<div class="tx-item">'
++ '<div class="tx-ico ' + (isIn ? 'in' : 'out') + '"><i class="fa-solid ' + (isIn ? 'fa-arrow-down' : 'fa-arrow-up') + '"></i></div>'
++ '<div class="tx-main"><div class="tx-reason font-titr">' + escapeHtml(x.reason || (isIn ? 'واریز' : 'برداشت')) + '</div><div class="tx-date">' + formatJalaliInline(x.ts) + '</div></div>'
++ '<div class="tx-amt ' + (isIn ? 'in' : 'out') + '"><b class="font-titr">' + (isIn ? '+' : '−') + fa(x.amount) + '</b><small>تومان</small><small>مانده: ' + fa(x.balanceAfter) + '</small></div>'
++ '</div>';
+}
+if (!shown) html = '<div class="notif-empty"><i class="fa-solid fa-receipt"></i>هنوز تراکنشی ثبت نشده است.</div>';
+document.getElementById('wm-list').innerHTML = html;
+document.getElementById('wm-user').innerText = (wmUser === currentUser) ? 'کیف پول من' : 'کیف پول کاربر: ' + wmUser;
+document.getElementById('wm-balance').innerText = fa(users[wmUser].balance);
+document.getElementById('wm-in').innerText = fa(totalIn);
+document.getElementById('wm-out').innerText = fa(totalOut);
+var ids = ['all', 'add', 'deduct'];
+for (var k = 0; k < ids.length; k++) {
+var b = document.getElementById('wm-f-' + ids[k]);
+if (b) { if (ids[k] === wmFilter) b.classList.add('active'); else b.classList.remove('active'); }
+}
+}
+
+// ===================== اعلانات =====================
+var notifs = JSON.parse(safeStore.getItem('app_notifs')) || [];
+var naEditingId = null;
+function saveNotifs() { safeStore.setItem('app_notifs', JSON.stringify(notifs)); }
+function getUnreadCount() {
+if (!currentUser || !users[currentUser]) return 0;
+var seen = users[currentUser].notifReadAt || 0, c = 0;
+for (var i = 0; i < notifs.length; i++) if (notifs[i].ts > seen) c++;
+return c;
+}
+function updateNotifBadge() {
+var b = document.getElementById('notif-badge'), btn = document.getElementById('notif-btn');
+if (!b || !btn) return;
+var c = getUnreadCount();
+if (c > 0) { b.innerText = c > 9 ? '۹+' : fa(c); b.classList.remove('hidden'); btn.classList.add('has-new'); }
+else { b.classList.add('hidden'); btn.classList.remove('has-new'); }
+}
+function renderNotifications(seen) {
+var list = document.getElementById('notif-list');
+if (!list) return;
+if (seen === undefined) seen = (currentUser && users[currentUser] && users[currentUser].notifReadAt) || 0;
+var html = '';
+for (var i = 0; i < notifs.length; i++) {
+var n = notifs[i];
+html += '<div class="notif-item' + (n.ts > seen ? ' unread' : '') + '">'
++ '<div class="notif-ico"><i class="fa-solid fa-bullhorn"></i></div>'
++ '<div><div class="notif-text">' + escapeHtml(n.text) + '</div>'
++ '<span class="notif-time">' + formatJalaliInline(n.ts) + (n.editedAt ? ' • ویرایش شده' : '') + '</span></div></div>';
+}
+if (!notifs.length) html = '<div class="notif-empty"><i class="fa-regular fa-bell-slash"></i>اعلان جدیدی وجود ندارد.</div>';
+list.innerHTML = html;
+var lbl = document.getElementById('notif-count-label');
+if (lbl) lbl.innerText = notifs.length ? fa(notifs.length) + ' پیام' : '';
+}
+function toggleNotifPanel(ev) {
+if (ev) ev.stopPropagation();
+var p = document.getElementById('notif-panel');
+if (!p.classList.contains('hidden')) { p.classList.add('hidden'); return; }
+var seen = (users[currentUser] && users[currentUser].notifReadAt) || 0;
+renderNotifications(seen);
+p.classList.remove('hidden');
+if (users[currentUser]) { users[currentUser].notifReadAt = Date.now(); saveUsers(); }
+updateNotifBadge();
+}
+
+// --- بخش مدیریت اعلانات ---
+function setNotifAdminTab(tab) {
+document.getElementById('na-add').classList.toggle('hidden', tab !== 'add');
+document.getElementById('na-manage').classList.toggle('hidden', tab !== 'manage');
+document.getElementById('na-tab-add').classList.toggle('active', tab === 'add');
+document.getElementById('na-tab-manage').classList.toggle('active', tab === 'manage');
+if (tab === 'manage') renderAdminNotifs();
+}
+function updateNotifCount() {
+document.getElementById('notif-char-count').innerText = fa(document.getElementById('notif-new-text').value.length);
+}
+function sendNotification() {
+if (!isAdminUser()) return;
+var ta = document.getElementById('notif-new-text');
+var text = ta.value.trim();
+if (!text) { alert('متن اعلان را بنویسید.'); return; }
+var ts = Date.now();
+notifs.unshift({ id: 'N-' + ts + Math.floor(Math.random() * 1000), text: text, ts: ts });
+saveNotifs();
+ta.value = '';
+updateNotifCount();
+users[currentUser].notifReadAt = ts;
+saveUsers();
+updateNotifBadge();
+renderNotifications();
+renderAdminNotifs();
+var msg = document.getElementById('notif-send-msg');
+msg.innerText = '✓ اعلان برای همه کاربران ارسال شد';
+setTimeout(function () { msg.innerText = ''; }, 2500);
+}
+function renderAdminNotifs() {
+var box = document.getElementById('notif-admin-list');
+if (!box) return;
+var cnt = document.getElementById('na-count');
+if (cnt) cnt.innerText = fa(notifs.length);
+var html = '';
+for (var i = 0; i < notifs.length; i++) {
+var n = notifs[i];
+if (naEditingId === n.id) {
+html += '<div class="na-item">'
++ '<textarea id="na-edit-' + n.id + '" class="na-text" maxlength="500">' + escapeHtml(n.text) + '</textarea>'
++ '<div class="na-actions"><button type="button" class="na-btn save font-titr" onclick="saveNotifEdit(\'' + n.id + '\')">ذخیره</button>'
++ '<button type="button" class="na-btn cancel font-titr" onclick="cancelNotifEdit()">انصراف</button></div></div>';
+} else {
+html += '<div class="na-item">'
++ '<div class="na-item-text">' + escapeHtml(n.text) + '</div>'
++ '<div class="na-item-meta">' + formatJalaliInline(n.ts) + (n.editedAt ? ' • ویرایش شده' : '') + '</div>'
++ '<div class="na-actions"><button type="button" class="na-btn edit font-titr" onclick="editNotif(\'' + n.id + '\')">✏️ ویرایش</button>'
++ '<button type="button" class="na-btn del font-titr" onclick="deleteNotif(\'' + n.id + '\')">🗑️ حذف</button></div></div>';
+}
+}
+if (!notifs.length) html = '<div class="notif-empty"><i class="fa-regular fa-bell-slash"></i>هنوز اعلانی ارسال نکرده‌اید.</div>';
+box.innerHTML = html;
+}
+function editNotif(id) { naEditingId = id; renderAdminNotifs(); }
+function cancelNotifEdit() { naEditingId = null; renderAdminNotifs(); }
+function saveNotifEdit(id) {
+if (!isAdminUser()) return;
+var ta = document.getElementById('na-edit-' + id);
+var text = ta ? ta.value.trim() : '';
+if (!text) { alert('متن اعلان نمی‌تواند خالی باشد.'); return; }
+for (var i = 0; i < notifs.length; i++) {
+if (notifs[i].id === id) { notifs[i].text = text; notifs[i].editedAt = Date.now(); break; }
+}
+naEditingId = null;
+saveNotifs();
+renderAdminNotifs();
+renderNotifications();
+}
+function deleteNotif(id) {
+if (!isAdminUser()) return;
+if (!confirm('این اعلان برای همه کاربران حذف شود؟')) return;
+notifs = notifs.filter(function (n) { return n.id !== id; });
+if (naEditingId === id) naEditingId = null;
+saveNotifs();
+renderAdminNotifs();
+renderNotifications();
+updateNotifBadge();
+}
+
+// ===================== همگام‌سازی و زمان‌بندی =====================
+document.addEventListener('click', function (ev) {
+var p = document.getElementById('notif-panel'), b = document.getElementById('notif-btn');
+if (p && !p.classList.contains('hidden') && !p.contains(ev.target) && !(b && b.contains(ev.target))) p.classList.add('hidden');
+});
+document.addEventListener('visibilitychange', function () { if (!document.hidden) touchPresence(); });
+setInterval(function () { touchPresence(); refreshPresence(); }, 20000);
+window.addEventListener('storage', function (ev) {
+if (!ev.key) return;
+try {
+var adminOpen = !document.getElementById('section-admin').classList.contains('hidden');
+if (ev.key === 'app_users') {
+users = JSON.parse(ev.newValue) || users;
+updateHeaderUserInfo(); refreshPresence();
+if (adminOpen) renderAdminUsers();
+if (!document.getElementById('wallet-modal').classList.contains('hidden')) renderWalletHistory();
+} else if (ev.key === 'app_orders') {
+mockOrders = JSON.parse(ev.newValue) || mockOrders;
+renderAdminOrders();
+if (!document.getElementById('section-tracking').classList.contains('hidden')) filterTrackingOrders(currentFilter);
+} else if (ev.key === 'app_notifs') {
+notifs = JSON.parse(ev.newValue) || [];
+renderNotifications(); updateNotifBadge();
+if (adminOpen) renderAdminNotifs();
+} else if (ev.key === 'app_wallet_tx') {
+walletTx = JSON.parse(ev.newValue) || [];
+if (!document.getElementById('wallet-modal').classList.contains('hidden')) renderWalletHistory();
+}
+} catch (e) {}
+});
+
 checkAuth();
 renderAdminOrders();
 renderServices();
+setNotifAdminTab('add');
+updateNotifCount();
 calculateSummary();
 updateFakeQuantity(100);
 switchTab('home');
