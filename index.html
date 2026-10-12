@@ -22,7 +22,6 @@ sans: ['Vazirmatn','Segoe UI','Tahoma','sans-serif']
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
 <style id="fallback-css">
-/* fallback: Tailwind */
 *,::before,::after{box-sizing:border-box;border:0 solid #e5e7eb}
 html{line-height:1.5;-webkit-text-size-adjust:100%}
 body{margin:0}
@@ -295,7 +294,6 @@ body.theme-home{--b1:#ff6b00;--b2:#14b8a6;--bglow:rgba(255,107,0,.25)}
 .home-card .hc-icon{width:4.5rem;height:4.5rem;border-radius:1.25rem;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 1rem}
 .home-card .hc-title{font-size:1.9rem;margin-bottom:.4rem}
 .home-card .hc-desc{font-size:.85rem;opacity:.92}
-/* Bale theme: turquoise + white */
 body.theme-bale .eitaa-only{display:none!important}
 body.theme-bale .bg-eitaa-500{background-color:#14b8a6!important}
 body.theme-bale .bg-eitaa-50,body.theme-bale .bg-orange-50{background-color:#f0fdfa!important}
@@ -316,7 +314,6 @@ body.theme-bale .gradient-titr-btn:hover{background:linear-gradient(135deg,#5eea
 body.theme-bale input[type="range"]::-webkit-slider-thumb{background:#14b8a6;box-shadow:0 0 10px #14b8a6}
 </style>
 <style>
-/* ===== کیف پول و اعلان در هدر ===== */
 .wallet-chip{display:flex;align-items:center;gap:.6rem;padding:.3rem .45rem .3rem 1rem;border-radius:9999px;background:linear-gradient(135deg,#10b981,#0d9488);color:#fff;border:0;cursor:pointer;box-shadow:0 6px 16px rgba(16,185,129,.35);transition:transform .2s,box-shadow .2s}
 .wallet-chip:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(16,185,129,.45)}
 .wallet-chip .wallet-ico{width:2.2rem;height:2.2rem;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
@@ -343,7 +340,6 @@ body.theme-bale .notif-head{background:linear-gradient(135deg,#2dd4bf,#0d9488)}
 .notif-time{font-size:.65rem;color:#94a3b8;margin-top:.2rem;display:block}
 .notif-empty{text-align:center;padding:2rem 1rem;color:#94a3b8;font-size:.85rem}
 .notif-empty i{font-size:2rem;display:block;margin-bottom:.6rem;opacity:.6}
-/* ===== مودال‌ها ===== */
 .mm-overlay{position:fixed;inset:0;z-index:55;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem}
 .mm-overlay.hidden{display:none!important}
 .wm-card{background:#fff;border-radius:1.5rem;max-width:30rem;width:100%;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 60px rgba(15,23,42,.35)}
@@ -371,12 +367,10 @@ body.theme-bale .notif-head{background:linear-gradient(135deg,#2dd4bf,#0d9488)}
 .tx-amt.in b{color:#059669}
 .tx-amt.out b{color:#e11d48}
 .tx-amt small{display:block;font-size:.62rem;color:#94a3b8;margin-top:.1rem}
-/* ===== آنلاین ===== */
 .online-badge{display:inline-flex;align-items:center;gap:.35rem;padding:.15rem .6rem;border-radius:9999px;background:#d1fae5;color:#047857;font-size:.72rem;font-weight:700}
 .online-dot{width:.5rem;height:.5rem;border-radius:50%;background:#10b981;animation:onlinePulse 1.6s infinite}
 @keyframes onlinePulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.6)}70%{box-shadow:0 0 0 7px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
 .seen-off{color:#64748b;font-size:.75rem;white-space:nowrap}
-/* ===== مدیریت اعلانات (ادمین) ===== */
 .na-card{border-radius:1.25rem;border:1px solid #fde68a;background:linear-gradient(180deg,#fffbeb,#fff);overflow:hidden}
 .na-head{background:linear-gradient(135deg,#f59e0b,#ea580c);color:#fff;padding:.9rem 1.1rem;display:flex;align-items:center;gap:.6rem}
 .na-seg{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;background:#f1f5f9;padding:.35rem;border-radius:1rem;margin:1rem}
@@ -395,6 +389,31 @@ body.theme-bale .notif-head{background:linear-gradient(135deg,#2dd4bf,#0d9488)}
 .na-btn.del{background:#e11d48}
 .na-btn.save{background:#10b981}
 .na-btn.cancel{background:#94a3b8}
+.mm-overlay.rm-top{z-index:70}
+.rm-card{position:relative;background:#fff;border-radius:1.75rem;max-width:24rem;width:100%;padding:2.2rem 1.5rem 1.4rem;text-align:center;overflow:hidden;box-shadow:0 30px 70px rgba(15,23,42,.4);animation:rmPop .45s cubic-bezier(.2,1.3,.4,1)}
+.rm-card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--rm1)}
+.rm-card.success{--rm1:linear-gradient(90deg,#10b981,#14b8a6);--rmc:#10b981;--rmbg:#d1fae5}
+.rm-card.error{--rm1:linear-gradient(90deg,#f43f5e,#e11d48);--rmc:#e11d48;--rmbg:#ffe4e6}
+.rm-card.warn{--rm1:linear-gradient(90deg,#f59e0b,#f97316);--rmc:#ea580c;--rmbg:#ffedd5}
+@keyframes rmPop{from{opacity:0;transform:scale(.8) translateY(20px)}to{opacity:1;transform:none}}
+.rm-icon{position:relative;width:5rem;height:5rem;border-radius:50%;margin:0 auto 1rem;background:var(--rmbg);color:var(--rmc);display:flex;align-items:center;justify-content:center;font-size:2.2rem;animation:rmIcon .6s .15s both}
+.rm-icon::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--rmc);opacity:.35;animation:rmRing 1.8s infinite}
+@keyframes rmIcon{from{transform:scale(0) rotate(-90deg)}to{transform:none}}
+@keyframes rmRing{0%{transform:scale(.85);opacity:.5}100%{transform:scale(1.3);opacity:0}}
+.rm-title{font-size:1.4rem;color:#1e293b;margin-bottom:.4rem}
+.rm-msg{font-size:.88rem;color:#64748b;line-height:1.9;margin-bottom:1rem}
+.rm-details{background:#f8fafc;border-radius:1rem;padding:.3rem .9rem;margin-bottom:1.1rem;text-align:right}
+.rm-details:empty{display:none}
+.rm-row{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;font-size:.82rem;border-bottom:1px dashed #e2e8f0}
+.rm-row:last-child{border-bottom:0}
+.rm-row span{color:#64748b;white-space:nowrap}
+.rm-row b{color:#1e293b;font-weight:400;text-align:left;word-break:break-all}
+.rm-actions{display:flex;flex-direction:column;gap:.5rem}
+.rm-btn{padding:.8rem;border-radius:1rem;border:0;cursor:pointer;font-size:.95rem}
+.rm-btn.primary{background:var(--rm1);color:#fff;box-shadow:0 8px 18px rgba(15,23,42,.18)}
+.rm-btn.ghost{background:#f1f5f9;color:#475569}
+.rm-confetti{position:absolute;top:-14px;width:8px;height:14px;border-radius:2px;opacity:.95;animation:rmFall linear forwards;pointer-events:none}
+@keyframes rmFall{to{transform:translateY(460px) rotate(540deg);opacity:0}}
 @media (max-width:520px){
 header .gap-4{gap:.5rem}
 header .gap-3{gap:.5rem}
@@ -406,10 +425,236 @@ header .brand-text{font-size:1.55rem}
 .notif-btn{width:2.4rem;height:2.4rem;font-size:1rem}
 }
 </style>
+<style>
+body{--t1:#ff8c00;--t2:#ff5500;--tsoft:#fff7ed;--tglow:rgba(255,107,0,.35)}
+body.theme-bale{--t1:#2dd4bf;--t2:#0d9488;--tsoft:#f0fdfa;--tglow:rgba(20,184,166,.35)}
+.home-card .hc-icon.hc-logo{background:#fff;padding:0;overflow:hidden;width:5rem;height:5rem;border-radius:1.4rem;box-shadow:0 10px 24px rgba(0,0,0,.22);border:3px solid rgba(255,255,255,.55)}
+.hc-logo svg,.hc-logo img{width:100%;height:100%;display:block;object-fit:cover}
+.link-warn{display:flex;gap:.6rem;align-items:flex-start;margin-top:.6rem;padding:.7rem .9rem;border-radius:1rem;background:linear-gradient(135deg,#fffbeb,#fff7ed);border:1px solid #fde68a;color:#b45309;font-size:.78rem;line-height:1.9}
+.link-warn i{margin-top:.35rem;color:#f59e0b}
+.tk-wrap{max-width:56rem;margin:0 auto}
+.tk-hero{position:relative;overflow:hidden;border-radius:1.9rem;padding:1.7rem 1.4rem 1.4rem;color:#fff;background:linear-gradient(135deg,var(--t1),var(--t2));box-shadow:0 18px 40px var(--tglow)}
+.tk-hero::before,.tk-hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.13);pointer-events:none}
+.tk-hero::before{width:240px;height:240px;top:-100px;left:-70px}
+.tk-hero::after{width:150px;height:150px;bottom:-70px;right:40px}
+.tk-hero-top{position:relative;z-index:1;display:flex;align-items:center;gap:.9rem}
+.tk-hero-ico{width:3.4rem;height:3.4rem;border-radius:1.1rem;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:1px solid rgba(255,255,255,.35)}
+.tk-hero h3{font-size:1.45rem;line-height:1.3}
+.tk-hero p{font-size:.78rem;opacity:.92;margin-top:.15rem}
+.tk-stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:1.2rem}
+@media(min-width:640px){.tk-stats{grid-template-columns:repeat(4,1fr)}}
+.tk-stat{background:rgba(255,255,255,.17);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);border-radius:1.1rem;padding:.7rem .8rem;display:flex;align-items:center;gap:.6rem}
+.tk-stat i{width:2rem;height:2rem;border-radius:.75rem;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.tk-stat b{display:block;font-size:1.15rem;line-height:1.1;font-weight:400}
+.tk-stat small{font-size:.65rem;opacity:.9}
+.tk-tools{display:flex;flex-direction:column;gap:.7rem;margin:1.1rem 0}
+@media(min-width:640px){.tk-tools{flex-direction:row;align-items:center}}
+.tk-seg{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;background:#f1f5f9;padding:.35rem;border-radius:1.2rem;border:1px solid #e2e8f0}
+.tk-seg button{padding:.65rem .3rem;border-radius:.95rem;font-size:.74rem;color:#475569;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.35rem;transition:all .2s}
+.tk-seg button.active{background:#fff;color:#1e293b;box-shadow:0 6px 16px rgba(15,23,42,.12)}
+.tk-seg button.active.s-pending{color:#b45309}
+.tk-seg button.active.s-done{color:#047857}
+.tk-seg button.active.s-canceled{color:#be123c}
+.tk-count{min-width:1.3rem;height:1.3rem;padding:0 .35rem;border-radius:9999px;background:#e2e8f0;color:#475569;font-size:.65rem;display:inline-flex;align-items:center;justify-content:center}
+.tk-seg button.active .tk-count{background:var(--t2);color:#fff}
+.tk-search{position:relative}
+@media(min-width:640px){.tk-search{width:15rem}}
+.tk-search input{width:100%;background:#fff;border:1px solid #e2e8f0;border-radius:1.1rem;padding:.75rem 2.6rem .75rem .9rem;font-size:.82rem;transition:all .2s}
+.tk-search input:focus{outline:none;border-color:var(--t1);box-shadow:0 0 0 3px var(--tglow)}
+.tk-search i{position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:.85rem}
+.tk-list{display:grid;gap:.95rem}
+.tk-card{position:relative;overflow:hidden;background:#fff;border:1px solid #eef0f3;border-radius:1.5rem;padding:1.1rem 1.2rem 1.1rem 1.1rem;box-shadow:0 10px 28px -12px rgba(15,23,42,.15);transition:transform .22s,box-shadow .22s;animation:tkIn .45s both}
+.tk-card:hover{transform:translateY(-3px);box-shadow:0 18px 36px -14px rgba(15,23,42,.22)}
+.tk-card::before{content:"";position:absolute;top:0;right:0;bottom:0;width:5px;background:var(--st)}
+.tk-card.pending{--st:linear-gradient(#fbbf24,#f59e0b)}
+.tk-card.done{--st:linear-gradient(#34d399,#059669)}
+.tk-card.canceled{--st:linear-gradient(#fb7185,#e11d48)}
+@keyframes tkIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.tk-top{display:flex;align-items:center;gap:.8rem}
+.tk-ico{width:2.9rem;height:2.9rem;border-radius:1rem;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;flex-shrink:0;background:linear-gradient(135deg,var(--t1),var(--t2));box-shadow:0 8px 18px var(--tglow)}
+.tk-ico.bale{background:linear-gradient(135deg,#2dd4bf,#0d9488);box-shadow:0 8px 18px rgba(20,184,166,.35)}
+.tk-ico.eitaa{background:linear-gradient(135deg,#ff9d00,#ff5500);box-shadow:0 8px 18px rgba(255,107,0,.35)}
+.tk-title{flex:1;min-width:0}
+.tk-title b{display:block;font-size:.95rem;color:#1e293b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tk-title span{font-size:.7rem;color:#94a3b8;font-family:ui-monospace,Menlo,Consolas,monospace}
+.tk-chip{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .8rem;border-radius:9999px;font-size:.72rem;white-space:nowrap}
+.tk-chip.pending{background:#fef3c7;color:#b45309}
+.tk-chip.done{background:#d1fae5;color:#047857}
+.tk-chip.canceled{background:#ffe4e6;color:#be123c}
+.tk-link{display:flex;align-items:center;gap:.5rem;margin-top:.9rem;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:.9rem;padding:.5rem .7rem}
+.tk-link i.l{color:#94a3b8;font-size:.8rem}
+.tk-link code{flex:1;min-width:0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;color:#475569;word-break:break-all}
+.tk-copy{border:0;background:#fff;border:1px solid #e2e8f0;width:1.9rem;height:1.9rem;border-radius:.6rem;color:#64748b;font-size:.7rem;cursor:pointer;transition:all .2s}
+.tk-copy:hover{background:var(--tsoft);color:var(--t2);border-color:var(--t1)}
+.tk-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.8rem}
+.tk-m{background:#f8fafc;border-radius:.9rem;padding:.55rem .7rem}
+.tk-m small{display:block;font-size:.62rem;color:#94a3b8;margin-bottom:.15rem}
+.tk-m b{font-size:.8rem;color:#1e293b;font-weight:400}
+.tk-steps{display:flex;align-items:flex-start;margin-top:1rem;padding:0 .3rem}
+.tk-step{display:flex;flex-direction:column;align-items:center;gap:.3rem;font-size:.63rem;color:#94a3b8;width:4.2rem;flex:0 0 auto;text-align:center}
+.tk-dot{width:1.75rem;height:1.75rem;border-radius:50%;background:#f1f5f9;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:.65rem;border:2px solid #e2e8f0}
+.tk-step.ok{color:#047857}
+.tk-step.ok .tk-dot{background:#10b981;color:#fff;border-color:#a7f3d0}
+.tk-step.cur{color:#b45309}
+.tk-step.cur .tk-dot{background:#f59e0b;color:#fff;border-color:#fde68a;animation:tkPulse 1.6s infinite}
+.tk-step.bad{color:#be123c}
+.tk-step.bad .tk-dot{background:#e11d48;color:#fff;border-color:#fecdd3}
+.tk-line{flex:1;height:4px;border-radius:4px;background:#e2e8f0;margin-top:.7rem;position:relative;overflow:hidden}
+.tk-line.fill::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#34d399,#10b981)}
+.tk-line.half::after{content:"";position:absolute;top:0;bottom:0;right:0;width:55%;background:repeating-linear-gradient(45deg,#fbbf24,#fbbf24 6px,#f59e0b 6px,#f59e0b 12px);background-size:24px 24px;animation:tkStripe 1s linear infinite}
+.tk-line.bad::after{content:"";position:absolute;inset:0;background:#fecdd3}
+@keyframes tkStripe{to{background-position:24px 0}}
+@keyframes tkPulse{0%{box-shadow:0 0 0 0 rgba(245,158,11,.55)}70%{box-shadow:0 0 0 9px rgba(245,158,11,0)}100%{box-shadow:0 0 0 0 rgba(245,158,11,0)}}
+.tk-note{display:flex;gap:.5rem;align-items:center;margin-top:.9rem;padding:.6rem .8rem;border-radius:.9rem;font-size:.74rem;line-height:1.8}
+.tk-note.refund{background:#ecfdf5;color:#047857;border:1px solid #a7f3d0}
+.tk-note.owner{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.tk-empty{text-align:center;padding:2.8rem 1rem;background:#fff;border:1px dashed #cbd5e1;border-radius:1.6rem}
+.tk-empty .e-ico{width:5rem;height:5rem;border-radius:50%;margin:0 auto 1rem;background:var(--tsoft);color:var(--t2);display:flex;align-items:center;justify-content:center;font-size:2rem;animation:tkFloat 3s ease-in-out infinite}
+@keyframes tkFloat{50%{transform:translateY(-8px)}}
+.tk-empty b{display:block;color:#334155;font-size:1rem}
+.tk-empty span{display:block;color:#94a3b8;font-size:.78rem;margin-top:.3rem}
+@media(max-width:520px){.tk-meta{grid-template-columns:1fr 1fr}.tk-meta .tk-m:last-child{grid-column:span 2}.tk-hero h3{font-size:1.2rem}}
+.pf-menu-btn{background:linear-gradient(135deg,#fff7ed,#fff);border:1px solid #fed7aa;margin-bottom:.35rem}
+body.theme-bale .pf-menu-btn{background:linear-gradient(135deg,#f0fdfa,#fff);border-color:#99f6e4}
+.pf-mini-av{width:2.1rem;height:2.1rem;border-radius:.8rem;background:linear-gradient(135deg,#ff9d00,#ff5500);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;box-shadow:0 6px 14px rgba(255,107,0,.35);text-transform:uppercase}
+body.theme-bale .pf-mini-av{background:linear-gradient(135deg,#2dd4bf,#0d9488);box-shadow:0 6px 14px rgba(20,184,166,.35)}
+.pf-card{position:relative;background:#fff;border-radius:1.8rem;width:100%;max-width:24rem;overflow:hidden;box-shadow:0 35px 70px rgba(15,23,42,.4);animation:rmPop .45s cubic-bezier(.2,1.3,.4,1)}
+.pf-head{position:relative;padding:2rem 1.2rem 3.4rem;text-align:center;color:#fff;background:linear-gradient(135deg,#1e293b,#334155 55%,#ea580c);overflow:hidden}
+.pf-head::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.45),transparent 70%);top:-90px;right:-60px}
+.pf-head::after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.35),transparent 70%);bottom:-80px;left:-40px}
+.pf-close{position:absolute;top:.9rem;left:.9rem;z-index:2;width:2.1rem;height:2.1rem;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;border:0;cursor:pointer}
+.pf-av{position:relative;z-index:1;width:5.2rem;height:5.2rem;margin:0 auto .8rem;border-radius:1.7rem;background:linear-gradient(135deg,#fbbf24,#f97316);display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:#fff;text-transform:uppercase;border:4px solid rgba(255,255,255,.35);box-shadow:0 14px 30px rgba(0,0,0,.35);transform:rotate(-4deg)}
+.pf-name{position:relative;z-index:1;font-size:1.15rem;word-break:break-all}
+.pf-role{position:relative;z-index:1;display:inline-flex;gap:.35rem;align-items:center;margin-top:.45rem;padding:.2rem .8rem;border-radius:9999px;background:rgba(255,255,255,.18);font-size:.7rem}
+.pf-body{position:relative;margin-top:-2.2rem;background:#fff;border-radius:1.8rem 1.8rem 0 0;padding:1.2rem 1.1rem 1.3rem}
+.pf-field{display:flex;align-items:center;gap:.7rem;padding:.75rem;border-radius:1.1rem;background:#f8fafc;border:1px solid #eef0f3;margin-bottom:.65rem}
+.pf-f-ico{width:2.4rem;height:2.4rem;border-radius:.9rem;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.pf-f-ico.u{background:#dbeafe;color:#2563eb}
+.pf-f-ico.p{background:#fef3c7;color:#d97706}
+.pf-f-main{flex:1;min-width:0}
+.pf-f-main small{display:block;font-size:.65rem;color:#94a3b8}
+.pf-f-main b{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92rem;color:#1e293b;font-weight:600;word-break:break-all;direction:ltr;text-align:left;letter-spacing:.3px}
+.pf-act{display:flex;gap:.3rem}
+.pf-ib{width:2rem;height:2rem;border-radius:.7rem;border:1px solid #e2e8f0;background:#fff;color:#64748b;font-size:.75rem;cursor:pointer;transition:all .2s}
+.pf-ib:hover{background:#fff7ed;color:#ea580c;border-color:#fdba74}
+.pf-ib.ok{background:#10b981;color:#fff;border-color:#10b981}
+.pf-bal{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;border-radius:1.1rem;background:linear-gradient(135deg,#10b981,#0d9488);color:#fff;margin-top:.2rem;box-shadow:0 10px 22px rgba(16,185,129,.3)}
+.pf-bal small{font-size:.7rem;opacity:.92}
+.pf-bal b{font-size:1.05rem;font-weight:400}
+.pf-tip{text-align:center;font-size:.68rem;color:#94a3b8;margin-top:.8rem}
+.ad-wrap{max-width:60rem;margin:0 auto}
+.ad-hero{position:relative;overflow:hidden;border-radius:1.9rem;padding:1.5rem 1.4rem 1.3rem;color:#fff;background:linear-gradient(135deg,#0f172a,#1e293b 55%,#9a3412);box-shadow:0 20px 44px rgba(15,23,42,.35)}
+.ad-hero::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.38),transparent 70%);top:-110px;left:-70px}
+.ad-hero::after{content:"";position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.22),transparent 70%);bottom:-90px;right:-40px}
+.ad-hero-top{position:relative;z-index:1;display:flex;align-items:center;gap:.9rem}
+.ad-crown{width:3.2rem;height:3.2rem;border-radius:1.1rem;background:linear-gradient(135deg,#fbbf24,#f97316);display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 10px 24px rgba(249,115,22,.5)}
+.ad-hero h3{font-size:1.35rem;line-height:1.3}
+.ad-hero p{font-size:.74rem;opacity:.8;margin-top:.1rem}
+.ad-badge{margin-right:auto;font-size:.68rem;padding:.3rem .8rem;border-radius:9999px;background:rgba(251,191,36,.2);color:#fde68a;border:1px solid rgba(251,191,36,.4)}
+.ad-stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:1.15rem}
+@media(min-width:640px){.ad-stats{grid-template-columns:repeat(4,1fr)}}
+.ad-stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:1.1rem;padding:.7rem .8rem}
+.ad-stat small{display:flex;align-items:center;gap:.4rem;font-size:.66rem;opacity:.8}
+.ad-stat b{display:block;font-size:1.1rem;margin-top:.2rem;font-weight:400}
+.ad-tabs{display:flex;gap:.3rem;overflow-x:auto;padding:.35rem;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:1.3rem;margin:1.1rem 0;scrollbar-width:none}
+.ad-tabs::-webkit-scrollbar{display:none}
+.ad-tab{flex:1 0 auto;white-space:nowrap;padding:.7rem 1rem;border-radius:1rem;font-size:.78rem;color:#475569;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.45rem;transition:all .2s}
+.ad-tab:hover{color:#1e293b}
+.ad-tab.active{background:#fff;color:#ea580c;box-shadow:0 6px 16px rgba(15,23,42,.12)}
+.ad-panel{background:#fff;border:1px solid #eef0f3;border-radius:1.6rem;padding:1.2rem;box-shadow:0 12px 30px -14px rgba(15,23,42,.14);animation:tkIn .35s both}
+.ad-h{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.ad-h i{width:2.3rem;height:2.3rem;border-radius:.85rem;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#fff}
+.ad-h b{font-size:.98rem;color:#1e293b}
+.ad-h small{display:block;font-size:.68rem;color:#94a3b8;margin-top:.05rem}
+.ic-amber{background:linear-gradient(135deg,#fbbf24,#f97316)}
+.ic-green{background:linear-gradient(135deg,#34d399,#059669)}
+.ic-blue{background:linear-gradient(135deg,#60a5fa,#4f46e5)}
+.ic-rose{background:linear-gradient(135deg,#fb7185,#e11d48)}
+.ic-purple{background:linear-gradient(135deg,#c084fc,#7c3aed)}
+.ad-field{width:100%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:1rem;padding:.75rem .95rem;font-size:.85rem;color:#1e293b;transition:all .2s}
+.ad-field:focus{outline:none;border-color:#f59e0b;background:#fff;box-shadow:0 0 0 3px rgba(245,158,11,.18)}
+.ad-btn{border:0;cursor:pointer;color:#fff;border-radius:1rem;padding:.75rem 1rem;font-size:.85rem;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:.45rem}
+.ad-btn:hover{transform:translateY(-2px)}
+.ad-btn.amber{background:linear-gradient(135deg,#fbbf24,#ea580c);box-shadow:0 8px 18px rgba(234,88,12,.3)}
+.ad-btn.green{background:linear-gradient(135deg,#34d399,#059669);box-shadow:0 8px 18px rgba(5,150,105,.3)}
+.ad-btn.red{background:linear-gradient(135deg,#fb7185,#e11d48);box-shadow:0 8px 18px rgba(225,29,72,.3)}
+.ad-btn.gray{background:#f1f5f9;color:#475569}
+.ad-svc-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
+@media(min-width:640px){.ad-svc-grid{grid-template-columns:repeat(3,1fr)}}
+.ad-svc{border:1px solid #eef0f3;border-radius:1.3rem;padding:1rem;background:linear-gradient(180deg,#fff,#f8fafc);display:flex;flex-direction:column;gap:.8rem}
+.ad-svc-top{display:flex;align-items:center;gap:.7rem}
+.ad-svc-ico{width:2.6rem;height:2.6rem;border-radius:.95rem;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.05rem;flex-shrink:0}
+.ad-svc b{display:block;font-size:.88rem;color:#1e293b}
+.ad-svc small{font-size:.66rem;color:#94a3b8}
+.ad-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;padding:.35rem .4rem .35rem .8rem;border-radius:9999px;border:0;cursor:pointer;color:#fff;font-size:.75rem;transition:all .25s}
+.ad-toggle.on{background:linear-gradient(135deg,#34d399,#059669);box-shadow:0 8px 18px rgba(5,150,105,.28)}
+.ad-toggle.off{background:linear-gradient(135deg,#fb7185,#e11d48);box-shadow:0 8px 18px rgba(225,29,72,.28)}
+.ad-toggle .knob{width:1.6rem;height:1.6rem;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25);order:-1}
+.ad-search{position:relative;flex:1}
+.ad-search input{width:100%;background:#f8fafc;border:1px solid #e2e8f0;border-radius:1rem;padding:.7rem 2.5rem .7rem .9rem;font-size:.83rem}
+.ad-search input:focus{outline:none;border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,.18);background:#fff}
+.ad-search i{position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:.8rem}
+.ad-create{display:grid;gap:.6rem;grid-template-columns:1fr}
+@media(min-width:640px){.ad-create{grid-template-columns:1fr 1fr auto}}
+.ad-user-grid{display:grid;grid-template-columns:1fr;gap:.8rem}
+@media(min-width:768px){.ad-user-grid{grid-template-columns:1fr 1fr}}
+.ad-user{position:relative;border:1px solid #eef0f3;border-radius:1.4rem;padding:1rem;background:#fff;box-shadow:0 8px 22px -12px rgba(15,23,42,.18);transition:all .2s;overflow:hidden}
+.ad-user:hover{transform:translateY(-3px);box-shadow:0 16px 30px -14px rgba(15,23,42,.25)}
+.ad-user.blocked{background:linear-gradient(180deg,#fff1f2,#fff);border-color:#fecdd3}
+.ad-u-top{display:flex;align-items:center;gap:.75rem}
+.ad-av{width:3rem;height:3rem;border-radius:1.05rem;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;text-transform:uppercase;flex-shrink:0;background:linear-gradient(135deg,#60a5fa,#4f46e5);box-shadow:0 8px 18px rgba(79,70,229,.3)}
+.ad-av.admin{background:linear-gradient(135deg,#fbbf24,#f97316);box-shadow:0 8px 18px rgba(249,115,22,.35)}
+.ad-user.blocked .ad-av{background:linear-gradient(135deg,#fb7185,#e11d48);box-shadow:0 8px 18px rgba(225,29,72,.3)}
+.ad-u-name{flex:1;min-width:0}
+.ad-u-name b{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92rem;color:#1e293b;word-break:break-all;direction:ltr;text-align:right}
+.ad-u-name small{font-size:.68rem}
+.ad-pill{display:inline-flex;align-items:center;gap:.3rem;padding:.15rem .6rem;border-radius:9999px;font-size:.66rem}
+.ad-pill.admin{background:#fef3c7;color:#b45309}
+.ad-pill.cust{background:#e0e7ff;color:#4338ca}
+.ad-pill.ok{background:#d1fae5;color:#047857}
+.ad-pill.bad{background:#ffe4e6;color:#be123c}
+.ad-u-mid{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.8rem;padding:.6rem .8rem;border-radius:1rem;background:#f8fafc}
+.ad-u-mid small{display:block;font-size:.62rem;color:#94a3b8}
+.ad-u-mid b{font-size:.88rem;color:#059669;font-weight:400}
+.ad-u-act{display:flex;gap:.4rem;margin-top:.75rem}
+.ad-u-act button{flex:1;border:0;cursor:pointer;border-radius:.85rem;padding:.55rem .3rem;font-size:.7rem;display:flex;align-items:center;justify-content:center;gap:.3rem;transition:all .2s}
+.ad-u-act .b-edit{background:#eff6ff;color:#1d4ed8}.ad-u-act .b-edit:hover{background:#2563eb;color:#fff}
+.ad-u-act .b-tx{background:#ecfdf5;color:#047857}.ad-u-act .b-tx:hover{background:#059669;color:#fff}
+.ad-u-act .b-block{background:#fff7ed;color:#c2410c}.ad-u-act .b-block:hover{background:#ea580c;color:#fff}
+.ad-u-act .b-del{background:#fff1f2;color:#be123c;flex:0 0 2.4rem}.ad-u-act .b-del:hover{background:#e11d48;color:#fff}
+.ad-empty{text-align:center;padding:2rem 1rem;color:#94a3b8;font-size:.85rem}
+.ad-empty i{display:block;font-size:2rem;margin-bottom:.5rem;opacity:.6}
+.ad-orders-wrap{overflow-x:auto;border:1px solid #eef0f3;border-radius:1.2rem}
+.ad-orders-wrap table thead{background:#f8fafc}
+.ad-orders-wrap tbody tr:hover{background:#fffbeb}
+.ad-seg{display:grid;grid-template-columns:repeat(2,1fr);gap:.35rem;background:#f1f5f9;padding:.35rem;border-radius:1.1rem;border:1px solid #e2e8f0;margin-bottom:.9rem}
+@media(min-width:640px){.ad-seg{grid-template-columns:repeat(4,1fr)}}
+.ad-seg button{padding:.6rem .3rem;border-radius:.85rem;font-size:.72rem;color:#475569;border:0;background:transparent;cursor:pointer}
+.ad-seg button.active{background:#fff;color:#ea580c;box-shadow:0 6px 14px rgba(15,23,42,.1)}
+.ad-note{display:flex;gap:.5rem;font-size:.72rem;line-height:1.9;color:#64748b;background:#f8fafc;border-radius:.9rem;padding:.6rem .8rem;margin-top:.8rem}
+.eu-card{background:#fff;border-radius:1.7rem;width:100%;max-width:26rem;overflow:hidden;box-shadow:0 35px 70px rgba(15,23,42,.4);animation:rmPop .4s cubic-bezier(.2,1.3,.4,1)}
+.eu-head{display:flex;align-items:center;gap:.8rem;padding:1.2rem;color:#fff;background:linear-gradient(135deg,#2563eb,#4f46e5 60%,#7c3aed)}
+.eu-head .ad-av{box-shadow:0 8px 18px rgba(0,0,0,.25);background:rgba(255,255,255,.22)}
+.eu-head b{display:block;font-size:1rem}
+.eu-head small{font-size:.7rem;opacity:.85}
+.eu-x{margin-right:auto;width:2.1rem;height:2.1rem;border-radius:50%;background:rgba(255,255,255,.2);border:0;color:#fff;cursor:pointer}
+.eu-body{padding:1.2rem;display:grid;gap:.9rem}
+.eu-body label{display:block;font-size:.76rem;color:#475569;margin-bottom:.35rem}
+.eu-pass{position:relative}
+.eu-pass .ad-field{padding-left:2.8rem}
+.eu-eye{position:absolute;left:.5rem;top:50%;transform:translateY(-50%);width:2rem;height:2rem;border-radius:.7rem;border:0;background:#fff;color:#64748b;cursor:pointer}
+.eu-foot{display:flex;gap:.5rem;padding:0 1.2rem 1.2rem}
+.eu-foot .ad-btn{flex:1}
+.eu-lock{font-size:.7rem;color:#b45309;background:#fffbeb;border:1px solid #fde68a;border-radius:.8rem;padding:.45rem .7rem;margin-top:.4rem}
+.notif-item.private{background:#ecfdf5;border-color:#a7f3d0}
+.notif-item.private .notif-ico{background:linear-gradient(135deg,#34d399,#059669)}
+.notif-item.private.unread{box-shadow:0 0 0 2px rgba(16,185,129,.25)}
+.ad-h-search{flex:1 1 100%}
+@media(min-width:640px){.ad-h-search{flex:0 0 14rem}}
+</style>
 </head>
 <body class="theme-home flex flex-col justify-between min-h-screen">
 
-<!-- مدال ورود (Login Modal) -->
 <div id="login-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
 <div class="glass-box rounded-3xl p-8 max-w-md w-full border border-eitaa-500/30 shadow-2xl">
 <div class="text-center mb-6">
@@ -433,7 +678,6 @@ header .brand-text{font-size:1.55rem}
 </div>
 </div>
 
-<!-- کادر پیام خوش‌آمدگویی -->
 <div id="welcome-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
 <div class="glass-box rounded-3xl p-8 max-w-sm w-full text-center border-2 border-emerald-500 shadow-2xl">
 <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
@@ -445,19 +689,17 @@ header .brand-text{font-size:1.55rem}
 </div>
 </div>
 
-<!-- مدال پیش‌نمایش عدم دسترسی (سرویس قطع می‌باشد) -->
 <div id="service-disabled-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
 <div class="glass-box rounded-3xl p-8 max-w-sm w-full text-center border-2 border-rose-500 shadow-2xl relative overflow-hidden">
 <div class="w-20 h-20 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 border-4 border-rose-50 animate-bounce">
 <i class="fa-solid fa-ban"></i>
 </div>
 <h3 class="font-titr text-2xl text-slate-800 mb-2" id="disabled-service-title">سرویس غیرفعال است</h3>
-<p class="text-sm text-slate-600 mb-6 leading-relaxed" id="disabled-service-msg">این سرویس در حال حاضر غیرفعال می‌باشد. لطفاً بعداً مراجعه فرمایید یا با پشتیبانی در ارتباط باشید.</p>
+<p class="text-sm text-slate-600 mb-6 leading-relaxed" id="disabled-service-msg">این سرویس در حال حاضر غیرفعال می‌باشد.</p>
 <button onclick="closeDisabledModal()" class="w-full bg-rose-600 text-white font-titr py-3 rounded-xl text-lg hover:bg-rose-700 shadow-lg">متوجه شدم</button>
 </div>
 </div>
 
-<!-- پنل اعلانات -->
 <div id="notif-panel" class="notif-panel hidden">
 <div class="notif-head">
 <div class="font-titr" style="display:flex;align-items:center;gap:.5rem"><i class="fa-solid fa-bell"></i> اعلانات</div>
@@ -466,7 +708,16 @@ header .brand-text{font-size:1.55rem}
 <div id="notif-list" class="notif-list"></div>
 </div>
 
-<!-- مودال تاریخچه کیف پول -->
+<div id="result-modal" class="mm-overlay rm-top hidden" onclick="if(event.target===this)closeResultModal()">
+<div id="rm-card" class="rm-card success">
+<div class="rm-icon" id="rm-icon"><i class="fa-solid fa-check"></i></div>
+<h3 class="rm-title font-titr" id="rm-title"></h3>
+<p class="rm-msg" id="rm-msg"></p>
+<div class="rm-details" id="rm-details"></div>
+<div class="rm-actions font-titr" id="rm-actions"></div>
+</div>
+</div>
+
 <div id="wallet-modal" class="mm-overlay hidden" onclick="if(event.target===this)closeWalletHistory()">
 <div class="wm-card">
 <div class="wm-head">
@@ -487,6 +738,65 @@ header .brand-text{font-size:1.55rem}
 </div>
 </div>
 
+<div id="profile-modal" class="mm-overlay hidden" onclick="if(event.target===this)closeProfile()">
+<div class="pf-card">
+<div class="pf-head">
+<button type="button" class="pf-close" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></button>
+<div class="pf-av font-titr" id="pf-avatar">U</div>
+<div class="pf-name font-titr" id="pf-title" dir="ltr">—</div>
+<div class="pf-role font-titr" id="pf-role"><i class="fa-solid fa-user"></i> مشتری</div>
+</div>
+<div class="pf-body">
+<div class="pf-field">
+<div class="pf-f-ico u"><i class="fa-solid fa-user"></i></div>
+<div class="pf-f-main"><small class="font-titr">نام کاربری</small><b id="pf-username">—</b></div>
+<div class="pf-act"><button type="button" class="pf-ib" id="pf-copy-u" onclick="copyProfile('u')" title="کپی"><i class="fa-regular fa-copy"></i></button></div>
+</div>
+<div class="pf-field">
+<div class="pf-f-ico p"><i class="fa-solid fa-key"></i></div>
+<div class="pf-f-main"><small class="font-titr">رمز عبور</small><b id="pf-password">••••••••</b></div>
+<div class="pf-act">
+<button type="button" class="pf-ib" id="pf-eye" onclick="toggleProfilePass()" title="نمایش / مخفی"><i class="fa-regular fa-eye"></i></button>
+<button type="button" class="pf-ib" id="pf-copy-p" onclick="copyProfile('p')" title="کپی"><i class="fa-regular fa-copy"></i></button>
+</div>
+</div>
+<div class="pf-bal">
+<div><small class="font-titr"><i class="fa-solid fa-wallet"></i> موجودی کیف پول</small></div>
+<div><b class="font-titr" id="pf-balance">۰</b> <small>تومان</small></div>
+</div>
+<div class="pf-tip"><i class="fa-solid fa-shield-halved"></i> اطلاعات حساب خود را در اختیار دیگران قرار ندهید.</div>
+</div>
+</div>
+</div>
+
+<div id="edit-user-modal" class="mm-overlay hidden" onclick="if(event.target===this)closeEditUser()">
+<div class="eu-card">
+<div class="eu-head">
+<div class="ad-av font-titr" id="eu-avatar">U</div>
+<div><b class="font-titr">ویرایش اطلاعات کاربر</b><small id="eu-sub" dir="ltr">—</small></div>
+<button type="button" class="eu-x" onclick="closeEditUser()"><i class="fa-solid fa-xmark"></i></button>
+</div>
+<div class="eu-body">
+<div>
+<label class="font-titr"><i class="fa-solid fa-user"></i> نام کاربری جدید</label>
+<input type="text" id="eu-username" dir="ltr" class="ad-field font-mono" autocomplete="off">
+<div id="eu-lock" class="eu-lock hidden">نام کاربری مدیر اصلی قابل تغییر نیست.</div>
+</div>
+<div>
+<label class="font-titr"><i class="fa-solid fa-key"></i> رمز عبور جدید</label>
+<div class="eu-pass">
+<input type="password" id="eu-password" dir="ltr" class="ad-field font-mono" autocomplete="off">
+<button type="button" class="eu-eye" onclick="toggleEuPass()"><i class="fa-regular fa-eye" id="eu-eye-i"></i></button>
+</div>
+</div>
+</div>
+<div class="eu-foot font-titr">
+<button type="button" class="ad-btn amber" onclick="saveUserEdit()"><i class="fa-solid fa-check"></i> ذخیره تغییرات</button>
+<button type="button" class="ad-btn gray" onclick="closeEditUser()">انصراف</button>
+</div>
+</div>
+</div>
+
 <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex items-center justify-between h-20">
@@ -496,6 +806,11 @@ header .brand-text{font-size:1.55rem}
 <i class="fa-solid fa-ellipsis-vertical"></i>
 </button>
 <div id="dropdown-menu" class="hidden absolute right-0 mt-3 w-64 glass-box rounded-2xl p-2 z-50 shadow-xl">
+<button onclick="openProfile(); toggleMenu();" class="pf-menu-btn w-full text-right px-3 py-2.5 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
+<span class="pf-mini-av font-titr" id="pf-menu-av">U</span>
+<span class="flex-grow"><span class="font-titr text-sm block">پروفایل</span><span class="text-[10px] text-slate-500 block font-mono" id="pf-menu-name" dir="ltr" style="text-align:right"></span></span>
+<i class="fa-solid fa-chevron-left text-slate-400 text-xs"></i>
+</button>
 <button onclick="switchTab('home'); toggleMenu();" class="w-full text-right px-4 py-3 rounded-xl hover:bg-slate-100 text-slate-700 flex items-center gap-3">
 <i class="fa-solid fa-house text-eitaa-500"></i>
 <span class="font-titr text-sm">انتخاب سرویس (بله / ایتا)</span>
@@ -532,9 +847,7 @@ header .brand-text{font-size:1.55rem}
 </div>
 </div>
 </div>
-
 <div class="flex items-center gap-4">
-
 <nav class="hidden md:flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
 <button onclick="switchTab('home')" id="tab-btn-home" class="px-4 py-2 rounded-xl font-titr bg-eitaa-500 text-white">🏠 خانه</button>
 <button onclick="switchTab('store')" id="tab-btn-store" class="px-4 py-2 rounded-xl font-titr text-slate-600">🛒 سفارش</button>
@@ -564,12 +877,12 @@ header .brand-text{font-size:1.55rem}
 </div>
 <div class="home-grid">
 <button onclick="selectPlatform('bale')" class="home-card home-card-bale font-titr">
-<div class="hc-icon"><i class="fa-solid fa-comment-dots"></i></div>
+<div class="hc-icon hc-logo" id="logo-bale"></div>
 <div class="hc-title">سرویس بله</div>
 <p class="hc-desc">ممبر کانال و گروه • ویو • ری‌اکشن</p>
 </button>
 <button onclick="selectPlatform('eitaa')" class="home-card home-card-eitaa font-titr">
-<div class="hc-icon"><i class="fa-solid fa-paper-plane"></i></div>
+<div class="hc-icon hc-logo" id="logo-eitaa"></div>
 <div class="hc-title">سرویس ایتا</div>
 <p class="hc-desc">ممبر واقعی • ممبر فیک • ویو</p>
 </button>
@@ -583,12 +896,10 @@ header .brand-text{font-size:1.55rem}
 <p id="hero-sub" class="text-slate-600 text-sm">سفارش خود را با تعداد دلخواه ثبت کنید.</p>
 <button type="button" onclick="switchTab('home')" class="mt-4 text-xs font-titr px-4 py-2 rounded-xl bg-white border border-eitaa-300 text-eitaa-600"><i class="fa-solid fa-repeat"></i> تغییر سرویس (بله / ایتا)</button>
 </div>
-
 <div>
 <h3 class="font-titr text-xl text-slate-800 mb-4">💎 انتخاب سرویس</h3>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="services-container"></div>
 </div>
-
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 <div class="lg:col-span-7 glass-box rounded-3xl p-6 space-y-5">
 <h3 class="font-titr text-xl text-slate-800 border-b pb-3">📝 مشخصات سفارش</h3>
@@ -596,8 +907,8 @@ header .brand-text{font-size:1.55rem}
 <div>
 <label class="block font-titr text-sm text-slate-700 mb-2">آیدی یا لینک کانال/گروه *</label>
 <input type="text" id="channel-link" required dir="ltr" placeholder="my_channel@" class="w-full bg-slate-50 border border-slate-300 rounded-2xl px-4 py-3 text-slate-800 font-mono">
+<div class="link-warn"><i class="fa-solid fa-triangle-exclamation"></i><span>لینک را به طور صحیح وارد کنید.</span></div>
 </div>
-
 <div>
 <div class="flex justify-between items-center mb-2">
 <label class="font-titr text-sm text-slate-700" id="quantity-label">تعداد سفارش (دستی):</label>
@@ -607,11 +918,9 @@ header .brand-text{font-size:1.55rem}
 <p class="text-xs text-slate-500 mb-2">حداقل: ۲۰۰ | حداکثر: ۱۰۰,۰۰۰ عدد</p>
 <input type="range" id="quantity-slider" min="200" max="100000" step="100" value="1000" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateQuantityFromSlider(this.value)">
 </div>
-
 <button type="submit" class="w-full gradient-titr-btn text-white font-titr text-lg py-4 rounded-2xl">💳 پرداخت از کیف پول و ثبت سفارش</button>
 </form>
 </div>
-
 <div class="lg:col-span-5 glass-box rounded-3xl p-6 space-y-5">
 <h3 class="font-titr text-lg text-slate-800 border-b pb-3">🧾 پیش‌فاکتور</h3>
 <div class="space-y-3 text-sm">
@@ -628,7 +937,6 @@ header .brand-text{font-size:1.55rem}
 </div>
 </section>
 
-<!-- بخش ممبر فیک -->
 <section id="section-fake-member" class="hidden space-y-8">
 <div class="glass-box rounded-3xl p-6 bg-purple-50/40 border border-purple-200">
 <span class="text-xs font-bold px-3 py-1 rounded-full bg-purple-100 text-purple-700">🤖 سرویس ویژه ممبر فیک</span>
@@ -668,37 +976,43 @@ header .brand-text{font-size:1.55rem}
 </div>
 </section>
 
-<!-- بخش پیگیری سفارشات -->
 <section id="section-tracking" class="hidden space-y-6">
-<div class="glass-box rounded-3xl p-6 space-y-5 max-w-4xl mx-auto">
-<h3 class="font-titr text-2xl text-slate-800 text-center">🔍 پیگیری سفارشات</h3>
-<div class="grid grid-cols-3 gap-2 bg-slate-100 p-1.5 rounded-2xl border">
-<button onclick="filterTrackingOrders('done')" id="filter-btn-done" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ✅ انجام شده </button>
-<button onclick="filterTrackingOrders('pending')" id="filter-btn-pending" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ⏳ در حال انجام </button>
-<button onclick="filterTrackingOrders('canceled')" id="filter-btn-canceled" class="py-2.5 rounded-xl font-titr text-xs text-slate-600"> ❌ لغو شده </button>
+<div class="tk-wrap">
+<div class="tk-hero">
+<div class="tk-hero-top">
+<div class="tk-hero-ico"><i class="fa-solid fa-route"></i></div>
+<div>
+<h3 class="font-titr">پیگیری سفارشات</h3>
+<p>وضعیت لحظه‌ای تمام سفارش‌های شما، یک‌جا و شفاف</p>
 </div>
-<div class="overflow-x-auto">
-<table class="w-full text-right text-sm">
-<thead class="bg-slate-50 text-slate-500 text-xs font-titr border-b">
-<tr>
-<th class="p-3">کد سفارش</th>
-<th class="p-3">آیدی کانال</th>
-<th class="p-3">سرویس</th>
-<th class="p-3">پلتفرم</th>
-<th class="p-3">تعداد</th>
-<th class="p-3">مبلغ</th>
-<th class="p-3">تاریخ ثبت</th>
-<th class="p-3">وضعیت</th>
-</tr>
-</thead>
-<tbody id="filtered-orders-list" class="divide-y text-slate-700"></tbody>
-</table>
-<div id="empty-filtered-orders" class="text-center py-8 text-slate-400 hidden font-titr">هیچ سفارشی ثبت نشده است.</div>
+</div>
+<div class="tk-stats font-titr">
+<div class="tk-stat"><i class="fa-solid fa-layer-group"></i><div><b id="tk-stat-total">۰</b><small>کل سفارش‌ها</small></div></div>
+<div class="tk-stat"><i class="fa-solid fa-hourglass-half"></i><div><b id="tk-stat-pending">۰</b><small>در حال انجام</small></div></div>
+<div class="tk-stat"><i class="fa-solid fa-circle-check"></i><div><b id="tk-stat-done">۰</b><small>انجام شده</small></div></div>
+<div class="tk-stat"><i class="fa-solid fa-ban"></i><div><b id="tk-stat-canceled">۰</b><small>لغو شده</small></div></div>
+</div>
+</div>
+<div class="tk-tools">
+<div class="tk-seg font-titr">
+<button type="button" id="filter-btn-pending" class="s-pending" onclick="filterTrackingOrders('pending')">⏳ در حال انجام <span class="tk-count" id="tk-c-pending">۰</span></button>
+<button type="button" id="filter-btn-done" class="s-done" onclick="filterTrackingOrders('done')">✅ انجام شده <span class="tk-count" id="tk-c-done">۰</span></button>
+<button type="button" id="filter-btn-canceled" class="s-canceled" onclick="filterTrackingOrders('canceled')">❌ لغو شده <span class="tk-count" id="tk-c-canceled">۰</span></button>
+</div>
+<div class="tk-search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input type="text" id="tk-search-input" placeholder="جستجوی کد سفارش یا لینک..." oninput="setTrackQuery(this.value)" autocomplete="off">
+</div>
+</div>
+<div id="filtered-orders-list" class="tk-list"></div>
+<div id="empty-filtered-orders" class="tk-empty hidden">
+<div class="e-ico"><i class="fa-solid fa-box-open"></i></div>
+<b class="font-titr">سفارشی در این بخش وجود ندارد</b>
+<span>هر سفارشی که ثبت کنید، همین‌جا قابل پیگیری است.</span>
 </div>
 </div>
 </section>
 
-<!-- بخش پشتیبانی -->
 <section id="section-support" class="hidden space-y-8 max-w-2xl mx-auto">
 <div class="glass-box rounded-3xl p-8 text-center space-y-5 border border-emerald-200 bg-emerald-50/20">
 <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-3xl mx-auto">
@@ -707,105 +1021,136 @@ header .brand-text{font-size:1.55rem}
 <h3 class="font-titr text-2xl text-slate-800">پشتیبانی ۲۴ ساعته</h3>
 <p class="text-slate-600 text-sm">در صورت بروز هرگونه سوال یا مشکل با آیدی پشتیبانی در ارتباط باشید:</p>
 <div class="bg-white border p-4 rounded-2xl inline-block">
-<span class="text-xs text-slate-400 block mb-1">آیدی پشتیبانی ایتا:</span>
+<span class="text-xs text-slate-400 block mb-1">آیدی پشتیبانی:</span>
 <span class="font-mono text-xl text-emerald-600 font-bold select-all" dir="ltr">@Javad2345</span>
 </div>
 <div>
 <a href="https://eitaa.com/Javad2345" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 text-white font-titr px-6 py-3 rounded-2xl hover:bg-emerald-700">
-<i class="fa-solid fa-paper-plane"></i> ارتباط در پیام‌رسان ایتا
+<i class="fa-solid fa-paper-plane"></i> ارتباط با پشتیبانی
 </a>
 </div>
 </div>
 </section>
 
-<!-- پنل مدیریت -->
-<section id="section-admin" class="hidden space-y-8 max-w-5xl mx-auto">
-<div class="glass-box rounded-3xl p-6 border border-amber-200 space-y-6">
-<div class="flex items-center justify-between border-b pb-4">
-<div class="flex items-center gap-2">
-<i class="fa-solid fa-user-shield text-2xl text-amber-500"></i>
-<h3 class="font-titr text-xl text-slate-800">پنل مدیریت سایت</h3>
-</div>
-<span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">مدیر ارشد</span>
-</div>
-
-<!-- مدیریت وضعیت فعال/غیرفعال بودن سرویس‌ها -->
-<div class="bg-slate-50 p-5 rounded-2xl border space-y-4">
-<h4 class="font-titr text-base text-slate-800 flex items-center gap-2">
-<i class="fa-solid fa-toggle-on text-eitaa-500"></i> مدیریت فعال/غیرفعال بودن سرویس‌ها
-</h4>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-<!-- سرویس ایتا -->
-<div class="bg-white p-4 rounded-xl border flex flex-col justify-between space-y-3">
+<section id="section-admin" class="hidden space-y-6">
+<div class="ad-wrap">
+<div class="ad-hero">
+<div class="ad-hero-top">
+<div class="ad-crown"><i class="fa-solid fa-crown"></i></div>
 <div>
-<div class="font-titr text-sm text-slate-800">سرویس‌های ایتا</div>
-<div class="text-[11px] text-slate-500">کانال، گروه و ویو ایتا</div>
+<h3 class="font-titr">پنل مدیریت ممبرینو</h3>
+<p>همه‌چیز در یک نگاه، بدون شلوغی</p>
 </div>
-<button onclick="toggleServiceStatus('eitaa')" id="btn-status-eitaa" class="w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600">فعال (کلیک برای قطع)</button>
+<span class="ad-badge font-titr">مدیر ارشد</span>
 </div>
-
-<!-- سرویس ممبر فیک -->
-<div class="bg-white p-4 rounded-xl border flex flex-col justify-between space-y-3">
-<div>
-<div class="font-titr text-sm text-slate-800">سرویس ممبر فیک</div>
-<div class="text-[11px] text-slate-500">سرویس ویژه ممبر فیک ایتا</div>
-</div>
-<button onclick="toggleServiceStatus('fake')" id="btn-status-fake" class="w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600">فعال (کلیک برای قطع)</button>
-</div>
-
-<!-- سرویس بله -->
-<div class="bg-white p-4 rounded-xl border flex flex-col justify-between space-y-3">
-<div>
-<div class="font-titr text-sm text-slate-800">سرویس‌های بله</div>
-<div class="text-[11px] text-slate-500">کانال، گروه، ویو و ری‌اکشن بله</div>
-</div>
-<button onclick="toggleServiceStatus('bale')" id="btn-status-bale" class="w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600">فعال (کلیک برای قطع)</button>
+<div class="ad-stats font-titr">
+<div class="ad-stat"><small><i class="fa-solid fa-users"></i> کاربران</small><b id="ad-st-users">۰</b></div>
+<div class="ad-stat"><small><i class="fa-solid fa-circle" style="color:#34d399;font-size:.5rem"></i> آنلاین الان</small><b id="ad-st-online">۰</b></div>
+<div class="ad-stat"><small><i class="fa-solid fa-hourglass-half"></i> سفارش در انتظار</small><b id="ad-st-pending">۰</b></div>
+<div class="ad-stat"><small><i class="fa-solid fa-coins"></i> فروش (تومان)</small><b id="ad-st-sales">۰</b></div>
 </div>
 </div>
+<div class="ad-tabs font-titr">
+<button type="button" id="ad-tab-overview" class="ad-tab" onclick="setAdminTab('overview')"><i class="fa-solid fa-toggle-on"></i> سرویس‌ها</button>
+<button type="button" id="ad-tab-users" class="ad-tab" onclick="setAdminTab('users')"><i class="fa-solid fa-users"></i> کاربران</button>
+<button type="button" id="ad-tab-wallet" class="ad-tab" onclick="setAdminTab('wallet')"><i class="fa-solid fa-wallet"></i> کیف پول</button>
+<button type="button" id="ad-tab-orders" class="ad-tab" onclick="setAdminTab('orders')"><i class="fa-solid fa-box"></i> سفارشات</button>
+<button type="button" id="ad-tab-notifs" class="ad-tab" onclick="setAdminTab('notifs')"><i class="fa-solid fa-bullhorn"></i> اعلانات</button>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- تعریف کاربر -->
-<div class="bg-slate-50 p-5 rounded-2xl border space-y-3">
-<h4 class="font-titr text-sm text-amber-600 flex items-center gap-2">
-<i class="fa-solid fa-user-plus"></i> تعریف کاربر جدید
-</h4>
-<form onsubmit="handleCreateUser(event)" class="space-y-3">
-<input type="text" id="admin-new-username" required dir="ltr" placeholder="نام کاربری" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
-<input type="password" id="admin-new-password" required dir="ltr" placeholder="رمز عبور" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
-<button type="submit" class="w-full bg-amber-500 text-white font-titr py-2 rounded-xl text-sm">ایجاد کاربر</button>
+<div id="ad-pane-overview" class="ad-panel">
+<div class="ad-h"><i class="fa-solid fa-toggle-on ic-amber"></i><div><b class="font-titr">وضعیت سرویس‌ها</b><small>با یک کلیک هر سرویس را فعال یا قطع کنید</small></div></div>
+<div class="ad-svc-grid">
+<div class="ad-svc">
+<div class="ad-svc-top"><div class="ad-svc-ico" style="background:linear-gradient(135deg,#ff9d00,#ff5500)"><i class="fa-solid fa-paper-plane"></i></div><div><b class="font-titr">سرویس‌های ایتا</b><small>کانال، گروه و ویو</small></div></div>
+<button type="button" onclick="toggleServiceStatus('eitaa')" id="btn-status-eitaa" class="ad-toggle on font-titr"></button>
+</div>
+<div class="ad-svc">
+<div class="ad-svc-top"><div class="ad-svc-ico" style="background:linear-gradient(135deg,#c084fc,#7c3aed)"><i class="fa-solid fa-robot"></i></div><div><b class="font-titr">ممبر فیک</b><small>سرویس ویژه ایتا</small></div></div>
+<button type="button" onclick="toggleServiceStatus('fake')" id="btn-status-fake" class="ad-toggle on font-titr"></button>
+</div>
+<div class="ad-svc">
+<div class="ad-svc-top"><div class="ad-svc-ico" style="background:linear-gradient(135deg,#2dd4bf,#0d9488)"><i class="fa-solid fa-comment-dots"></i></div><div><b class="font-titr">سرویس‌های بله</b><small>کانال، گروه، ویو و ری‌اکشن</small></div></div>
+<button type="button" onclick="toggleServiceStatus('bale')" id="btn-status-bale" class="ad-toggle on font-titr"></button>
+</div>
+</div>
+</div>
+
+<div id="ad-pane-users" class="hidden space-y-4">
+<div class="ad-panel">
+<div class="ad-h"><i class="fa-solid fa-user-plus ic-blue"></i><div><b class="font-titr">تعریف کاربر جدید</b><small>نام کاربری و رمز عبور را وارد کنید</small></div></div>
+<form onsubmit="handleCreateUser(event)" class="ad-create">
+<input type="text" id="admin-new-username" required dir="ltr" placeholder="نام کاربری" class="ad-field font-mono" autocomplete="off">
+<input type="text" id="admin-new-password" required dir="ltr" placeholder="رمز عبور" class="ad-field font-mono" autocomplete="off">
+<button type="submit" class="ad-btn amber font-titr"><i class="fa-solid fa-plus"></i> ایجاد کاربر</button>
 </form>
 </div>
+<div class="ad-panel">
+<div class="ad-h" style="flex-wrap:wrap">
+<i class="fa-solid fa-users-gear ic-purple"></i><div style="flex:1;min-width:11rem"><b class="font-titr">لیست کاربران</b><small>ویرایش اطلاعات و مسدودسازی</small></div>
+<div class="ad-search ad-h-search"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="ad-user-search" placeholder="جستجوی کاربر..." oninput="setAdminUserQuery(this.value)" autocomplete="off"></div>
+</div>
+<div id="admin-users-table" class="ad-user-grid"></div>
+</div>
+</div>
 
-<!-- تغییر کیف پول -->
-<div class="bg-slate-50 p-5 rounded-2xl border space-y-3">
-<h4 class="font-titr text-sm text-emerald-600 flex items-center gap-2">
-<i class="fa-solid fa-wallet"></i> مدیریت کیف پول کاربر
-</h4>
-<form onsubmit="handleChargeWallet(event)" class="space-y-3">
-<select id="admin-charge-user" required class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono"></select>
-<input type="number" id="admin-charge-amount" required placeholder="مبلغ (تومان)" class="w-full bg-white border rounded-xl px-3 py-2 text-sm font-mono">
-<input type="text" id="admin-charge-reason" maxlength="80" placeholder="بابت (اختیاری) — مثلاً شارژ دستی، جایزه، اصلاح" class="w-full bg-white border rounded-xl px-3 py-2 text-sm">
-<div class="flex gap-2">
-<button type="submit" onclick="setWalletAction('add')" class="flex-1 bg-emerald-600 text-white font-titr py-2 rounded-xl text-xs">افزایش موجودی</button>
-<button type="submit" onclick="setWalletAction('deduct')" class="flex-1 bg-rose-600 text-white font-titr py-2 rounded-xl text-xs">کاهش موجودی</button>
+<div id="ad-pane-wallet" class="hidden">
+<div class="ad-panel">
+<div class="ad-h"><i class="fa-solid fa-wallet ic-green"></i><div><b class="font-titr">مدیریت کیف پول کاربر</b><small>شارژ یا کسر موجودی</small></div></div>
+<form onsubmit="handleChargeWallet(event)" class="space-y-3" style="display:grid;gap:.7rem">
+<select id="admin-charge-user" required class="ad-field font-mono"></select>
+<input type="number" id="admin-charge-amount" required placeholder="مبلغ (تومان)" class="ad-field font-mono">
+<input type="text" id="admin-charge-reason" maxlength="80" placeholder="بابت (اختیاری)" class="ad-field">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
+<button type="submit" onclick="setWalletAction('add')" class="ad-btn green font-titr"><i class="fa-solid fa-circle-plus"></i> افزایش موجودی</button>
+<button type="submit" onclick="setWalletAction('deduct')" class="ad-btn red font-titr"><i class="fa-solid fa-circle-minus"></i> کاهش موجودی</button>
 </div>
 </form>
 </div>
 </div>
 
-<!-- مدیریت اعلانات -->
+<div id="ad-pane-orders" class="hidden">
+<div class="ad-panel">
+<div class="ad-h"><i class="fa-solid fa-box ic-rose"></i><div><b class="font-titr">وضعیت سفارشات</b><small>مدیریت سفارشات ثبت شده</small></div></div>
+<div class="ad-seg font-titr">
+<button type="button" onclick="filterAdminOrders('all')" id="admin-filter-all">همه</button>
+<button type="button" onclick="filterAdminOrders('pending')" id="admin-filter-pending">⏳ در حال انجام</button>
+<button type="button" onclick="filterAdminOrders('done')" id="admin-filter-done">✅ انجام شده</button>
+<button type="button" onclick="filterAdminOrders('canceled')" id="admin-filter-canceled">❌ لغو شده</button>
+</div>
+<div class="ad-orders-wrap">
+<table class="w-full text-right text-sm">
+<thead class="text-slate-600 text-xs font-titr">
+<tr>
+<th class="p-3">کد</th>
+<th class="p-3">نام کاربری</th>
+<th class="p-3">لینک سفارش</th>
+<th class="p-3">نوع سفارش</th>
+<th class="p-3">تعداد</th>
+<th class="p-3">مبلغ</th>
+<th class="p-3">تاریخ ثبت</th>
+<th class="p-3">وضعیت</th>
+</tr>
+</thead>
+<tbody id="admin-orders-table" class="divide-y text-slate-700"></tbody>
+</table>
+<div id="admin-orders-empty" class="hidden ad-empty font-titr"><i class="fa-solid fa-inbox"></i>هیچ سفارشی در این بخش وجود ندارد.</div>
+</div>
+</div>
+</div>
+
+<div id="ad-pane-notifs" class="hidden">
 <div class="na-card">
 <div class="na-head">
 <i class="fa-solid fa-bullhorn" style="font-size:1.2rem"></i>
 <div>
 <div class="font-titr" style="font-size:1rem">مدیریت اعلانات</div>
-<div style="font-size:.7rem;opacity:.9">پیام برای همه کاربران ارسال می‌شود</div>
+<div style="font-size:.7rem;opacity:.9">ارسال پیام همگانی</div>
 </div>
 </div>
 <div class="na-seg font-titr">
 <button type="button" id="na-tab-add" onclick="setNotifAdminTab('add')">➕ اضافه کردن اعلان</button>
-<button type="button" id="na-tab-manage" onclick="setNotifAdminTab('manage')">🗑️ حذف / ویرایش اعلانات (<span id="na-count">۰</span>)</button>
+<button type="button" id="na-tab-manage" onclick="setNotifAdminTab('manage')">🗑️ حذف / ویرایش (<span id="na-count">۰</span>)</button>
 </div>
 <div class="na-body">
 <div id="na-add">
@@ -820,53 +1165,6 @@ header .brand-text{font-size:1.55rem}
 <div id="notif-admin-list"></div>
 </div>
 </div>
-</div>
-
-<div class="space-y-3">
-<h4 class="font-titr text-base text-slate-800">👥 لیست کاربران و مدیریت حساب‌ها</h4>
-<div class="overflow-x-auto">
-<table class="w-full text-right text-sm">
-<thead class="bg-slate-100 text-slate-600 text-xs font-titr">
-<tr>
-<th class="p-3">نام کاربری</th>
-<th class="p-3">نقش</th>
-<th class="p-3">موجودی کیف پول</th>
-<th class="p-3">وضعیت حساب</th>
-<th class="p-3">آخرین فعالیت</th>
-<th class="p-3">عملیات</th>
-</tr>
-</thead>
-<tbody id="admin-users-table" class="divide-y text-slate-700"></tbody>
-</table>
-</div>
-</div>
-
-<!-- وضعیت سفارشات (مدیریت) -->
-<div class="space-y-3 border-t pt-6">
-<h4 class="font-titr text-base text-slate-800">📦 وضعیت سفارشات</h4>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-slate-100 p-1.5 rounded-2xl border">
-<button type="button" onclick="filterAdminOrders('all')" id="admin-filter-all" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">همه</button>
-<button type="button" onclick="filterAdminOrders('pending')" id="admin-filter-pending" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">⏳ در حال انجام</button>
-<button type="button" onclick="filterAdminOrders('done')" id="admin-filter-done" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">✅ انجام شده</button>
-<button type="button" onclick="filterAdminOrders('canceled')" id="admin-filter-canceled" class="py-2.5 rounded-xl font-titr text-xs text-slate-600">❌ لغو شده</button>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-right text-sm">
-<thead class="bg-slate-100 text-slate-600 text-xs font-titr">
-<tr>
-<th class="p-3">کد</th>
-<th class="p-3">نام کاربری</th>
-<th class="p-3">لینک سفارش</th>
-<th class="p-3">نوع سفارش</th>
-<th class="p-3">تعداد</th>
-<th class="p-3">مبلغ</th>
-<th class="p-3">تاریخ ثبت</th>
-<th class="p-3">وضعیت</th>
-</tr>
-</thead>
-<tbody id="admin-orders-table" class="divide-y text-slate-700"></tbody>
-</table>
-<div id="admin-orders-empty" class="hidden text-center py-8 text-slate-400 font-titr">هیچ سفارشی در این بخش وجود ندارد.</div>
 </div>
 </div>
 </div>
@@ -893,11 +1191,15 @@ header .brand-text{font-size:1.55rem}
 </div>
 
 <script>
+var RUBIKA1_API_URL = "https://rubika1.ir/api/v1";
+var RUBIKA1_API_KEY = "be7e9w90a8upbe0hob72ecbekc9b8bk8";
+
 var safeStore = (function(){
 var mem = {};
 try { localStorage.setItem('__t','1'); localStorage.removeItem('__t'); return localStorage; }
 catch(e) { return { getItem:function(k){return mem.hasOwnProperty(k)?mem[k]:null;}, setItem:function(k,v){mem[k]=String(v);}, removeItem:function(k){delete mem[k];} }; }
 })();
+
 var initialUsers = {
 'Sobhan201088': { password: 'Sobhan201088', role: 'admin', balance: 10000000, isBlocked: false }
 };
@@ -905,24 +1207,20 @@ var initialUsers = {
 var users = JSON.parse(safeStore.getItem('app_users')) || initialUsers;
 var currentUser = safeStore.getItem('app_current_user') || null;
 var walletAction = 'add';
-
-// وضعیت فعال/غیرفعال بودن سرویس‌ها (پیش‌فرض همگی فعال)
 var initialServiceStatus = { eitaa: true, fake: true, bale: true };
 var serviceStatus = JSON.parse(safeStore.getItem('app_service_status')) || initialServiceStatus;
 
-function saveServiceStatus() {
-safeStore.setItem('app_service_status', JSON.stringify(serviceStatus));
-}
+function saveServiceStatus() { safeStore.setItem('app_service_status', JSON.stringify(serviceStatus)); }
 
 var mockOrders = JSON.parse(safeStore.getItem('app_orders')) || [ 
-{ user: 'Sobhan201088', id:'ORD-9021', link:'@my_eitaa', service:'\u0645\u0645\u0628\u0631 \u0648\u0627\u0642\u0639\u06cc \u0627\u06cc\u062a\u0627', qty:1000, amount:65000, status:'pending' }
+{ user: 'Sobhan201088', id:'ORD-9021', link:'@my_eitaa', service:'ممبر واقعی ایتا', qty:1000, amount:65000, status:'pending' }
 ];
 
 function saveUsers() { safeStore.setItem('app_users', JSON.stringify(users)); }
 function saveOrders() { safeStore.setItem('app_orders', JSON.stringify(mockOrders)); }
 
 var services = [
-{ id:101, platform:'eitaa', name:"ممبر واقعی ایتا", price:65000, unit:"هر ۱۰۰۰ ممبر", desc:"اعضای واقعی کانال", icon:"fa-users", suffix:"عدد" },
+{ id:101, platform:'eitaa', name:"ممبر کانال ایتا", price:65000, unit:"هر ۱۰۰۰ ممبر", desc:"اعضای واقعی کانال", icon:"fa-users", suffix:"عدد" },
 { id:102, platform:'eitaa', name:"ممبر گروه ایتا", price:75000, unit:"هر ۱۰۰۰ ممبر", desc:"افزایش اعضای گروه", icon:"fa-user-group", suffix:"عدد" },
 { id:201, platform:'eitaa', name:"ویو ۲ پست آخر", price:15000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۲ پست اخیر", icon:"fa-eye", suffix:"ویو" },
 { id:202, platform:'eitaa', name:"ویو ۵ پست آخر", price:25000, unit:"هر ۱۰۰۰ ویو", desc:"۱۰۰۰ ویو برای ۵ پست اخیر", icon:"fa-eye", suffix:"ویو" },
@@ -946,9 +1244,7 @@ var out = [];
 for (var i = 0; i < services.length; i++) { if (services[i].platform === p) out.push(services[i]); }
 return out;
 }
-function getPlatform(o) {
-return o.platform || (String(o.service || '').indexOf('بله') !== -1 ? 'bale' : 'eitaa');
-}
+function getPlatform(o) { return o.platform || (String(o.service || '').indexOf('بله') !== -1 ? 'bale' : 'eitaa'); }
 function platformBadge(p) {
 return p === 'bale'
 ? '<span class="px-2 py-0.5 rounded-full text-xs font-titr" style="background:#ccfbf1;color:#0f766e">بله</span>'
@@ -960,25 +1256,17 @@ var currentFilter = 'pending';
 var currentFakeQty = 100;
 
 function toggleMenu() { document.getElementById('dropdown-menu').classList.toggle('hidden'); }
-
 function showDisabledModal(serviceName) {
-var titleEl = document.getElementById('disabled-service-title');
-var msgEl = document.getElementById('disabled-service-msg');
-titleEl.innerText = 'سرویس ' + serviceName + ' غیرفعال است';
-msgEl.innerText = 'سرویس ' + serviceName + ' در حال حاضر قطع می‌باشد. لطفاً بعداً مراجعه کنید یا با پشتیبانی در ارتباط باشید.';
+document.getElementById('disabled-service-title').innerText = 'سرویس ' + serviceName + ' غیرفعال است';
+document.getElementById('disabled-service-msg').innerText = 'سرویس ' + serviceName + ' در حال حاضر قطع می‌باشد.';
 document.getElementById('service-disabled-modal').classList.remove('hidden');
 }
-
-function closeDisabledModal() {
-document.getElementById('service-disabled-modal').classList.add('hidden');
-}
-
+function closeDisabledModal() { document.getElementById('service-disabled-modal').classList.add('hidden'); }
 function toggleServiceStatus(type) {
 serviceStatus[type] = !serviceStatus[type];
 saveServiceStatus();
 renderAdminUsers();
 }
-
 function checkAuth() {
 if (!currentUser || !users[currentUser]) {
 document.getElementById('login-modal').classList.remove('hidden');
@@ -996,17 +1284,12 @@ document.getElementById('tab-btn-admin').classList.add('hidden');
 }
 }
 }
-
 function handleLogin(e) {
 e.preventDefault();
 var u = document.getElementById('login-username').value.trim();
 var p = document.getElementById('login-password').value.trim();
-
 if (users[u] && users[u].password === p) {
-if (users[u].isBlocked) {
-alert('حساب کاربری شما مسدود است');
-return;
-}
+if (users[u].isBlocked) { alert('حساب کاربری شما مسدود است'); return; }
 currentUser = u;
 safeStore.setItem('app_current_user', currentUser);
 checkAuth();
@@ -1014,14 +1297,10 @@ renderAdminUsers();
 document.getElementById('login-modal').classList.add('hidden');
 document.getElementById('welcome-modal').classList.remove('hidden');
 } else {
-alert('\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u06cc\u0627 \u0631\u0645\u0632 \u0639\u0628\u0648\u0631 \u0627\u0634\u062a\u0628\u0627\u0647 \u0627\u0633\u062a!');
+alert('نام کاربری یا رمز عبور اشتباه است!');
 }
 }
-
-function closeWelcomeModal() {
-document.getElementById('welcome-modal').classList.add('hidden');
-}
-
+function closeWelcomeModal() { document.getElementById('welcome-modal').classList.add('hidden'); }
 function logout() {
 markOffline();
 var np = document.getElementById('notif-panel'); if (np) np.classList.add('hidden');
@@ -1029,16 +1308,16 @@ currentUser = null;
 safeStore.removeItem('app_current_user');
 checkAuth();
 }
-
 function updateHeaderUserInfo() {
 if (currentUser && users[currentUser]) {
 var nm = document.getElementById('display-user-name');
 if (nm) nm.innerText = currentUser;
 document.getElementById('display-user-balance').innerText = users[currentUser].balance.toLocaleString('fa-IR');
+var pa = document.getElementById('pf-menu-av'); if (pa) pa.innerText = currentUser.charAt(0);
+var pn = document.getElementById('pf-menu-name'); if (pn) pn.innerText = currentUser;
 updateNotifBadge();
 }
 }
-
 function updateNavActive(tab) {
 var ids = ['home','store','fake-member','tracking','support'];
 for (var i = 0; i < ids.length; i++) {
@@ -1048,14 +1327,12 @@ if (ids[i] === tab) { b.classList.add('bg-eitaa-500','text-white'); b.classList.
 else { b.classList.remove('bg-eitaa-500','text-white'); b.classList.add('text-slate-600'); }
 }
 }
-
 function applyTheme(tab) {
 var isBale = currentPlatform === 'bale';
 var b = document.body;
 b.classList.remove('theme-home','theme-bale');
 if (tab === 'home') b.classList.add('theme-home');
 else if (isBale) b.classList.add('theme-bale');
-
 var sub = document.getElementById('brand-sub');
 if (sub) sub.innerText = (tab === 'home') ? 'ایتا • بله' : (isBale ? 'سرویس بله' : 'سرویس ایتا');
 var ht = document.getElementById('hero-title');
@@ -1064,7 +1341,6 @@ var hb = document.getElementById('hero-badge');
 if (hb) hb.innerText = isBale ? '⚡ سرویس بله' : '⚡ سرویس ایتا';
 var inp = document.getElementById('channel-link');
 if (inp) inp.placeholder = isBale ? '@my_channel' : 'my_channel@';
-
 var fb = document.getElementById('nav-btn-fake');
 if (fb) {
 if (isBale) {
@@ -1076,16 +1352,9 @@ fb.innerHTML = '<i class="fa-solid fa-robot text-lg mb-1"></i><span class="text-
 }
 }
 }
-
 function selectPlatform(p) {
-if (p === 'bale' && !serviceStatus.bale) {
-showDisabledModal('بله');
-return;
-}
-if (p === 'eitaa' && !serviceStatus.eitaa) {
-showDisabledModal('ایتا');
-return;
-}
+if (p === 'bale' && !serviceStatus.bale) { showDisabledModal('بله'); return; }
+if (p === 'eitaa' && !serviceStatus.eitaa) { showDisabledModal('ایتا'); return; }
 currentPlatform = p;
 safeStore.setItem('app_platform', p);
 selectedService = getPlatformServices(p)[0];
@@ -1094,23 +1363,11 @@ calculateSummary();
 refreshQuantityBadge();
 switchTab('store');
 }
-
 function switchTab(tab) {
-if (tab === 'fake-member') {
-if (!serviceStatus.fake) {
-showDisabledModal('ممبر فیک');
-return;
-}
-}
+if (tab === 'fake-member' && !serviceStatus.fake) { showDisabledModal('ممبر فیک'); return; }
 if (tab === 'store') {
-if (currentPlatform === 'bale' && !serviceStatus.bale) {
-showDisabledModal('بله');
-return;
-}
-if (currentPlatform === 'eitaa' && !serviceStatus.eitaa) {
-showDisabledModal('ایتا');
-return;
-}
+if (currentPlatform === 'bale' && !serviceStatus.bale) { showDisabledModal('بله'); return; }
+if (currentPlatform === 'eitaa' && !serviceStatus.eitaa) { showDisabledModal('ایتا'); return; }
 }
 var sections = ['home','store','fake-member','tracking','support','admin'];
 for(var i=0; i<sections.length; i++) {
@@ -1123,9 +1380,8 @@ applyTheme(tab);
 updateNavActive(tab);
 window.scrollTo({ top: 0, behavior: 'smooth' });
 if(tab === 'tracking') filterTrackingOrders(currentFilter);
-if(tab === 'admin') { renderAdminUsers(); renderAdminOrders(); renderAdminNotifs(); }
+if(tab === 'admin') { setAdminTab(adminTab); updateAdminStats(); renderAdminUsers(); renderAdminOrders(); renderAdminNotifs(); }
 }
-
 function renderServices() {
 var container = document.getElementById('services-container');
 var list = getPlatformServices(currentPlatform);
@@ -1142,16 +1398,9 @@ html += '</div>';
 }
 container.innerHTML = html;
 }
-
 function selectService(id) {
-if (currentPlatform === 'bale' && !serviceStatus.bale) {
-showDisabledModal('بله');
-return;
-}
-if (currentPlatform === 'eitaa' && !serviceStatus.eitaa) {
-showDisabledModal('ایتا');
-return;
-}
+if (currentPlatform === 'bale' && !serviceStatus.bale) { showDisabledModal('بله'); return; }
+if (currentPlatform === 'eitaa' && !serviceStatus.eitaa) { showDisabledModal('ایتا'); return; }
 for (var i = 0; i < services.length; i++) {
 if (services[i].id === id) { selectedService = services[i]; break; }
 }
@@ -1159,77 +1408,85 @@ renderServices();
 calculateSummary();
 refreshQuantityBadge();
 }
-
 function refreshQuantityBadge() {
 document.getElementById('quantity-badge').innerText = currentQuantity.toLocaleString('fa-IR') + ' ' + (selectedService.suffix || 'عدد');
 }
-
 function updateQuantityFromInput(val) {
 currentQuantity = parseInt(val) || 0;
 document.getElementById('quantity-slider').value = currentQuantity;
 refreshQuantityBadge();
 calculateSummary();
 }
-
 function updateQuantityFromSlider(val) {
 currentQuantity = parseInt(val);
 document.getElementById('custom-quantity-input').value = currentQuantity;
 refreshQuantityBadge();
 calculateSummary();
 }
-
 function calculateSummary() {
 var total = (currentQuantity / 1000) * selectedService.price;
 document.getElementById('summary-service-name').innerText = selectedService.name;
 document.getElementById('summary-quantity').innerText = currentQuantity.toLocaleString('fa-IR');
-document.getElementById('summary-unit-price').innerText = selectedService.price.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646';
+document.getElementById('summary-unit-price').innerText = selectedService.price.toLocaleString('fa-IR') + ' تومان';
 document.getElementById('summary-total-price').innerText = total.toLocaleString('fa-IR');
 }
-
 function updateFakeQuantity(val) {
 currentFakeQty = parseInt(val);
-document.getElementById('fake-qty-badge').innerText = currentFakeQty.toLocaleString('fa-IR') + ' \u0645\u0645\u0628\u0631';
+document.getElementById('fake-qty-badge').innerText = currentFakeQty.toLocaleString('fa-IR') + ' ممبر';
 var total = (currentFakeQty / 100) * 65000;
-document.getElementById('fake-summary-qty').innerText = currentFakeQty.toLocaleString('fa-IR') + ' \u0645\u0645\u0628\u0631';
+document.getElementById('fake-summary-qty').innerText = currentFakeQty.toLocaleString('fa-IR') + ' ممبر';
 document.getElementById('fake-summary-total').innerText = total.toLocaleString('fa-IR');
 }
 
-function handleFakeOrderSubmit(e) {
-e.preventDefault();
-if (!serviceStatus.fake) {
-showDisabledModal('ممبر فیک');
-return;
+// ارسال خودکار درخواست سفارش به API سایت rubika1.ir
+async function sendOrderToRubika1(serviceId, link, quantity) {
+try {
+var response = await fetch(RUBIKA1_API_URL, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+key: RUBIKA1_API_KEY,
+action: 'add',
+service: serviceId,
+link: link,
+quantity: quantity
+})
+});
+return await response.json();
+} catch (error) {
+console.error("خطا در ارسال به API روبیکا ۱:", error);
+return { error: true };
 }
+}
+
+async function handleFakeOrderSubmit(e) {
+e.preventDefault();
+if (!serviceStatus.fake) { showDisabledModal('ممبر فیک'); return; }
 var total = (currentFakeQty / 100) * 65000;
-if (users[currentUser].balance < total) { alert('\u0645\u0648\u062c\u0648\u062f\u06cc \u06a9\u0627\u0641\u06cc \u0646\u06cc\u0633\u062a.'); return; }
+if (users[currentUser].balance < total) { showInsufficientModal(total); return; }
 users[currentUser].balance -= total;
 saveUsers();
 updateHeaderUserInfo();
 var link = document.getElementById('fake-channel-link').value;
 var newId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
-mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: 'eitaa', service: '\u0645\u0645\u0628\u0631 \u0641\u06cc\u06a9', qty: currentFakeQty, amount: total, status: 'pending', ts: Date.now() });
+mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: 'eitaa', service: 'ممبر فیک', qty: currentFakeQty, amount: total, status: 'pending', ts: Date.now() });
 addTx(currentUser, 'deduct', total, 'خرید ممبر فیک ایتا — سفارش ' + newId, users[currentUser].balance);
 saveOrders();
-alert('\u0633\u0641\u0627\u0631\u0634 \u062b\u0628\u062a \u0634\u062f!\n\u06a9\u062f \u067e\u06cc\u06af\u06cc\u0631\u06cc: ' + newId);
-switchTab('tracking');
+showOrderSuccess(newId, 'ممبر فیک ایتا', currentFakeQty, total);
+// ارسال به API مقصد
+sendOrderToRubika1(101, link, currentFakeQty);
 }
 
-function handleOrderSubmit(e) {
+async function handleOrderSubmit(e) {
 e.preventDefault();
-if (selectedService.platform === 'bale' && !serviceStatus.bale) {
-showDisabledModal('بله');
-return;
-}
-if (selectedService.platform === 'eitaa' && !serviceStatus.eitaa) {
-showDisabledModal('ایتا');
-return;
-}
+if (selectedService.platform === 'bale' && !serviceStatus.bale) { showDisabledModal('بله'); return; }
+if (selectedService.platform === 'eitaa' && !serviceStatus.eitaa) { showDisabledModal('ایتا'); return; }
 if (currentQuantity < 200 || currentQuantity > 100000) {
-alert('\u062a\u0639\u062f\u0627\u062f \u0633\u0641\u0627\u0631\u0634 \u0628\u0627\u06cc\u062f \u0628\u06cc\u0646 \u06f2\u06f0\u06f0 \u062a\u0627 \u06f1\u06f0\u06f0,\u06f0\u06f0\u06f0 \u0628\u0627\u0634\u062f.');
+showResultModal('error', 'تعداد نامعتبر', 'تعداد سفارش باید بین ۲۰۰ تا ۱۰۰٬۰۰۰ باشد.');
 return;
 }
 var total = (currentQuantity / 1000) * selectedService.price;
-if (users[currentUser].balance < total) { alert('\u0645\u0648\u062c\u0648\u062f\u06cc \u06a9\u0627\u0641\u06cc \u0646\u06cc\u0633\u062a.'); return; }
+if (users[currentUser].balance < total) { showInsufficientModal(total); return; }
 users[currentUser].balance -= total;
 saveUsers();
 updateHeaderUserInfo();
@@ -1238,86 +1495,173 @@ var newId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
 mockOrders.unshift({ user: currentUser, id: newId, link: link, platform: selectedService.platform, service: selectedService.name, qty: currentQuantity, amount: total, status: 'pending', ts: Date.now() });
 addTx(currentUser, 'deduct', total, 'خرید ' + selectedService.name + ' — سفارش ' + newId, users[currentUser].balance);
 saveOrders();
-alert('\u0633\u0641\u0627\u0631\u0634 \u062b\u0628\u062a \u0634\u062f!\n\u06a9\u062f \u067e\u06cc\u06af\u06cc\u0631\u06cc: ' + newId);
-switchTab('tracking');
+showOrderSuccess(newId, selectedService.name, currentQuantity, total);
+// ارسال به API مقصد
+sendOrderToRubika1(selectedService.id, link, currentQuantity);
 }
 
+var trackQuery = '';
+function setTrackQuery(v) { trackQuery = (v || '').trim().toLowerCase(); filterTrackingOrders(currentFilter); }
+function orderIconCls(o) {
+var s = o.service || '';
+if (s.indexOf('فیک') !== -1) return 'fa-robot';
+if (s.indexOf('ویو') !== -1) return 'fa-eye';
+if (s.indexOf('اکشن') !== -1) return 'fa-heart';
+if (s.indexOf('گروه') !== -1) return 'fa-user-group';
+return 'fa-users';
+}
+function trackSteps(status) {
+function step(cls, ico, label) { return '<div class="tk-step ' + cls + '"><div class="tk-dot"><i class="fa-solid ' + ico + '"></i></div><span class="font-titr">' + label + '</span></div>'; }
+if (status === 'canceled') return '<div class="tk-steps">' + step('ok', 'fa-check', 'ثبت شد') + '<div class="tk-line bad"></div>' + step('bad', 'fa-xmark', 'لغو شد') + '</div>';
+if (status === 'done') return '<div class="tk-steps">' + step('ok', 'fa-check', 'ثبت شد') + '<div class="tk-line fill"></div>' + step('ok', 'fa-check', 'در حال انجام') + '<div class="tk-line fill"></div>' + step('ok', 'fa-flag-checkered', 'تکمیل شد') + '</div>';
+return '<div class="tk-steps">' + step('ok', 'fa-check', 'ثبت شد') + '<div class="tk-line fill"></div>' + step('cur', 'fa-gear', 'در حال انجام') + '<div class="tk-line half"></div>' + step('', 'fa-flag-checkered', 'تکمیل') + '</div>';
+}
+function copyText(text, btn) {
+function done() {
+if (!btn) return;
+var old = btn.innerHTML;
+btn.classList.add('ok');
+btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+setTimeout(function () { btn.classList.remove('ok'); btn.innerHTML = old; }, 1200);
+}
+function fallback() {
+try {
+var ta = document.createElement('textarea');
+ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+} catch (e) {}
+done();
+}
+if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+else fallback();
+}
+function copyAttr(btn) { copyText(btn.getAttribute('data-copy') || '', btn); }
 function filterTrackingOrders(status) {
 currentFilter = status;
-var btns = ['done','pending','canceled'];
-for(var i=0; i<btns.length; i++) {
-var btn = document.getElementById('filter-btn-' + btns[i]);
-if(btn) {
-if(btns[i] === status) {
-btn.className = "py-2.5 rounded-xl font-titr text-xs bg-eitaa-500 text-white shadow-md";
-} else {
-btn.className = "py-2.5 rounded-xl font-titr text-xs text-slate-600 hover:text-slate-900";
+if (!currentUser || !users[currentUser]) return;
+var isAdmin = users[currentUser].role === 'admin';
+var mine = mockOrders.filter(function (o) { return o.user === currentUser || isAdmin; });
+var cnt = { pending: 0, done: 0, canceled: 0 };
+for (var c = 0; c < mine.length; c++) if (cnt[mine[c].status] !== undefined) cnt[mine[c].status]++;
+var set = function (id, v) { var el = document.getElementById(id); if (el) el.innerText = fa(v); };
+set('tk-stat-total', mine.length); set('tk-stat-pending', cnt.pending); set('tk-stat-done', cnt.done); set('tk-stat-canceled', cnt.canceled);
+set('tk-c-pending', cnt.pending); set('tk-c-done', cnt.done); set('tk-c-canceled', cnt.canceled);
+var btns = ['pending', 'done', 'canceled'];
+for (var i = 0; i < btns.length; i++) {
+var b = document.getElementById('filter-btn-' + btns[i]);
+if (b) { if (btns[i] === status) b.classList.add('active'); else b.classList.remove('active'); }
 }
-}
-}
-var tbody = document.getElementById('filtered-orders-list');
+var box = document.getElementById('filtered-orders-list');
 var empty = document.getElementById('empty-filtered-orders');
-var filtered = mockOrders.filter(function(o){
-return o.status === status && (o.user === currentUser || users[currentUser].role === 'admin');
+var filtered = mine.filter(function (o) {
+if (o.status !== status) return false;
+if (!trackQuery) return true;
+return String(o.id).toLowerCase().indexOf(trackQuery) !== -1 || String(o.link || '').toLowerCase().indexOf(trackQuery) !== -1;
 });
-if(filtered.length === 0) { tbody.innerHTML = ''; empty.classList.remove('hidden'); return; }
+if (!filtered.length) { box.innerHTML = ''; empty.classList.remove('hidden'); return; }
 empty.classList.add('hidden');
 var html = '';
-for(var j=0; j<filtered.length; j++) {
+for (var j = 0; j < filtered.length; j++) {
 var o = filtered[j];
-var badge = o.status === 'done' ? '<span class="px-2 py-0.5 rounded-full text-xs bg-emerald-100 text-emerald-700">\u0627\u0646\u062c\u0627\u0645 \u0634\u062f\u0647</span>' : (o.status === 'pending' ? '<span class="px-2 py-0.5 rounded-full text-xs bg-amber-100 text-amber-700">\u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062c\u0627\u0645</span>' : '<span class="px-2 py-0.5 rounded-full text-xs bg-rose-100 text-rose-700">\u0644\u063a\u0648 \u0634\u062f\u0647</span>');
-html += '<tr><td class="p-3 font-mono font-bold text-eitaa-600">' + escapeHtml(o.id) + '</td><td class="p-3 font-mono text-slate-600" dir="ltr">' + escapeHtml(o.link) + '</td><td class="p-3 font-titr">' + escapeHtml(o.service) + '</td><td class="p-3">' + platformBadge(getPlatform(o)) + '</td><td class="p-3">' + o.qty.toLocaleString('fa-IR') + '</td><td class="p-3">' + o.amount.toLocaleString('fa-IR') + ' تومان</td><td class="p-3 whitespace-nowrap text-xs text-slate-600">' + formatJalali(o.ts) + '</td><td class="p-3">' + badge + '</td></tr>';
+var plat = getPlatform(o);
+var chip = o.status === 'done' ? '<span class="tk-chip done font-titr"><i class="fa-solid fa-circle-check"></i> انجام شده</span>'
+: (o.status === 'pending' ? '<span class="tk-chip pending font-titr"><i class="fa-solid fa-hourglass-half"></i> در حال انجام</span>'
+: '<span class="tk-chip canceled font-titr"><i class="fa-solid fa-ban"></i> لغو شده</span>');
+html += '<div class="tk-card ' + o.status + '" style="animation-delay:' + (j * 0.06) + 's">'
++ '<div class="tk-top"><div class="tk-ico ' + plat + '"><i class="fa-solid ' + orderIconCls(o) + '"></i></div>'
++ '<div class="tk-title"><b class="font-titr">' + escapeHtml(o.service) + '</b><span>' + escapeHtml(o.id) + ' ' + platformBadge(plat) + '</span></div>' + chip + '</div>'
++ '<div class="tk-link"><i class="fa-solid fa-link l"></i><code dir="ltr">' + escapeHtml(o.link) + '</code>'
++ '<button type="button" class="tk-copy" data-copy="' + escapeHtml(o.link) + '" onclick="copyAttr(this)" title="کپی لینک"><i class="fa-regular fa-copy"></i></button></div>'
++ '<div class="tk-meta font-titr">'
++ '<div class="tk-m"><small>تعداد</small><b>' + fa(o.qty) + '</b></div>'
++ '<div class="tk-m"><small>مبلغ</small><b>' + fa(o.amount) + ' تومان</b></div>'
++ '<div class="tk-m"><small>تاریخ ثبت</small><b>' + (o.ts ? jDate(o.ts) + ' ' + jTime(o.ts) : '-') + '</b></div>'
++ '</div>' + trackSteps(o.status);
+if (o.status === 'canceled' && o.refunded) html += '<div class="tk-note refund"><i class="fa-solid fa-rotate-left"></i> مبلغ ' + fa(o.amount) + ' تومان به کیف پول شما برگشت داده شد.</div>';
+if (isAdmin) html += '<div class="tk-note owner"><i class="fa-solid fa-user"></i> کاربر: <b dir="ltr" class="font-mono">' + escapeHtml(o.user) + '</b></div>';
+html += '</div>';
 }
-tbody.innerHTML = html;
+box.innerHTML = html;
 }
 
+var pfShow = false;
+function openProfile() {
+if (!currentUser || !users[currentUser]) return;
+pfShow = false;
+renderProfile();
+document.getElementById('profile-modal').classList.remove('hidden');
+}
+function closeProfile() { document.getElementById('profile-modal').classList.add('hidden'); }
+function renderProfile() {
+var u = users[currentUser];
+if (!u) return;
+var isAdm = u.role === 'admin';
+document.getElementById('pf-avatar').innerText = currentUser.charAt(0);
+document.getElementById('pf-title').innerText = currentUser;
+document.getElementById('pf-role').innerHTML = isAdm ? '<i class="fa-solid fa-crown"></i> مدیر ارشد' : '<i class="fa-solid fa-user"></i> مشتری';
+document.getElementById('pf-username').innerText = currentUser;
+document.getElementById('pf-password').innerText = pfShow ? u.password : new Array(String(u.password).length + 1).join('•');
+document.getElementById('pf-eye').innerHTML = '<i class="fa-regular ' + (pfShow ? 'fa-eye-slash' : 'fa-eye') + '"></i>';
+document.getElementById('pf-balance').innerText = fa(u.balance);
+}
+function toggleProfilePass() { pfShow = !pfShow; renderProfile(); }
+function copyProfile(w) {
+var u = users[currentUser]; if (!u) return;
+copyText(w === 'u' ? currentUser : u.password, document.getElementById(w === 'u' ? 'pf-copy-u' : 'pf-copy-p'));
+}
+
+var LOGO_EITAA = '';
+var LOGO_BALE = '';
+var LOGO_SVG_EITAA = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lgE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffa51f"/><stop offset="1" stop-color="#ff5a00"/></linearGradient></defs><rect width="100" height="100" fill="url(#lgE)"/><path d="M50 22c15 0 27 10.5 27 24 0 13.5-12 24-27 24-3.2 0-6.2-.5-9-1.3L27 78l3.5-14.6C25.3 59 23 52.8 23 46c0-13.5 12-24 27-24z" fill="#fff"/><circle cx="39" cy="46" r="3.8" fill="#ff6b00"/><circle cx="50" cy="46" r="3.8" fill="#ff6b00"/><circle cx="61" cy="46" r="3.8" fill="#ff6b00"/></svg>';
+var LOGO_SVG_BALE = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lgB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d8c4"/><stop offset="1" stop-color="#0b8f84"/></linearGradient></defs><rect width="100" height="100" fill="url(#lgB)"/><path d="M50 22c15 0 27 10.5 27 24 0 13.5-12 24-27 24-3.2 0-6.2-.5-9-1.3L27 78l3.5-14.6C25.3 59 23 52.8 23 46c0-13.5 12-24 27-24z" fill="#fff"/><path d="M38 45q12 13 24 0" fill="none" stroke="#0d9488" stroke-width="5" stroke-linecap="round"/></svg>';
+function logoHtml(url, svg) { return url ? '<img src="' + url + '" alt="">' : svg; }
+function initLogos() {
+var e = document.getElementById('logo-eitaa'), b = document.getElementById('logo-bale');
+if (e) e.innerHTML = logoHtml(LOGO_EITAA, LOGO_SVG_EITAA);
+if (b) b.innerHTML = logoHtml(LOGO_BALE, LOGO_SVG_BALE);
+}
+
+function notifVisible(n) { return !n.to || n.to === currentUser; }
+function pushUserNotif(user, text) {
+var ts = Date.now();
+notifs.unshift({ id: 'N-' + ts + Math.floor(Math.random() * 1000), text: text, ts: ts, to: user, kind: 'refund' });
+saveNotifs();
+if (user === currentUser) { renderNotifications(); updateNotifBadge(); }
+}
 function handleCreateUser(e) {
 e.preventDefault();
 var u = document.getElementById('admin-new-username').value.trim();
 var p = document.getElementById('admin-new-password').value.trim();
-if(users[u]) { alert('\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062a\u06a9\u0631\u0627\u0631\u06cc \u0627\u0633\u062a!'); return; }
+if(users[u]) { alert('نام کاربری تکراری است!'); return; }
 users[u] = { password: p, role: 'customer', balance: 0, isBlocked: false, createdAt: Date.now(), notifReadAt: Date.now() };
 saveUsers();
 renderAdminUsers();
-alert('\u06a9\u0627\u0631\u0628\u0631 \u062c\u062f\u06cc\u062f \u0627\u06cc\u062c\u0627\u062f \u0634\u062f.');
+alert('کاربر جدید ایجاد شد.');
 }
-
 function toggleBlockUser(u) {
 if (u === 'Sobhan201088') { alert('امکان مسدودسازی مدیر اصلی وجود ندارد.'); return; }
-if (users[u]) {
-users[u].isBlocked = !users[u].isBlocked;
-saveUsers();
-renderAdminUsers();
+if (users[u]) { users[u].isBlocked = !users[u].isBlocked; saveUsers(); renderAdminUsers(); }
 }
-}
-
 function deleteUser(u) {
 if (u === 'Sobhan201088') { alert('امکان حذف مدیر اصلی وجود ندارد.'); return; }
-if (confirm('آیا از حذف کاربر "' + u + '" اطمینان دارید؟')) {
-delete users[u];
-saveUsers();
-renderAdminUsers();
+if (confirm('آیا از حذف کاربر "' + u + '" اطمینان دارید؟')) { delete users[u]; saveUsers(); renderAdminUsers(); }
 }
-}
-
 function setWalletAction(action) { walletAction = action; }
-
 function handleChargeWallet(e) {
 e.preventDefault();
 var u = document.getElementById('admin-charge-user').value;
 var amt = parseInt(document.getElementById('admin-charge-amount').value);
 var reason = (document.getElementById('admin-charge-reason').value || '').trim();
-if(!users[u] || isNaN(amt) || amt <= 0) { alert('\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0646\u0627\u0645\u0639\u062a\u0628\u0631 \u0627\u0633\u062a.'); return; }
-
+if(!users[u] || isNaN(amt) || amt <= 0) { showResultModal('error', 'اطلاعات نامعتبر', 'کاربر را انتخاب کنید و مبلغ را درست وارد کنید.'); return; }
 if (walletAction === 'add') {
 users[u].balance += amt;
 addTx(u, 'add', amt, reason || 'شارژ توسط مدیریت', users[u].balance);
-alert('\u06a9\u06cc\u0641 \u067e\u0648\u0644 \u06a9\u0627\u0631\u0628\u0631 ' + u + ' \u0628\u0647 \u0645\u06cc\u0632\u0627\u0646 ' + amt.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646 \u0634\u0627\u0631\u0698 \u0634\u062f.');
+showWalletResult('add', u, amt);
 } else if (walletAction === 'deduct') {
-if (amt > users[u].balance) { alert('\u0645\u0628\u0644\u063a \u06a9\u0633\u0631 \u0646\u0645\u06cc\200c\u062a\u0648\u0627\u0646\u062f \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0645\u0648\u062c\u0648\u062f\u06cc \u0641\u0639\u0644\u06cc \u0628\u0627\u0634\u062f!'); return; }
+if (amt > users[u].balance) { showResultModal('error', 'کسر ممکن نیست', 'مبلغ کسر نمی‌تواند بیشتر از موجودی فعلی کاربر باشد.'); return; }
 users[u].balance -= amt;
 addTx(u, 'deduct', amt, reason || 'کسر توسط مدیریت', users[u].balance);
-alert('\u0645\u0628\u0644\u063a ' + amt.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646 \u0627\u0632 \u06a9\u06cc\u0641 \u067e\u0648\u0644 \u06a9\u0627\u0631\u0628\u0631 ' + u + ' \u06a9\u0633\u0631 \u0634\u062f.');
+showWalletResult('deduct', u, amt);
 }
 saveUsers();
 document.getElementById('admin-charge-reason').value = '';
@@ -1325,70 +1669,139 @@ updateHeaderUserInfo();
 renderAdminUsers();
 }
 
+var MAIN_ADMIN = 'Sobhan201088';
+var adminTab = 'overview';
+var adminUserQuery = '';
+var euTarget = null;
+
+function setAdminTab(t) {
+adminTab = t;
+var keys = ['overview', 'users', 'wallet', 'orders', 'notifs'];
+for (var i = 0; i < keys.length; i++) {
+var p = document.getElementById('ad-pane-' + keys[i]);
+var b = document.getElementById('ad-tab-' + keys[i]);
+if (p) p.classList.toggle('hidden', keys[i] !== t);
+if (b) b.classList.toggle('active', keys[i] === t);
+}
+if (t === 'users') renderAdminUsers();
+if (t === 'orders') renderAdminOrders();
+if (t === 'notifs') renderAdminNotifs();
+}
+function updateAdminStats() {
+var el = document.getElementById('ad-st-users');
+if (!el) return;
+var n = 0, on = 0, now = Date.now();
+for (var u in users) { n++; var us = users[u]; if (us.lastSeen && !us.offline && now - us.lastSeen < 60000) on++; }
+var pend = 0, sales = 0;
+for (var i = 0; i < mockOrders.length; i++) {
+if (mockOrders[i].status === 'pending') pend++;
+if (mockOrders[i].status !== 'canceled') sales += Number(mockOrders[i].amount) || 0;
+}
+el.innerText = fa(n);
+document.getElementById('ad-st-online').innerText = fa(on);
+document.getElementById('ad-st-pending').innerText = fa(pend);
+document.getElementById('ad-st-sales').innerText = fa(sales);
+}
+function paintToggle(id, on) {
+var b = document.getElementById(id);
+if (!b) return;
+b.className = 'ad-toggle font-titr ' + (on ? 'on' : 'off');
+b.innerHTML = '<span class="knob"></span><span>' + (on ? 'فعال' : 'غیرفعال') + '</span>';
+}
+function jsArg(u) { return "decodeURIComponent('" + encodeURIComponent(u).replace(/'/g, '%27') + "')"; }
+function setAdminUserQuery(v) { adminUserQuery = (v || '').trim().toLowerCase(); renderAdminUsers(); }
 function renderAdminUsers() {
-var tbody = document.getElementById('admin-users-table');
+var box = document.getElementById('admin-users-table');
 var select = document.getElementById('admin-charge-user');
-if(!tbody || !select) return;
-
-// به‌روزرسانی دکمه‌های وضعیت سرویس در پنل مدیریت
-var btnEitaa = document.getElementById('btn-status-eitaa');
-var btnFake = document.getElementById('btn-status-fake');
-var btnBale = document.getElementById('btn-status-bale');
-
-if (btnEitaa) {
-btnEitaa.innerText = serviceStatus.eitaa ? 'فعال (کلیک برای قطع)' : 'قطع می‌باشد (کلیک برای فعال‌سازی)';
-btnEitaa.className = serviceStatus.eitaa ? 'w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600 hover:bg-emerald-700' : 'w-full py-2 rounded-lg font-titr text-xs text-white bg-rose-600 hover:bg-rose-700';
+if (!box || !select) return;
+paintToggle('btn-status-eitaa', serviceStatus.eitaa);
+paintToggle('btn-status-fake', serviceStatus.fake);
+paintToggle('btn-status-bale', serviceStatus.bale);
+var html = '', selectHtml = '', shown = 0;
+for (var u in users) {
+var us = users[u];
+selectHtml += '<option value="' + escapeHtml(u) + '">' + escapeHtml(u) + ' (فعلی: ' + fa(us.balance) + ' تومان)</option>';
+if (adminUserQuery && u.toLowerCase().indexOf(adminUserQuery) === -1) continue;
+shown++;
+var isAdm = us.role === 'admin';
+var arg = jsArg(u);
+var btns = '<button type="button" class="b-edit" onclick="openEditUser(' + arg + ')"><i class="fa-solid fa-user-pen"></i> ویرایش</button>'
++ '<button type="button" class="b-tx" onclick="openWalletHistory(' + arg + ')"><i class="fa-solid fa-receipt"></i> تراکنش‌ها</button>';
+if (u !== MAIN_ADMIN) {
+btns += '<button type="button" class="b-block" onclick="toggleBlockUser(' + arg + ')"><i class="fa-solid ' + (us.isBlocked ? 'fa-lock-open' : 'fa-ban') + '"></i> ' + (us.isBlocked ? 'رفع انسداد' : 'مسدود') + '</button>'
++ '<button type="button" class="b-del" onclick="deleteUser(' + arg + ')" title="حذف"><i class="fa-solid fa-trash"></i></button>';
 }
-if (btnFake) {
-btnFake.innerText = serviceStatus.fake ? 'فعال (کلیک برای قطع)' : 'قطع می‌باشد (کلیک برای فعال‌سازی)';
-btnFake.className = serviceStatus.fake ? 'w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600 hover:bg-emerald-700' : 'w-full py-2 rounded-lg font-titr text-xs text-white bg-rose-600 hover:bg-rose-700';
+html += '<div class="ad-user' + (us.isBlocked ? ' blocked' : '') + '">'
++ '<div class="ad-u-top"><div class="ad-av font-titr' + (isAdm ? ' admin' : '') + '">' + escapeHtml(u.charAt(0)) + '</div>'
++ '<div class="ad-u-name"><b>' + escapeHtml(u) + '</b><div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.3rem">'
++ '<span class="ad-pill font-titr ' + (isAdm ? 'admin' : 'cust') + '"><i class="fa-solid ' + (isAdm ? 'fa-crown' : 'fa-user') + '"></i> ' + (isAdm ? 'مدیر' : 'مشتری') + '</span>'
++ '<span class="ad-pill font-titr ' + (us.isBlocked ? 'bad' : 'ok') + '">' + (us.isBlocked ? 'مسدود شده' : 'فعال') + '</span></div></div></div>'
++ '<div class="ad-u-mid"><div><small class="font-titr">موجودی کیف پول</small><b class="font-titr">' + fa(us.balance) + ' تومان</b></div>'
++ '<div style="text-align:left"><small class="font-titr">آخرین فعالیت</small><div class="seen-cell" data-user="' + escapeHtml(u) + '">' + lastSeenText(u) + '</div></div></div>'
++ '<div class="ad-u-act font-titr">' + btns + '</div></div>';
 }
-if (btnBale) {
-btnBale.innerText = serviceStatus.bale ? 'فعال (کلیک برای قطع)' : 'قطع می‌باشد (کلیک برای فعال‌سازی)';
-btnBale.className = serviceStatus.bale ? 'w-full py-2 rounded-lg font-titr text-xs text-white bg-emerald-600 hover:bg-emerald-700' : 'w-full py-2 rounded-lg font-titr text-xs text-white bg-rose-600 hover:bg-rose-700';
-}
-
-var html = '', selectHtml = '';
-for(var u in users) {
-var roleBadge = users[u].role === 'admin' ? '<span class="text-amber-600 font-bold">\u0645\u062f\u06cc\u0631</span>' : '<span class="text-slate-500">\u0645\u0634\u062a\u0631\u06cc</span>';
-var statusBadge = users[u].isBlocked ? '<span class="px-2 py-0.5 rounded-full text-xs bg-rose-100 text-rose-700 font-bold">مسدود شده</span>' : '<span class="px-2 py-0.5 rounded-full text-xs bg-emerald-100 text-emerald-700 font-bold">فعال</span>';
-var blockBtnText = users[u].isBlocked ? 'رفع انسداد' : 'مسدود کردن';
-var blockBtnCls = users[u].isBlocked ? 'bg-amber-500 hover:bg-amber-600' : 'bg-orange-600 hover:bg-orange-700';
-
-var actionsHtml = '';
-var walletBtn = '<button onclick="openWalletHistory(\'' + u + '\')" class="px-2 py-1 text-xs text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg font-titr">تراکنش‌ها</button>';
-if (u !== 'Sobhan201088') {
-actionsHtml = '<div class="flex gap-1 flex-wrap">' + walletBtn
-+ '<button onclick="toggleBlockUser(\'' + u + '\')" class="px-2 py-1 text-xs text-white rounded-lg font-titr ' + blockBtnCls + '">' + blockBtnText + '</button>'
-+ '<button onclick="deleteUser(\'' + u + '\')" class="px-2 py-1 text-xs text-white bg-rose-600 hover:bg-rose-700 rounded-lg font-titr">حذف</button>'
-+ '</div>';
-} else {
-actionsHtml = walletBtn;
-}
-
-html += '<tr>'
-+ '<td class="p-3 font-mono font-bold text-slate-800">' + u + '</td>'
-+ '<td class="p-3">' + roleBadge + '</td>'
-+ '<td class="p-3 font-bold text-emerald-600">' + users[u].balance.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646</td>'
-+ '<td class="p-3">' + statusBadge + '</td>'
-+ '<td class="p-3 seen-cell" data-user="' + escapeHtml(u) + '">' + lastSeenText(u) + '</td>'
-+ '<td class="p-3">' + actionsHtml + '</td>'
-+ '</tr>';
-
-selectHtml += '<option value="' + u + '">' + u + ' (\u0641\u0639\u0644\u06cc: ' + users[u].balance.toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646)</option>';
-}
-tbody.innerHTML = html;
+if (!shown) html = '<div class="ad-empty font-titr" style="grid-column:1/-1"><i class="fa-solid fa-user-slash"></i>کاربری پیدا نشد.</div>';
+box.innerHTML = html;
 var prevSel = select.value;
 select.innerHTML = selectHtml;
 if (prevSel && users[prevSel]) select.value = prevSel;
+updateAdminStats();
+}
+
+function openEditUser(u) {
+if (!isAdminUser() || !users[u]) return;
+euTarget = u;
+var isMain = (u === MAIN_ADMIN);
+document.getElementById('eu-avatar').innerText = u.charAt(0);
+document.getElementById('eu-sub').innerText = u;
+var ui = document.getElementById('eu-username');
+ui.value = u; ui.disabled = isMain;
+document.getElementById('eu-lock').classList.toggle('hidden', !isMain);
+var pi = document.getElementById('eu-password');
+pi.value = users[u].password; pi.type = 'password';
+document.getElementById('eu-eye-i').className = 'fa-regular fa-eye';
+document.getElementById('edit-user-modal').classList.remove('hidden');
+}
+function closeEditUser() { document.getElementById('edit-user-modal').classList.add('hidden'); euTarget = null; }
+function toggleEuPass() {
+var pi = document.getElementById('eu-password');
+var show = pi.type === 'password';
+pi.type = show ? 'text' : 'password';
+document.getElementById('eu-eye-i').className = 'fa-regular ' + (show ? 'fa-eye-slash' : 'fa-eye');
+}
+function renameUser(oldName, newName) {
+var nu = {};
+for (var k in users) nu[k === oldName ? newName : k] = users[k];
+users = nu;
+for (var i = 0; i < mockOrders.length; i++) if (mockOrders[i].user === oldName) mockOrders[i].user = newName;
+for (var j = 0; j < walletTx.length; j++) if (walletTx[j].user === oldName) walletTx[j].user = newName;
+for (var n = 0; n < notifs.length; n++) if (notifs[n].to === oldName) notifs[n].to = newName;
+if (currentUser === oldName) { currentUser = newName; safeStore.setItem('app_current_user', newName); }
+saveOrders(); saveTx(); saveNotifs();
+}
+function saveUserEdit() {
+if (!isAdminUser() || !euTarget || !users[euTarget]) return;
+var old = euTarget;
+var nu = document.getElementById('eu-username').value.trim();
+var np = document.getElementById('eu-password').value.trim();
+if (old === MAIN_ADMIN) nu = old;
+if (!nu) { showResultModal('error', 'نام کاربری نامعتبر', 'نام کاربری نمی‌تواند خالی باشد.'); return; }
+if (!np) { showResultModal('error', 'رمز عبور نامعتبر', 'رمز عبور نمی‌تواند خالی باشد.'); return; }
+if (nu !== old && users[nu]) { showResultModal('error', 'نام کاربری تکراری', 'این نام کاربری قبلاً ثبت شده است.'); return; }
+users[old].password = np;
+if (nu !== old) renameUser(old, nu);
+saveUsers();
+closeEditUser();
+updateHeaderUserInfo();
+renderAdminUsers();
+renderAdminOrders();
+showResultModal('success', 'اطلاعات کاربر به‌روز شد', 'تغییرات با موفقیت ذخیره شد.');
 }
 
 var adminOrderFilter = 'all';
-
 function escapeHtml(str) {
 return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
-
 function getOrderType(o) {
 var s = o.service || '';
 var pl = getPlatform(o) === 'bale' ? ' (بله)' : ' (ایتا)';
@@ -1398,69 +1811,70 @@ if (s.indexOf('اکشن') !== -1) return { label: 'ری‌اکشن' + pl, cls: '
 if (s.indexOf('گروه') !== -1) return { label: 'ممبر گروه' + pl, cls: 'bg-indigo-100 text-indigo-700' };
 return { label: 'ممبر کانال' + pl, cls: 'bg-amber-100 text-amber-700' };
 }
-
-function filterAdminOrders(status) {
-adminOrderFilter = status;
-renderAdminOrders();
-}
-
+function filterAdminOrders(status) { adminOrderFilter = status; renderAdminOrders(); }
 function changeOrderStatus(index, newStatus) {
-if (!currentUser || !users[currentUser] || users[currentUser].role !== 'admin') return;
-if (!mockOrders[index]) return;
-mockOrders[index].status = newStatus;
+if (!isAdminUser()) return;
+var o = mockOrders[index];
+if (!o || o.status === newStatus) return;
+var old = o.status;
+var cu = users[o.user];
+var amt = Number(o.amount) || 0;
+if (newStatus === 'canceled' && !o.refunded) {
+if (cu && amt > 0) {
+cu.balance += amt;
+addTx(o.user, 'add', amt, 'بازگشت وجه سفارش لغو شده — ' + o.id, cu.balance);
+o.refunded = true;
+saveUsers();
+updateHeaderUserInfo();
+pushUserNotif(o.user, 'سفارش شما (' + o.id + ') لغو و مبلغ آن به کیف پول شما برگشت داده شد.');
+}
+}
+o.status = newStatus;
 saveOrders();
 renderAdminOrders();
+renderAdminUsers();
 }
-
 function renderAdminOrders() {
 var tbody = document.getElementById('admin-orders-table');
 var empty = document.getElementById('admin-orders-empty');
 if (!tbody || !empty) return;
-
 var counts = { all: mockOrders.length, pending: 0, done: 0, canceled: 0 };
-for (var c = 0; c < mockOrders.length; c++) {
-if (counts[mockOrders[c].status] !== undefined) counts[mockOrders[c].status]++;
-}
-var names = { all: '\u0647\u0645\u0647', pending: '\u23f3 \u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062c\u0627\u0645', done: '\u2705 \u0627\u0646\u062c\u0627\u0645 \u0634\u062f\u0647', canceled: '\u274c \u0644\u063a\u0648 \u0634\u062f\u0647' };
+for (var c = 0; c < mockOrders.length; c++) if (counts[mockOrders[c].status] !== undefined) counts[mockOrders[c].status]++;
+var names = { all: 'همه', pending: '⏳ در حال انجام', done: '✅ انجام شده', canceled: '❌ لغو شده' };
 var keys = ['all', 'pending', 'done', 'canceled'];
 for (var k = 0; k < keys.length; k++) {
 var btn = document.getElementById('admin-filter-' + keys[k]);
 if (!btn) continue;
 btn.innerText = names[keys[k]] + ' (' + counts[keys[k]].toLocaleString('fa-IR') + ')';
-btn.className = (keys[k] === adminOrderFilter)
-? 'py-2.5 rounded-xl font-titr text-xs bg-eitaa-500 text-white shadow-md'
-: 'py-2.5 rounded-xl font-titr text-xs text-slate-600 hover:text-slate-900';
+btn.className = (keys[k] === adminOrderFilter) ? 'py-2.5 rounded-xl font-titr text-xs bg-eitaa-500 text-white shadow-md' : 'py-2.5 rounded-xl font-titr text-xs text-slate-600';
 }
-
-var html = '';
-var shown = 0;
+var html = '', shown = 0;
 for (var i = 0; i < mockOrders.length; i++) {
 var o = mockOrders[i];
 if (adminOrderFilter !== 'all' && o.status !== adminOrderFilter) continue;
 shown++;
 var t = getOrderType(o);
-var selClass = o.status === 'done' ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
-: (o.status === 'canceled' ? 'bg-rose-50 text-rose-700 border-rose-300' : 'bg-amber-50 text-amber-700 border-amber-300');
+var selClass = o.status === 'done' ? 'bg-emerald-50 text-emerald-700 border-emerald-300' : (o.status === 'canceled' ? 'bg-rose-50 text-rose-700 border-rose-300' : 'bg-amber-50 text-amber-700 border-amber-300');
 html += '<tr>';
 html += '<td class="p-3 font-mono text-xs font-bold text-eitaa-600">' + escapeHtml(o.id) + '</td>';
 html += '<td class="p-3 font-mono font-bold text-slate-800" dir="ltr">' + escapeHtml(o.user) + '</td>';
 html += '<td class="p-3 font-mono text-slate-600 break-all" dir="ltr">' + escapeHtml(o.link) + '</td>';
 html += '<td class="p-3"><span class="px-2 py-0.5 rounded-full text-xs font-titr whitespace-nowrap ' + t.cls + '">' + t.label + '</span></td>';
 html += '<td class="p-3 whitespace-nowrap">' + Number(o.qty).toLocaleString('fa-IR') + '</td>';
-html += '<td class="p-3 whitespace-nowrap">' + Number(o.amount).toLocaleString('fa-IR') + ' \u062a\u0648\u0645\u0627\u0646</td>';
+html += '<td class="p-3 whitespace-nowrap">' + Number(o.amount).toLocaleString('fa-IR') + ' تومان</td>';
 html += '<td class="p-3 whitespace-nowrap text-xs text-slate-600">' + formatJalali(o.ts) + '</td>';
 html += '<td class="p-3"><select onchange="changeOrderStatus(' + i + ', this.value)" class="border rounded-xl px-2 py-1.5 text-xs font-titr ' + selClass + '">'
-+ '<option value="pending"' + (o.status === 'pending' ? ' selected' : '') + '>\u23f3 \u062f\u0631 \u062d\u0627\u0644 \u0627\u0646\u062c\u0627\u0645</option>'
-+ '<option value="done"' + (o.status === 'done' ? ' selected' : '') + '>\u2705 \u0627\u0646\u062c\u0627\u0645 \u0634\u062f\u0647</option>'
-+ '<option value="canceled"' + (o.status === 'canceled' ? ' selected' : '') + '>\u274c \u0644\u063a\u0648 \u0634\u062f\u0647</option>'
++ '<option value="pending"' + (o.status === 'pending' ? ' selected' : '') + '>⏳ در حال انجام</option>'
++ '<option value="done"' + (o.status === 'done' ? ' selected' : '') + '>✅ انجام شده</option>'
++ '<option value="canceled"' + (o.status === 'canceled' ? ' selected' : '') + '>❌ لغو شده</option>'
 + '</select></td>';
 html += '</tr>';
 }
 tbody.innerHTML = html;
 if (shown === 0) empty.classList.remove('hidden'); else empty.classList.add('hidden');
+updateAdminStats();
 }
 
-// اجرای فرم‌ها بدون وابستگی به ارسال پیش‌فرض مرورگر (جلوگیری از رفرش شدن صفحه)
 document.addEventListener('click', function(ev) {
 var btn = ev.target.closest ? ev.target.closest('button[type="submit"]') : null;
 if (!btn) return;
@@ -1470,15 +1884,7 @@ ev.preventDefault();
 if (!form.checkValidity()) { form.reportValidity(); return; }
 if (typeof form.onsubmit === 'function') form.onsubmit({ preventDefault: function(){} });
 });
-document.addEventListener('keydown', function(ev) {
-if (ev.key === 'Enter' && ev.target.tagName === 'INPUT' && ev.target.form) {
-var b = ev.target.form.querySelector('button[type="submit"]');
-if (b) { ev.preventDefault(); b.click(); }
-}
-});
 
-
-// ===================== تاریخ شمسی =====================
 function jDate(ts) { return new Date(ts).toLocaleDateString('fa-IR-u-ca-persian', { year: 'numeric', month: '2-digit', day: '2-digit' }); }
 function jTime(ts) { return new Date(ts).toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', hour12: false }); }
 function formatJalali(ts) {
@@ -1488,7 +1894,6 @@ return '<span class="block">' + jDate(ts) + '</span><span class="block text-slat
 function formatJalaliInline(ts) { return jDate(ts) + ' - ' + jTime(ts); }
 function fa(n) { return Number(n).toLocaleString('fa-IR'); }
 
-// ===================== آنلاین / آخرین بازدید =====================
 function markOffline() {
 if (currentUser && users[currentUser]) { users[currentUser].lastSeen = Date.now(); users[currentUser].offline = true; saveUsers(); }
 }
@@ -1505,24 +1910,19 @@ var diff = Date.now() - us.lastSeen;
 if (!us.offline && diff < 60000) return '<span class="online-badge"><i class="online-dot"></i>آنلاین</span>';
 var m = Math.floor(diff / 60000);
 if (m < 1) m = 1;
-var txt;
-if (m < 60) txt = fa(m) + ' دقیقه پیش';
-else if (m < 1440) txt = fa(Math.floor(m / 60)) + ' ساعت پیش';
-else txt = fa(Math.floor(m / 1440)) + ' روز پیش';
-return '<span class="seen-off" title="' + formatJalaliInline(us.lastSeen) + '">' + txt + '</span>';
+return '<span class="seen-off">' + fa(m) + ' دقیقه پیش</span>';
 }
 function refreshPresence() {
 var cells = document.querySelectorAll('.seen-cell');
 for (var i = 0; i < cells.length; i++) cells[i].innerHTML = lastSeenText(cells[i].getAttribute('data-user'));
+updateAdminStats();
 }
 
-// ===================== تاریخچه کیف پول =====================
 var walletTx = JSON.parse(safeStore.getItem('app_wallet_tx')) || [];
 var wmUser = null, wmFilter = 'all';
 function saveTx() { safeStore.setItem('app_wallet_tx', JSON.stringify(walletTx)); }
 function addTx(user, type, amount, reason, balanceAfter) {
 walletTx.unshift({ id: 'TX-' + Date.now() + Math.floor(Math.random() * 1000), user: user, type: type, amount: amount, reason: reason, balanceAfter: balanceAfter, ts: Date.now() });
-if (walletTx.length > 1000) walletTx.length = 1000;
 saveTx();
 }
 function isAdminUser() { return !!(currentUser && users[currentUser] && users[currentUser].role === 'admin'); }
@@ -1550,7 +1950,7 @@ var isIn = x.type === 'add';
 html += '<div class="tx-item">'
 + '<div class="tx-ico ' + (isIn ? 'in' : 'out') + '"><i class="fa-solid ' + (isIn ? 'fa-arrow-down' : 'fa-arrow-up') + '"></i></div>'
 + '<div class="tx-main"><div class="tx-reason font-titr">' + escapeHtml(x.reason || (isIn ? 'واریز' : 'برداشت')) + '</div><div class="tx-date">' + formatJalaliInline(x.ts) + '</div></div>'
-+ '<div class="tx-amt ' + (isIn ? 'in' : 'out') + '"><b class="font-titr">' + (isIn ? '+' : '−') + fa(x.amount) + '</b><small>تومان</small><small>مانده: ' + fa(x.balanceAfter) + '</small></div>'
++ '<div class="tx-amt ' + (isIn ? 'in' : 'out') + '"><b class="font-titr">' + (isIn ? '+' : '−') + fa(x.amount) + '</b><small>تومان</small></div>'
 + '</div>';
 }
 if (!shown) html = '<div class="notif-empty"><i class="fa-solid fa-receipt"></i>هنوز تراکنشی ثبت نشده است.</div>';
@@ -1559,21 +1959,15 @@ document.getElementById('wm-user').innerText = (wmUser === currentUser) ? 'کی�
 document.getElementById('wm-balance').innerText = fa(users[wmUser].balance);
 document.getElementById('wm-in').innerText = fa(totalIn);
 document.getElementById('wm-out').innerText = fa(totalOut);
-var ids = ['all', 'add', 'deduct'];
-for (var k = 0; k < ids.length; k++) {
-var b = document.getElementById('wm-f-' + ids[k]);
-if (b) { if (ids[k] === wmFilter) b.classList.add('active'); else b.classList.remove('active'); }
-}
 }
 
-// ===================== اعلانات =====================
 var notifs = JSON.parse(safeStore.getItem('app_notifs')) || [];
 var naEditingId = null;
 function saveNotifs() { safeStore.setItem('app_notifs', JSON.stringify(notifs)); }
 function getUnreadCount() {
 if (!currentUser || !users[currentUser]) return 0;
 var seen = users[currentUser].notifReadAt || 0, c = 0;
-for (var i = 0; i < notifs.length; i++) if (notifs[i].ts > seen) c++;
+for (var i = 0; i < notifs.length; i++) if (notifs[i].ts > seen && notifVisible(notifs[i])) c++;
 return c;
 }
 function updateNotifBadge() {
@@ -1587,18 +1981,21 @@ function renderNotifications(seen) {
 var list = document.getElementById('notif-list');
 if (!list) return;
 if (seen === undefined) seen = (currentUser && users[currentUser] && users[currentUser].notifReadAt) || 0;
-var html = '';
+var html = '', vis = 0;
 for (var i = 0; i < notifs.length; i++) {
 var n = notifs[i];
-html += '<div class="notif-item' + (n.ts > seen ? ' unread' : '') + '">'
-+ '<div class="notif-ico"><i class="fa-solid fa-bullhorn"></i></div>'
+if (!notifVisible(n)) continue;
+vis++;
+var priv = !!n.to;
+html += '<div class="notif-item' + (priv ? ' private' : '') + (n.ts > seen ? ' unread' : '') + '">'
++ '<div class="notif-ico"><i class="fa-solid ' + (priv ? 'fa-rotate-left' : 'fa-bullhorn') + '"></i></div>'
 + '<div><div class="notif-text">' + escapeHtml(n.text) + '</div>'
-+ '<span class="notif-time">' + formatJalaliInline(n.ts) + (n.editedAt ? ' • ویرایش شده' : '') + '</span></div></div>';
++ '<span class="notif-time">' + formatJalaliInline(n.ts) + '</span></div></div>';
 }
-if (!notifs.length) html = '<div class="notif-empty"><i class="fa-regular fa-bell-slash"></i>اعلان جدیدی وجود ندارد.</div>';
+if (!vis) html = '<div class="notif-empty"><i class="fa-regular fa-bell-slash"></i>اعلان جدیدی وجود ندارد.</div>';
 list.innerHTML = html;
 var lbl = document.getElementById('notif-count-label');
-if (lbl) lbl.innerText = notifs.length ? fa(notifs.length) + ' پیام' : '';
+if (lbl) lbl.innerText = vis ? fa(vis) + ' پیام' : '';
 }
 function toggleNotifPanel(ev) {
 if (ev) ev.stopPropagation();
@@ -1611,7 +2008,6 @@ if (users[currentUser]) { users[currentUser].notifReadAt = Date.now(); saveUsers
 updateNotifBadge();
 }
 
-// --- بخش مدیریت اعلانات ---
 function setNotifAdminTab(tab) {
 document.getElementById('na-add').classList.toggle('hidden', tab !== 'add');
 document.getElementById('na-manage').classList.toggle('hidden', tab !== 'manage');
@@ -1628,7 +2024,7 @@ var ta = document.getElementById('notif-new-text');
 var text = ta.value.trim();
 if (!text) { alert('متن اعلان را بنویسید.'); return; }
 var ts = Date.now();
-notifs.unshift({ id: 'N-' + ts + Math.floor(Math.random() * 1000), text: text, ts: ts });
+notifs.unshift({ id: 'N-' + ts, text: text, ts: ts });
 saveNotifs();
 ta.value = '';
 updateNotifCount();
@@ -1637,90 +2033,60 @@ saveUsers();
 updateNotifBadge();
 renderNotifications();
 renderAdminNotifs();
-var msg = document.getElementById('notif-send-msg');
-msg.innerText = '✓ اعلان برای همه کاربران ارسال شد';
-setTimeout(function () { msg.innerText = ''; }, 2500);
 }
 function renderAdminNotifs() {
 var box = document.getElementById('notif-admin-list');
 if (!box) return;
-var cnt = document.getElementById('na-count');
-if (cnt) cnt.innerText = fa(notifs.length);
 var html = '';
 for (var i = 0; i < notifs.length; i++) {
 var n = notifs[i];
-if (naEditingId === n.id) {
-html += '<div class="na-item">'
-+ '<textarea id="na-edit-' + n.id + '" class="na-text" maxlength="500">' + escapeHtml(n.text) + '</textarea>'
-+ '<div class="na-actions"><button type="button" class="na-btn save font-titr" onclick="saveNotifEdit(\'' + n.id + '\')">ذخیره</button>'
-+ '<button type="button" class="na-btn cancel font-titr" onclick="cancelNotifEdit()">انصراف</button></div></div>';
-} else {
-html += '<div class="na-item">'
-+ '<div class="na-item-text">' + escapeHtml(n.text) + '</div>'
-+ '<div class="na-item-meta">' + formatJalaliInline(n.ts) + (n.editedAt ? ' • ویرایش شده' : '') + '</div>'
-+ '<div class="na-actions"><button type="button" class="na-btn edit font-titr" onclick="editNotif(\'' + n.id + '\')">✏️ ویرایش</button>'
-+ '<button type="button" class="na-btn del font-titr" onclick="deleteNotif(\'' + n.id + '\')">🗑️ حذف</button></div></div>';
+if (n.to) continue;
+html += '<div class="na-item"><div class="na-item-text">' + escapeHtml(n.text) + '</div></div>';
 }
-}
-if (!notifs.length) html = '<div class="notif-empty"><i class="fa-regular fa-bell-slash"></i>هنوز اعلانی ارسال نکرده‌اید.</div>';
-box.innerHTML = html;
-}
-function editNotif(id) { naEditingId = id; renderAdminNotifs(); }
-function cancelNotifEdit() { naEditingId = null; renderAdminNotifs(); }
-function saveNotifEdit(id) {
-if (!isAdminUser()) return;
-var ta = document.getElementById('na-edit-' + id);
-var text = ta ? ta.value.trim() : '';
-if (!text) { alert('متن اعلان نمی‌تواند خالی باشد.'); return; }
-for (var i = 0; i < notifs.length; i++) {
-if (notifs[i].id === id) { notifs[i].text = text; notifs[i].editedAt = Date.now(); break; }
-}
-naEditingId = null;
-saveNotifs();
-renderAdminNotifs();
-renderNotifications();
-}
-function deleteNotif(id) {
-if (!isAdminUser()) return;
-if (!confirm('این اعلان برای همه کاربران حذف شود؟')) return;
-notifs = notifs.filter(function (n) { return n.id !== id; });
-if (naEditingId === id) naEditingId = null;
-saveNotifs();
-renderAdminNotifs();
-renderNotifications();
-updateNotifBadge();
+box.innerHTML = html || '<div class="notif-empty">اعلانی نیست.</div>';
 }
 
-// ===================== همگام‌سازی و زمان‌بندی =====================
-document.addEventListener('click', function (ev) {
-var p = document.getElementById('notif-panel'), b = document.getElementById('notif-btn');
-if (p && !p.classList.contains('hidden') && !p.contains(ev.target) && !(b && b.contains(ev.target))) p.classList.add('hidden');
-});
-document.addEventListener('visibilitychange', function () { if (!document.hidden) touchPresence(); });
-setInterval(function () { touchPresence(); refreshPresence(); }, 20000);
-window.addEventListener('storage', function (ev) {
-if (!ev.key) return;
-try {
-var adminOpen = !document.getElementById('section-admin').classList.contains('hidden');
-if (ev.key === 'app_users') {
-users = JSON.parse(ev.newValue) || users;
-updateHeaderUserInfo(); refreshPresence();
-if (adminOpen) renderAdminUsers();
-if (!document.getElementById('wallet-modal').classList.contains('hidden')) renderWalletHistory();
-} else if (ev.key === 'app_orders') {
-mockOrders = JSON.parse(ev.newValue) || mockOrders;
-renderAdminOrders();
-if (!document.getElementById('section-tracking').classList.contains('hidden')) filterTrackingOrders(currentFilter);
-} else if (ev.key === 'app_notifs') {
-notifs = JSON.parse(ev.newValue) || [];
-renderNotifications(); updateNotifBadge();
-if (adminOpen) renderAdminNotifs();
-} else if (ev.key === 'app_wallet_tx') {
-walletTx = JSON.parse(ev.newValue) || [];
-if (!document.getElementById('wallet-modal').classList.contains('hidden')) renderWalletHistory();
+var rmActions = [];
+function showResultModal(type, title, msg, opts) {
+opts = opts || {};
+var card = document.getElementById('rm-card');
+card.className = 'rm-card ' + type;
+var icon = opts.icon || (type === 'success' ? 'fa-check' : (type === 'warn' ? 'fa-minus' : 'fa-xmark'));
+document.getElementById('rm-icon').innerHTML = '<i class="fa-solid ' + icon + '"></i>';
+document.getElementById('rm-title').innerText = title;
+document.getElementById('rm-msg').innerText = msg || '';
+var d = '', det = opts.details || [];
+for (var i = 0; i < det.length; i++) d += '<div class="rm-row"><span>' + escapeHtml(det[i][0]) + '</span><b class="font-titr">' + escapeHtml(det[i][1]) + '</b></div>';
+document.getElementById('rm-details').innerHTML = d;
+rmActions = opts.actions || [{ label: 'متوجه شدم' }];
+var a = '';
+for (var j = 0; j < rmActions.length; j++) a += '<button type="button" class="rm-btn ' + (j === 0 ? 'primary' : 'ghost') + '" onclick="runRmAction(' + j + ')">' + escapeHtml(rmActions[j].label) + '</button>';
+document.getElementById('rm-actions').innerHTML = a;
+document.getElementById('result-modal').classList.remove('hidden');
 }
-} catch (e) {}
+function closeResultModal() { document.getElementById('result-modal').classList.add('hidden'); }
+function runRmAction(i) {
+var a = rmActions[i];
+closeResultModal();
+if (a && a.fn) a.fn();
+}
+function showOrderSuccess(id, serviceName, qty, total) {
+showResultModal('success', 'سفارش ثبت شد 🎉', 'سفارش شما با موفقیت ثبت شد و به سرور روبیکا ۱ ارسال گردید.', {
+details: [['کد پیگیری', id], ['سرویس', serviceName], ['تعداد', fa(qty)], ['مبلغ پرداختی', fa(total) + ' تومان'], ['موجودی باقی‌مانده', fa(users[currentUser].balance) + ' تومان']],
+actions: [{ label: 'پیگیری سفارش', fn: function () { switchTab('tracking'); } }, { label: 'بستن' }]
 });
+}
+function showInsufficientModal(total) {
+var bal = users[currentUser].balance;
+showResultModal('error', 'موجودی کافی نیست', 'موجودی کیف پول شما کافی نیست.', {
+icon: 'fa-wallet',
+details: [['مبلغ سفارش', fa(total) + ' تومان'], ['موجودی شما', fa(bal) + ' تومان']],
+actions: [{ label: 'پشتیبانی', fn: function () { switchTab('support'); } }, { label: 'بستن' }]
+});
+}
+function showWalletResult(kind, u, amt) {
+showResultModal('success', 'کیف پول شارژ شد', 'موجودی کاربر با موفقیت ویرایش شد.', { icon: 'fa-wallet', details: [['کاربر', u], ['مبلغ', fa(amt) + ' تومان']] });
+}
 
 checkAuth();
 renderAdminOrders();
@@ -1729,6 +2095,9 @@ setNotifAdminTab('add');
 updateNotifCount();
 calculateSummary();
 updateFakeQuantity(100);
+initLogos();
+setAdminTab('overview');
+renderAdminUsers();
 switchTab('home');
 </script>
 </body>
